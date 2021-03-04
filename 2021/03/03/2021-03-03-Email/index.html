@@ -15,7 +15,7 @@
   
   <link rel="canonical" href="http://example.com/2021/03/03/2021-03-03-Email/">
   
-  <meta name="description" content="&amp;#x4c;&amp;#x69;&amp;#x64;&amp;#x34;&amp;#x31;&amp;#x39;&amp;#x40;&amp;#121;&amp;#x65;&amp;#97;&amp;#x68;&amp;#x2e;&amp;#110;&amp;#101;&amp;#116;    &amp;#49;&amp;#x39;&amp;#50;&amp;#48;&amp;#52;&amp;#x34;&amp;#57;&amp;#x31;&amp;#50;&amp;#x38;&amp;#6">
+  <meta name="description" content="&amp;#76;&amp;#105;&amp;#100;&amp;#52;&amp;#x31;&amp;#x39;&amp;#x40;&amp;#x79;&amp;#101;&amp;#x61;&amp;#x68;&amp;#46;&amp;#x6e;&amp;#101;&amp;#116;    &amp;#49;&amp;#x39;&amp;#50;&amp;#x30;&amp;#52;&amp;#x34;&amp;#x39;&amp;#49;&amp;#50;&amp;#56;&amp;#64;">
   
   
   <meta name="author" content="John Doe">
@@ -26,14 +26,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Email" />
   
-  <meta property="og:description" content="&amp;#x4c;&amp;#x69;&amp;#x64;&amp;#x34;&amp;#x31;&amp;#x39;&amp;#x40;&amp;#121;&amp;#x65;&amp;#97;&amp;#x68;&amp;#x2e;&amp;#110;&amp;#101;&amp;#116;    &amp;#49;&amp;#x39;&amp;#50;&amp;#48;&amp;#52;&amp;#x34;&amp;#57;&amp;#x31;&amp;#50;&amp;#x38;&amp;#6">
+  <meta property="og:description" content="&amp;#76;&amp;#105;&amp;#100;&amp;#52;&amp;#x31;&amp;#x39;&amp;#x40;&amp;#x79;&amp;#101;&amp;#x61;&amp;#x68;&amp;#46;&amp;#x6e;&amp;#101;&amp;#116;    &amp;#49;&amp;#x39;&amp;#50;&amp;#x30;&amp;#52;&amp;#x34;&amp;#x39;&amp;#49;&amp;#50;&amp;#56;&amp;#64;">
   
   <meta property="og:url" content="http://example.com/2021/03/03/2021-03-03-Email/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Email">
   
-  <meta name="twitter:description" content="&amp;#x4c;&amp;#x69;&amp;#x64;&amp;#x34;&amp;#x31;&amp;#x39;&amp;#x40;&amp;#121;&amp;#x65;&amp;#97;&amp;#x68;&amp;#x2e;&amp;#110;&amp;#101;&amp;#116;    &amp;#49;&amp;#x39;&amp;#50;&amp;#48;&amp;#52;&amp;#x34;&amp;#57;&amp;#x31;&amp;#50;&amp;#x38;&amp;#6">
+  <meta name="twitter:description" content="&amp;#76;&amp;#105;&amp;#100;&amp;#52;&amp;#x31;&amp;#x39;&amp;#x40;&amp;#x79;&amp;#101;&amp;#x61;&amp;#x68;&amp;#46;&amp;#x6e;&amp;#101;&amp;#116;    &amp;#49;&amp;#x39;&amp;#50;&amp;#x30;&amp;#52;&amp;#x34;&amp;#x39;&amp;#49;&amp;#50;&amp;#56;&amp;#64;">
   
   
   <meta name="twitter:image" content="http://example.comundefined">
@@ -191,8 +191,8 @@
         <div class="trans">
             <h2>Email</h2>
 
-  <p>   <strong><a href="mailto:&#x4c;&#x69;&#x64;&#x34;&#x31;&#x39;&#x40;&#121;&#x65;&#97;&#x68;&#x2e;&#110;&#101;&#116;">&#x4c;&#x69;&#x64;&#x34;&#x31;&#x39;&#x40;&#121;&#x65;&#97;&#x68;&#x2e;&#110;&#101;&#116;</a></strong></p>
-<p>   <strong><a href="mailto:&#49;&#x39;&#50;&#48;&#52;&#x34;&#57;&#x31;&#50;&#x38;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#109;">&#49;&#x39;&#50;&#48;&#52;&#x34;&#57;&#x31;&#50;&#x38;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#109;</a></strong></p>
+  <p>   <strong><a href="mailto:&#76;&#105;&#100;&#52;&#x31;&#x39;&#x40;&#x79;&#101;&#x61;&#x68;&#46;&#x6e;&#101;&#116;">&#76;&#105;&#100;&#52;&#x31;&#x39;&#x40;&#x79;&#101;&#x61;&#x68;&#46;&#x6e;&#101;&#116;</a></strong></p>
+<p>   <strong><a href="mailto:&#49;&#x39;&#50;&#x30;&#52;&#x34;&#x39;&#49;&#50;&#56;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#49;&#x39;&#50;&#x30;&#52;&#x34;&#x39;&#49;&#50;&#56;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a></strong></p>
 
   <p> — Mar 3, 2021</p>
   
@@ -239,6 +239,27 @@
     </div>
   
 </div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> 
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "<br />本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
 
         </div>
       </div>
