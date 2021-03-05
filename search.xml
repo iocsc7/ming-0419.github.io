@@ -1,72 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>class样式</title>
-    <url>/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>vue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-       <span class="token selector">.n1</span><span class="token punctuation">&#123;</span>
-           <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-
-       <span class="token selector">.n2</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-size</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-
-       <span class="token selector">.n3</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span><span class="token comment">/*斜体字*/</span>
-       <span class="token punctuation">&#125;</span>
-       
-       <span class="token selector">.n4</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
-           <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-   </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--引入css样式 同时使用多个样式的话  一起倒入  用空格隔开--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>n1 n2 n3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--v-bind来绑定样式  中使用这个数组来绑定css样式 效果同上--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--
-           v-bind来绑定样式  在这个v-bind中我们可以进行一些简单逻辑判断
-           根据不同的情况 去选择不同的样式 可以编写三目运算符
-           v-bind里面的内容 如果不用单引号的话就是data中的数据
-                           用了=单引号的话就是css样式
-       --></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,aaa ? <span class="token punctuation">'</span>n4<span class="token punctuation">'</span> : <span class="token punctuation">'</span>n2<span class="token punctuation">'</span> ,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--在页面设置一个按钮 改变这个aaa的值--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>改变大小<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa=!aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--也可以直接在数组中进行显示判断  &#123;'n3': bbb&#125; 在这个花括号里面 就是可以根据后面的数值决定这个特性是否显示  bbb为false--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,&#123;<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>: bbb&#125;]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-           aaa<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
-           bbb<span class="token operator">:</span><span class="token boolean">false</span>
-       <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Vue</title>
     <url>/2020/09/17/2020-09-17-Vue/</url>
     <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -150,6 +84,72 @@
    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>class样式</title>
+    <url>/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/</url>
+    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>vue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+       <span class="token selector">.n1</span><span class="token punctuation">&#123;</span>
+           <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+
+       <span class="token selector">.n2</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-size</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+
+       <span class="token selector">.n3</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span><span class="token comment">/*斜体字*/</span>
+       <span class="token punctuation">&#125;</span>
+       
+       <span class="token selector">.n4</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+           <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+   </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--引入css样式 同时使用多个样式的话  一起倒入  用空格隔开--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>n1 n2 n3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--v-bind来绑定样式  中使用这个数组来绑定css样式 效果同上--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--
+           v-bind来绑定样式  在这个v-bind中我们可以进行一些简单逻辑判断
+           根据不同的情况 去选择不同的样式 可以编写三目运算符
+           v-bind里面的内容 如果不用单引号的话就是data中的数据
+                           用了=单引号的话就是css样式
+       --></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,aaa ? <span class="token punctuation">'</span>n4<span class="token punctuation">'</span> : <span class="token punctuation">'</span>n2<span class="token punctuation">'</span> ,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--在页面设置一个按钮 改变这个aaa的值--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>改变大小<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa=!aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--也可以直接在数组中进行显示判断  &#123;'n3': bbb&#125; 在这个花括号里面 就是可以根据后面的数值决定这个特性是否显示  bbb为false--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,&#123;<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>: bbb&#125;]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+           aaa<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+           bbb<span class="token operator">:</span><span class="token boolean">false</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 ]]></content>
       <categories>
@@ -566,6 +566,44 @@ OK
       </categories>
   </entry>
   <entry>
+    <title>上传项目到github</title>
+    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
+    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
+<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
+<p><strong>3.并复制到</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
+<p><strong>4.首先是初始化本地仓库</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
+<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
+<p><strong>6.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
+<p><strong>7.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
+<p><strong>8.登录</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
+<p><strong>9.输入你github用户名账号</strong></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+  </entry>
+  <entry>
     <title>用Vue路由模拟京东导航条</title>
     <url>/2020/11/12/2020-11-12-%E7%94%A8Vue%E8%B7%AF%E7%94%B1%E6%A8%A1%E6%8B%9F%E4%BA%AC%E4%B8%9C%E5%AF%BC%E8%88%AA%E6%9D%A1/</url>
     <content><![CDATA[<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/vue110.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/vue110.png" alt="img"></a></p>
@@ -791,44 +829,6 @@ OK
 &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>Vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>上传项目到github</title>
-    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
-    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<hr>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
-<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
-<p><strong>3.并复制到</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
-<p><strong>4.首先是初始化本地仓库</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
-<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
-<p><strong>6.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
-<p><strong>7.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
-<p><strong>8.登录</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
-<p><strong>9.输入你github用户名账号</strong></p>
-]]></content>
-      <categories>
-        <category>github</category>
       </categories>
   </entry>
   <entry>
@@ -2328,8 +2328,8 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
   <entry>
     <title>Email</title>
     <url>/2021/03/03/2021-03-03-Email/</url>
-    <content><![CDATA[<p>   <strong><a href="mailto:&#76;&#105;&#100;&#x34;&#49;&#x39;&#64;&#121;&#101;&#97;&#x68;&#x2e;&#110;&#101;&#116;">&#76;&#105;&#100;&#x34;&#49;&#x39;&#64;&#121;&#101;&#97;&#x68;&#x2e;&#110;&#101;&#116;</a></strong></p>
-<p>   <strong><a href="mailto:&#49;&#57;&#50;&#x30;&#52;&#52;&#57;&#49;&#x32;&#56;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#49;&#57;&#50;&#x30;&#52;&#52;&#57;&#49;&#x32;&#56;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a></strong></p>
+    <content><![CDATA[<p>   <strong><a href="mailto:&#x4c;&#105;&#x64;&#52;&#x31;&#57;&#64;&#121;&#x65;&#97;&#104;&#x2e;&#x6e;&#x65;&#x74;">&#x4c;&#105;&#x64;&#52;&#x31;&#57;&#64;&#121;&#x65;&#97;&#104;&#x2e;&#x6e;&#x65;&#x74;</a></strong></p>
+<p>   <strong><a href="mailto:&#49;&#x39;&#50;&#x30;&#52;&#52;&#57;&#x31;&#50;&#56;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#49;&#x39;&#50;&#x30;&#52;&#52;&#57;&#x31;&#50;&#56;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a></strong></p>
 ]]></content>
   </entry>
   <entry>
