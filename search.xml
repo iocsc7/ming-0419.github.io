@@ -2328,8 +2328,8 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
   <entry>
     <title>Email</title>
     <url>/2021/03/03/2021-03-03-Email/</url>
-    <content><![CDATA[<p>   <strong><a href="mailto:&#x4c;&#x69;&#100;&#x34;&#49;&#x39;&#x40;&#x79;&#101;&#x61;&#x68;&#46;&#x6e;&#x65;&#x74;">&#x4c;&#x69;&#100;&#x34;&#49;&#x39;&#x40;&#x79;&#101;&#x61;&#x68;&#46;&#x6e;&#x65;&#x74;</a></strong></p>
-<p>   <strong><a href="mailto:&#49;&#57;&#x32;&#x30;&#x34;&#52;&#x39;&#49;&#x32;&#x38;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#49;&#57;&#x32;&#x30;&#x34;&#52;&#x39;&#49;&#x32;&#x38;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></strong></p>
+    <content><![CDATA[<p>   <strong><a href="mailto:&#x4c;&#105;&#100;&#x34;&#49;&#x39;&#x40;&#x79;&#x65;&#97;&#x68;&#x2e;&#110;&#101;&#x74;">&#x4c;&#105;&#100;&#x34;&#49;&#x39;&#x40;&#x79;&#x65;&#97;&#x68;&#x2e;&#110;&#101;&#x74;</a></strong></p>
+<p>   <strong><a href="mailto:&#49;&#x39;&#x32;&#x30;&#52;&#x34;&#57;&#49;&#50;&#x38;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#49;&#x39;&#x32;&#x30;&#52;&#x34;&#57;&#49;&#50;&#x38;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></strong></p>
 ]]></content>
   </entry>
   <entry>
@@ -2502,58 +2502,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>随机点名器</title>
-    <url>/2020/05/14/%E9%9A%8F%E6%9C%BA%E7%82%B9%E5%90%8D%E5%99%A8/</url>
-    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>点击按钮随机点名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
- 
-
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">var</span> namelist<span class="token operator">=</span><span class="token punctuation">[</span>
-<span class="token string">"张三"</span><span class="token punctuation">,</span><span class="token string">"李四"</span><span class="token punctuation">,</span><span class="token string">"王五"</span><span class="token punctuation">,</span><span class="token string">"贺六"</span><span class="token punctuation">,</span><span class="token string">"孙九"</span><span class="token punctuation">,</span><span class="token string">"赵十"</span><span class="token punctuation">,</span><span class="token string">"刘一"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> mytime<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">doit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>                                     <span class="token comment">// function 声明一个函数</span>
-   <span class="token keyword">var</span> bt<span class="token operator">=</span>window<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"bt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">if</span><span class="token punctuation">(</span>mytime<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-       bt<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"停止点名"</span><span class="token punctuation">;</span>
-       <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    
-   <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-       bt<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"开始点名"</span><span class="token punctuation">;</span>
-       <span class="token function">clearTimeout</span><span class="token punctuation">(</span>mytime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       mytime<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>                    
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>          
-
-                               <span class="token comment">//代码不完整        //代码不完整       //代码不完整</span>
-          
-<span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-   <span class="token keyword">var</span> box<span class="token operator">=</span>window<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"box"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">//var num=Math.floor(Math.random()*100000)%namelist.length; 随机整数跟数组长度求余数，</span>
-   <span class="token comment">//更容易理解的方式是：</span>
-   <span class="token keyword">var</span> num<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>namelist<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//结果一样的都是0到长度之间的随机整数</span>
-   box<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span>namelist<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">;</span>
-   mytime<span class="token operator">=</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">"show()"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">//刷新速度</span>
-<span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>                                    
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bodybj<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>亲，准备好点名了吗？<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bt<span class="token punctuation">"</span></span> <span class="token attr-name">onClick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>doit()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>开始点名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>                        
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>html</category>
-      </categories>
-  </entry>
-  <entry>
     <title>新建一个标准类</title>
     <url>/2020/04/08/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%A0%87%E5%87%86%E7%B1%BB/</url>
     <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">biaozhunlei</span><span class="token punctuation">;</span>
@@ -2622,6 +2570,58 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 ]]></content>
       <categories>
         <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>随机点名器</title>
+    <url>/2020/05/14/%E9%9A%8F%E6%9C%BA%E7%82%B9%E5%90%8D%E5%99%A8/</url>
+    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>点击按钮随机点名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+ 
+
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">var</span> namelist<span class="token operator">=</span><span class="token punctuation">[</span>
+<span class="token string">"张三"</span><span class="token punctuation">,</span><span class="token string">"李四"</span><span class="token punctuation">,</span><span class="token string">"王五"</span><span class="token punctuation">,</span><span class="token string">"贺六"</span><span class="token punctuation">,</span><span class="token string">"孙九"</span><span class="token punctuation">,</span><span class="token string">"赵十"</span><span class="token punctuation">,</span><span class="token string">"刘一"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> mytime<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">doit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>                                     <span class="token comment">// function 声明一个函数</span>
+   <span class="token keyword">var</span> bt<span class="token operator">=</span>window<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"bt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span>mytime<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+       bt<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"停止点名"</span><span class="token punctuation">;</span>
+       <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    
+   <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+       bt<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"开始点名"</span><span class="token punctuation">;</span>
+       <span class="token function">clearTimeout</span><span class="token punctuation">(</span>mytime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       mytime<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>                    
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>          
+
+                               <span class="token comment">//代码不完整        //代码不完整       //代码不完整</span>
+          
+<span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+   <span class="token keyword">var</span> box<span class="token operator">=</span>window<span class="token punctuation">.</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"box"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment">//var num=Math.floor(Math.random()*100000)%namelist.length; 随机整数跟数组长度求余数，</span>
+   <span class="token comment">//更容易理解的方式是：</span>
+   <span class="token keyword">var</span> num<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>namelist<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//结果一样的都是0到长度之间的随机整数</span>
+   box<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span>namelist<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">;</span>
+   mytime<span class="token operator">=</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">"show()"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">//刷新速度</span>
+<span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>                                    
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bodybj<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>亲，准备好点名了吗？<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bt<span class="token punctuation">"</span></span> <span class="token attr-name">onClick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>doit()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>开始点名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>                        
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>html</category>
       </categories>
   </entry>
   <entry>
