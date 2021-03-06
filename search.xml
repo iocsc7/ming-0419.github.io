@@ -2339,9 +2339,63 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
   <entry>
     <title>Email</title>
     <url>/2021/03/03/2021-03-03-Email/</url>
-    <content><![CDATA[<p>   <strong><a href="mailto:&#x4c;&#105;&#100;&#52;&#49;&#57;&#64;&#x79;&#101;&#x61;&#104;&#x2e;&#x6e;&#101;&#x74;">&#x4c;&#105;&#100;&#52;&#49;&#57;&#64;&#x79;&#101;&#x61;&#104;&#x2e;&#x6e;&#101;&#x74;</a></strong></p>
-<p>   <strong><a href="mailto:&#x31;&#x39;&#x32;&#x30;&#x34;&#52;&#x39;&#49;&#50;&#x38;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#x31;&#x39;&#x32;&#x30;&#x34;&#52;&#x39;&#49;&#50;&#x38;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></strong></p>
+    <content><![CDATA[<p>   <strong><a href="mailto:&#76;&#x69;&#100;&#52;&#49;&#x39;&#64;&#121;&#x65;&#97;&#x68;&#46;&#x6e;&#x65;&#x74;">&#76;&#x69;&#100;&#52;&#49;&#x39;&#64;&#121;&#x65;&#97;&#x68;&#46;&#x6e;&#x65;&#x74;</a></strong></p>
+<p>   <strong><a href="mailto:&#49;&#x39;&#50;&#48;&#52;&#x34;&#x39;&#49;&#50;&#x38;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#49;&#x39;&#50;&#48;&#52;&#x34;&#x39;&#49;&#50;&#x38;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;</a></strong></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>mysql解决不能使用中文问题</title>
+    <url>/2020/04/06/mysql%20%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p><span class="md-expand" md-inline="strong" style="box-sizing: border-box;"><strong>修改字符集</strong></span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">打开cmd登录数据库</span></p>
+<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586189236252207.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/3.png"></span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">输入 show variables like ‘char%’; 查看mysql安装路径</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">一般情况下默认编码为gbk ，要修改为utf8</span></p>
+<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586192420430090.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/1.png"></span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">找到路径下的my.ini文件</span></p>
+<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586189874129301.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/2.png"></span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">如果找不到my.ini文件可能在C:\ProgramData\MySQL\MySQL Server 8.0目录下</span></p>
+<p><span class="" md-inline="strong" style="box-sizing: border-box;"><strong>修改my.ini文件为</strong></span></p>
+<div cid="n12" class="md-hr md-end-block" mdtype="hr" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; white-space: normal;" tabindex="-1">- - - - - -
+
+</div><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">\[mysqld\]</span>
+
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置3306端口</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">port=3306</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql的安装目录</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">basedir=C:\Program Files\MySQL\MySQL Server 8.0</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql数据库的数据的存放目录 \data不能删除</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">datadir=C:\Program Files\MySQL\MySQL Server 8.0\data</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 允许最大连接数</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">max_connections=200</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">max_connect_errors=10</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 服务端使用的字符集默认为UTF8</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">character-set-server=utf8</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 创建新表时将使用的默认存储引擎</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">default-storage-engine=INNODB</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 默认使用“mysql_native_password”插件认证</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">default_authentication_plugin=mysql_native_password</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">[mysql]</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql客户端默认字符集</span></p>
+<p><span class="md-plain md-expand" md-inline="plain" style="box-sizing: border-box;">default-character-set=utf8</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">[client]</span></p>
+<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql客户端连接服务端时默认使用的端口</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">port=3306</span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">default-character-set=utf8</span></p>
+<div cid="n38" class="md-hr md-end-block" mdtype="hr" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; white-space: normal;" tabindex="-1">- - - - - -
+
+</div><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">\*\*</span><span class="md-softbreak" md-inline="softbreak" style="box-sizing: border-box;"></span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">\*\*</span>
+
+<p><span class="" md-inline="strong" style="box-sizing: border-box;"><strong>这个my.ini文件要在mysql安装目录下，如：C:\Program Files\MySQL\MySQL Server 8.0</strong></span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">登录数据库输入 show variables like ‘char%’; 查看为</span></p>
+<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586190722913846.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/4.png"></span></p>
+<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">说明修改成功</span></p>
+<p><span class="md-expand" md-inline="strong" style="box-sizing: border-box;"><strong>然后输入中文发现还是错误是因为你的数据库之前用的是默认编码，重新创建数据库就可以了</strong></span></p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
   </entry>
   <entry>
     <title>java数据库连接---JDBC</title>
@@ -2365,7 +2419,7 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">,</span> <span class="token string">'微博'</span><span class="token punctuation">,</span> <span class="token string">'http://weibo.com/'</span><span class="token punctuation">,</span> <span class="token string">'20'</span><span class="token punctuation">,</span> <span class="token string">'CN'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">,</span> <span class="token string">'Facebook'</span><span class="token punctuation">,</span> <span class="token string">'https://www.facebook.com/'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">,</span> <span class="token string">'USA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><a href="https://kite01.club/zb_users/upload/2020/06/202006100009065458037.png"><img src="https://kite01.club/zb_users/upload/2020/06/202006100009065458037.png" alt="image.png"></a></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/202006100009065458037.png" alt="image.png"></p>
 <p>(3)然后新建一个类:</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">ca<span class="token punctuation">.</span>coop</span><span class="token punctuation">;</span>
 
@@ -2452,64 +2506,10 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <p>(5)再导入驱动包</p>
 <p>mysql-connector-java-8.0.16.jar          // —-看你mysql的版本然后导入相应的驱动包jar</p>
 <p>输出结果：</p>
-<p><a href="https://kite01.club/zb_users/upload/2020/06/202006100020166998966.png"><img src="https://kite01.club/zb_users/upload/2020/06/202006100020166998966.png" alt="image.png"></a></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/202006100020166998966.png" alt="image.png"></p>
 ]]></content>
       <categories>
         <category>java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>mysql解决不能使用中文问题</title>
-    <url>/2020/04/06/mysql%20%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p><span class="md-expand" md-inline="strong" style="box-sizing: border-box;"><strong>修改字符集</strong></span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">打开cmd登录数据库</span></p>
-<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586189236252207.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/3.png"></span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">输入 show variables like ‘char%’; 查看mysql安装路径</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">一般情况下默认编码为gbk ，要修改为utf8</span></p>
-<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586192420430090.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/1.png"></span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">找到路径下的my.ini文件</span></p>
-<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586189874129301.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/2.png"></span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">如果找不到my.ini文件可能在C:\ProgramData\MySQL\MySQL Server 8.0目录下</span></p>
-<p><span class="" md-inline="strong" style="box-sizing: border-box;"><strong>修改my.ini文件为</strong></span></p>
-<div cid="n12" class="md-hr md-end-block" mdtype="hr" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; white-space: normal;" tabindex="-1">- - - - - -
-
-</div><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">\[mysqld\]</span>
-
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置3306端口</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">port=3306</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql的安装目录</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">basedir=C:\Program Files\MySQL\MySQL Server 8.0</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql数据库的数据的存放目录 \data不能删除</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">datadir=C:\Program Files\MySQL\MySQL Server 8.0\data</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 允许最大连接数</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">max_connections=200</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">max_connect_errors=10</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 服务端使用的字符集默认为UTF8</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">character-set-server=utf8</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 创建新表时将使用的默认存储引擎</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">default-storage-engine=INNODB</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 默认使用“mysql_native_password”插件认证</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">default_authentication_plugin=mysql_native_password</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">[mysql]</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql客户端默认字符集</span></p>
-<p><span class="md-plain md-expand" md-inline="plain" style="box-sizing: border-box;">default-character-set=utf8</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">[client]</span></p>
-<p><span md-inline="escape" style="box-sizing: border-box;">#</span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;"> 设置mysql客户端连接服务端时默认使用的端口</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">port=3306</span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">default-character-set=utf8</span></p>
-<div cid="n38" class="md-hr md-end-block" mdtype="hr" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; white-space: normal;" tabindex="-1">- - - - - -
-
-</div><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">\*\*</span><span class="md-softbreak" md-inline="softbreak" style="box-sizing: border-box;"></span><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">\*\*</span>
-
-<p><span class="" md-inline="strong" style="box-sizing: border-box;"><strong>这个my.ini文件要在mysql安装目录下，如：C:\Program Files\MySQL\MySQL Server 8.0</strong></span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">登录数据库输入 show variables like ‘char%’; 查看为</span></p>
-<p><span class="md-image md-img-loaded" data-src="https://kite01.club/zb_users/upload/2020/04/202004071586190722913846.png" md-inline="image" style="box-sizing: border-box; min-width: 10px; min-height: 10px; position: relative; word-break: break-all; font-family: monospace; vertical-align: top; display: inline-block; width: 800.025px;"><img src="https://gitee.com/ming0419/tuchuang/raw/master/4.png"></span></p>
-<p><span class="md-plain" md-inline="plain" style="box-sizing: border-box;">说明修改成功</span></p>
-<p><span class="md-expand" md-inline="strong" style="box-sizing: border-box;"><strong>然后输入中文发现还是错误是因为你的数据库之前用的是默认编码，重新创建数据库就可以了</strong></span></p>
-]]></content>
-      <categories>
-        <category>mysql</category>
       </categories>
   </entry>
   <entry>
