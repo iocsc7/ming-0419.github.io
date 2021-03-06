@@ -240,6 +240,78 @@
       </categories>
   </entry>
   <entry>
+    <title>v-mode</title>
+    <url>/2020/09/17/2020-09-17-v-mode/</url>
+    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>v-bind的作用<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&#123;&#123;msg&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--通过 在页面文本框 中修改这个msg数据 然后实时显示到 上面的差值表达式--></span>
+       <span class="token comment">&lt;!--试试 v-bind 修改html属性--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们使用 v-bind 指令试试看看能不能实现<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--我们使用 v-bind（缩写成了冒号:）无法实现这个数据的同步显示--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们可以使用新的指令 v-model来实现这个数据的双向绑定 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--我们使用v-model 双向数据绑定指令的话 就可以在页面中修改 model模型数据--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+           msg<span class="token operator">:</span><span class="token string">'Hello World'</span>
+       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+       methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token comment">//在vue中 所有的方法都是定义在这里这个区域</span>
+
+       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>v-bind的作用<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&#123;&#123;msg&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--通过 在页面文本框 中修改这个msg数据 然后实时显示到 上面的差值表达式--></span>
+       <span class="token comment">&lt;!--试试 v-bind 修改html属性--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们使用 v-bind 指令试试看看能不能实现<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--我们使用 v-bind（缩写成了冒号:）无法实现这个数据的同步显示--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们可以使用新的指令 v-model来实现这个数据的双向绑定 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--我们使用v-model 双向数据绑定指令的话 就可以在页面中修改 model模型数据--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+           msg<span class="token operator">:</span><span class="token string">'Hello World'</span>
+       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+       methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token comment">//在vue中 所有的方法都是定义在这里这个区域</span>
+
+       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
     <title>用Vue编写一个简易计算器</title>
     <url>/2020/09/17/2020-09-17-%E7%94%A8Vue%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8/</url>
     <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -348,78 +420,6 @@
       </categories>
   </entry>
   <entry>
-    <title>v-mode</title>
-    <url>/2020/09/17/2020-09-17-v-mode/</url>
-    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>v-bind的作用<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&#123;&#123;msg&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--通过 在页面文本框 中修改这个msg数据 然后实时显示到 上面的差值表达式--></span>
-       <span class="token comment">&lt;!--试试 v-bind 修改html属性--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们使用 v-bind 指令试试看看能不能实现<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--我们使用 v-bind（缩写成了冒号:）无法实现这个数据的同步显示--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们可以使用新的指令 v-model来实现这个数据的双向绑定 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--我们使用v-model 双向数据绑定指令的话 就可以在页面中修改 model模型数据--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-           msg<span class="token operator">:</span><span class="token string">'Hello World'</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-       methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token comment">//在vue中 所有的方法都是定义在这里这个区域</span>
-
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>v-bind的作用<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&#123;&#123;msg&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--通过 在页面文本框 中修改这个msg数据 然后实时显示到 上面的差值表达式--></span>
-       <span class="token comment">&lt;!--试试 v-bind 修改html属性--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们使用 v-bind 指令试试看看能不能实现<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--我们使用 v-bind（缩写成了冒号:）无法实现这个数据的同步显示--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这里我们可以使用新的指令 v-model来实现这个数据的双向绑定 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--我们使用v-model 双向数据绑定指令的话 就可以在页面中修改 model模型数据--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-           msg<span class="token operator">:</span><span class="token string">'Hello World'</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-       methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token comment">//在vue中 所有的方法都是定义在这里这个区域</span>
-
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CentOS安装Mysql</title>
     <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Mysql/</url>
     <content><![CDATA[<h3 id="1-下载wget命令"><a href="#1-下载wget命令" class="headerlink" title="1 下载wget命令"></a>1 下载wget命令</h3><pre class="line-numbers language-none"><code class="language-none">yum -y install wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -495,72 +495,6 @@
 <p><a href="https://gitee.com/ming0419/tuchuang/raw/master/010.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/010.png" alt="img"></a></p>
 <p><a href="https://gitee.com/ming0419/tuchuang/raw/master/011.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/011.png" alt="img"></a></p>
 ]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CentOS安装Redis</title>
-    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/</url>
-    <content><![CDATA[<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><h3 id="1-1下载安装包"><a href="#1-1下载安装包" class="headerlink" title="1.1下载安装包"></a>1.1下载安装包</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png" alt="img"></a></p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我这里是解压并放在redis这个目录下</p>
-<h3 id="1-2在线下载"><a href="#1-2在线下载" class="headerlink" title="1.2在线下载"></a>1.2在线下载</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png" alt="img"></a></p>
-<pre class="line-numbers language-none"><code class="language-none">[kite@localhost redis]# wget https:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png" alt="img"></a></p>
-<p>然后解压</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="2-确认GCC的版本，进入终端命令如下："><a href="#2-确认GCC的版本，进入终端命令如下：" class="headerlink" title="2.确认GCC的版本，进入终端命令如下："></a>2.确认GCC的版本，进入终端命令如下：</h2><pre class="line-numbers language-none"><code class="language-none">yum install gcc
-
-gcc -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>安装Redis6.0需要将gcc版本升级到5.3以上，则升级gcc命令如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">yum -y install centos-release-scl
-yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
-#临时修改gcc版本
-scl enable devtoolset-9 bash
-#永久修改gcc版本
-echo &quot;source &#x2F;opt&#x2F;rh&#x2F;devtoolset-9&#x2F;enable&quot; &gt;&gt;&#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>执行完成后，再次查看gcc的版本</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png" alt="img"></a></p>
-<h2 id="3-编译redis"><a href="#3-编译redis" class="headerlink" title="3.编译redis"></a>3.编译redis</h2><p>进入redis解压后的目录</p>
-<p>编译</p>
-<pre class="line-numbers language-none"><code class="language-none">make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png" alt="img"></a></p>
-<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><p>绑定所有ip，后台方式运行进程，设置密码</p>
-<pre class="line-numbers language-none"><code class="language-none">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#允许任何ip都可以连接</p>
-<pre class="line-numbers language-none"><code class="language-none">bind 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#允许后台运行</p>
-<pre class="line-numbers language-none"><code class="language-none">daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#保护模式</p>
-<blockquote>
-<p>redis3.2版本后新增protected-mode配置，默认是yes，即开启。设置外部网络连接redis服务，设置方式如下： 1、关闭protected-mode模式，此时外部网络可以直接访问 2、开启protected-mode保护模式，需配置bind ip或者设置访问密码</p>
-</blockquote>
-<p><strong>默认是开启的，需要再启用密码配置如下：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">requirepass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>或者关闭保护模式，无需密码设置</p>
-<h2 id="5-启动redis，带上配置文件"><a href="#5-启动redis，带上配置文件" class="headerlink" title="5.启动redis，带上配置文件"></a>5.启动redis，带上配置文件</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost redis-6.0.9]#.&#x2F;src&#x2F;redis-server redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="6-命令行客户端连接"><a href="#6-命令行客户端连接" class="headerlink" title="6.命令行客户端连接"></a>6.命令行客户端连接</h2><p>输入密码</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost redis-6.0.9]# .&#x2F;src&#x2F;redis-cli
-127.0.0.1:6379&gt; auth 123456
-OK
-127.0.0.1:6379&gt; set a b
-OK
-127.0.0.1:6379&gt; get a
-&quot;b&quot;
-127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -791,6 +725,72 @@ OK
 &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CentOS安装Redis</title>
+    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/</url>
+    <content><![CDATA[<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><h3 id="1-1下载安装包"><a href="#1-1下载安装包" class="headerlink" title="1.1下载安装包"></a>1.1下载安装包</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png" alt="img"></a></p>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我这里是解压并放在redis这个目录下</p>
+<h3 id="1-2在线下载"><a href="#1-2在线下载" class="headerlink" title="1.2在线下载"></a>1.2在线下载</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png" alt="img"></a></p>
+<pre class="line-numbers language-none"><code class="language-none">[kite@localhost redis]# wget https:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png" alt="img"></a></p>
+<p>然后解压</p>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="2-确认GCC的版本，进入终端命令如下："><a href="#2-确认GCC的版本，进入终端命令如下：" class="headerlink" title="2.确认GCC的版本，进入终端命令如下："></a>2.确认GCC的版本，进入终端命令如下：</h2><pre class="line-numbers language-none"><code class="language-none">yum install gcc
+
+gcc -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>安装Redis6.0需要将gcc版本升级到5.3以上，则升级gcc命令如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">yum -y install centos-release-scl
+yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
+#临时修改gcc版本
+scl enable devtoolset-9 bash
+#永久修改gcc版本
+echo &quot;source &#x2F;opt&#x2F;rh&#x2F;devtoolset-9&#x2F;enable&quot; &gt;&gt;&#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行完成后，再次查看gcc的版本</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png" alt="img"></a></p>
+<h2 id="3-编译redis"><a href="#3-编译redis" class="headerlink" title="3.编译redis"></a>3.编译redis</h2><p>进入redis解压后的目录</p>
+<p>编译</p>
+<pre class="line-numbers language-none"><code class="language-none">make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png" alt="img"></a></p>
+<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><p>绑定所有ip，后台方式运行进程，设置密码</p>
+<pre class="line-numbers language-none"><code class="language-none">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#允许任何ip都可以连接</p>
+<pre class="line-numbers language-none"><code class="language-none">bind 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#允许后台运行</p>
+<pre class="line-numbers language-none"><code class="language-none">daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#保护模式</p>
+<blockquote>
+<p>redis3.2版本后新增protected-mode配置，默认是yes，即开启。设置外部网络连接redis服务，设置方式如下： 1、关闭protected-mode模式，此时外部网络可以直接访问 2、开启protected-mode保护模式，需配置bind ip或者设置访问密码</p>
+</blockquote>
+<p><strong>默认是开启的，需要再启用密码配置如下：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">requirepass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或者关闭保护模式，无需密码设置</p>
+<h2 id="5-启动redis，带上配置文件"><a href="#5-启动redis，带上配置文件" class="headerlink" title="5.启动redis，带上配置文件"></a>5.启动redis，带上配置文件</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost redis-6.0.9]#.&#x2F;src&#x2F;redis-server redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="6-命令行客户端连接"><a href="#6-命令行客户端连接" class="headerlink" title="6.命令行客户端连接"></a>6.命令行客户端连接</h2><p>输入密码</p>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost redis-6.0.9]# .&#x2F;src&#x2F;redis-cli
+127.0.0.1:6379&gt; auth 123456
+OK
+127.0.0.1:6379&gt; set a b
+OK
+127.0.0.1:6379&gt; get a
+&quot;b&quot;
+127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>linux</category>
       </categories>
   </entry>
   <entry>
