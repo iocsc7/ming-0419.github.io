@@ -832,6 +832,39 @@ OK
       </categories>
   </entry>
   <entry>
+    <title>JVM详解 -&gt; native &amp; 方法区</title>
+    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
+    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
+<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
+<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
+<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
+<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
+<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
+</ul>
+<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
+<li><p>程序计数器：Program Counter Register</p>
+</li>
+<li><ul>
+<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
+<li><p>方法区：Method Area</p>
+</li>
+<li><ul>
+<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
+<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
+<li>static、final、Class模板、常量池</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>jvm</category>
+      </categories>
+  </entry>
+  <entry>
     <title>双亲委派机制</title>
     <url>/2020/11/17/2020-11-17-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/cmm0401/article/details/108808522?biz_id=102&utm_term=%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-108808522&spm=1018.2118.3001.4449">原文：CSDN博主风暴计划</a></p>
@@ -918,39 +951,6 @@ OK
 <h1 id="4、双亲委派机制的执行流程图"><a href="#4、双亲委派机制的执行流程图" class="headerlink" title="4、双亲委派机制的执行流程图"></a>4、双亲委派机制的执行流程图</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201117005026922.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201117005026922.png" alt="image-20201117005026922"></a></p>
 <h1 id="5、双亲委派机制的作用"><a href="#5、双亲委派机制的作用" class="headerlink" title="5、双亲委派机制的作用"></a>5、双亲委派机制的作用</h1><p>1、防止重复加载同一个<code>.class文件</code>。通过委托去向上面问一问，加载过了，就不用再加载一遍了，保证数据安全。</p>
 <p>2、保证核心 <code>.class文件</code>不被篡改。通过向上委托的方式，不会去篡改核心 <code>.class 文件</code>，即使篡改也不会去加载，即使加载也不会是同一个 <code>.class</code>对象 。不同的类加载器加载同一个<code>.class</code>也不是同一个<code>Class</code>对象。这样保证了<code>Class</code>执行安全。</p>
-]]></content>
-      <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JVM详解 -&gt; native &amp; 方法区</title>
-    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
-    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
-<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
-<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
-<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
-<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
-<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
-</ul>
-<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
-<li><p>程序计数器：Program Counter Register</p>
-</li>
-<li><ul>
-<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
-<li><p>方法区：Method Area</p>
-</li>
-<li><ul>
-<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
-<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
-<li>static、final、Class模板、常量池</li>
-</ul>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>jvm</category>
