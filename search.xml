@@ -91,72 +91,6 @@
       </categories>
   </entry>
   <entry>
-    <title>class样式</title>
-    <url>/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>vue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-       <span class="token selector">.n1</span><span class="token punctuation">&#123;</span>
-           <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-
-       <span class="token selector">.n2</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-size</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-
-       <span class="token selector">.n3</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span><span class="token comment">/*斜体字*/</span>
-       <span class="token punctuation">&#125;</span>
-       
-       <span class="token selector">.n4</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
-           <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-   </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--引入css样式 同时使用多个样式的话  一起倒入  用空格隔开--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>n1 n2 n3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--v-bind来绑定样式  中使用这个数组来绑定css样式 效果同上--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--
-           v-bind来绑定样式  在这个v-bind中我们可以进行一些简单逻辑判断
-           根据不同的情况 去选择不同的样式 可以编写三目运算符
-           v-bind里面的内容 如果不用单引号的话就是data中的数据
-                           用了=单引号的话就是css样式
-       --></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,aaa ? <span class="token punctuation">'</span>n4<span class="token punctuation">'</span> : <span class="token punctuation">'</span>n2<span class="token punctuation">'</span> ,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--在页面设置一个按钮 改变这个aaa的值--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>改变大小<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa=!aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--也可以直接在数组中进行显示判断  &#123;'n3': bbb&#125; 在这个花括号里面 就是可以根据后面的数值决定这个特性是否显示  bbb为false--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,&#123;<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>: bbb&#125;]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-           aaa<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
-           bbb<span class="token operator">:</span><span class="token boolean">false</span>
-       <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
     <title>v-for</title>
     <url>/2020/09/17/2020-09-17-v-for/</url>
     <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -233,6 +167,72 @@
    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>class样式</title>
+    <url>/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/</url>
+    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>vue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+       <span class="token selector">.n1</span><span class="token punctuation">&#123;</span>
+           <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+
+       <span class="token selector">.n2</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-size</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+
+       <span class="token selector">.n3</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span><span class="token comment">/*斜体字*/</span>
+       <span class="token punctuation">&#125;</span>
+       
+       <span class="token selector">.n4</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+           <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+   </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--引入css样式 同时使用多个样式的话  一起倒入  用空格隔开--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>n1 n2 n3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--v-bind来绑定样式  中使用这个数组来绑定css样式 效果同上--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--
+           v-bind来绑定样式  在这个v-bind中我们可以进行一些简单逻辑判断
+           根据不同的情况 去选择不同的样式 可以编写三目运算符
+           v-bind里面的内容 如果不用单引号的话就是data中的数据
+                           用了=单引号的话就是css样式
+       --></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,aaa ? <span class="token punctuation">'</span>n4<span class="token punctuation">'</span> : <span class="token punctuation">'</span>n2<span class="token punctuation">'</span> ,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--在页面设置一个按钮 改变这个aaa的值--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>改变大小<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa=!aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--也可以直接在数组中进行显示判断  &#123;'n3': bbb&#125; 在这个花括号里面 就是可以根据后面的数值决定这个特性是否显示  bbb为false--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,&#123;<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>: bbb&#125;]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+           aaa<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+           bbb<span class="token operator">:</span><span class="token boolean">false</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 ]]></content>
       <categories>
@@ -832,39 +832,6 @@ OK
       </categories>
   </entry>
   <entry>
-    <title>JVM详解 -&gt; native &amp; 方法区</title>
-    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
-    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
-<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
-<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
-<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
-<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
-<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
-</ul>
-<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
-<li><p>程序计数器：Program Counter Register</p>
-</li>
-<li><ul>
-<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
-<li><p>方法区：Method Area</p>
-</li>
-<li><ul>
-<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
-<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
-<li>static、final、Class模板、常量池</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
     <title>双亲委派机制</title>
     <url>/2020/11/17/2020-11-17-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/cmm0401/article/details/108808522?biz_id=102&utm_term=%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-108808522&spm=1018.2118.3001.4449">原文：CSDN博主风暴计划</a></p>
@@ -951,6 +918,39 @@ OK
 <h1 id="4、双亲委派机制的执行流程图"><a href="#4、双亲委派机制的执行流程图" class="headerlink" title="4、双亲委派机制的执行流程图"></a>4、双亲委派机制的执行流程图</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201117005026922.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201117005026922.png" alt="image-20201117005026922"></a></p>
 <h1 id="5、双亲委派机制的作用"><a href="#5、双亲委派机制的作用" class="headerlink" title="5、双亲委派机制的作用"></a>5、双亲委派机制的作用</h1><p>1、防止重复加载同一个<code>.class文件</code>。通过委托去向上面问一问，加载过了，就不用再加载一遍了，保证数据安全。</p>
 <p>2、保证核心 <code>.class文件</code>不被篡改。通过向上委托的方式，不会去篡改核心 <code>.class 文件</code>，即使篡改也不会去加载，即使加载也不会是同一个 <code>.class</code>对象 。不同的类加载器加载同一个<code>.class</code>也不是同一个<code>Class</code>对象。这样保证了<code>Class</code>执行安全。</p>
+]]></content>
+      <categories>
+        <category>jvm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JVM详解 -&gt; native &amp; 方法区</title>
+    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
+    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
+<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
+<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
+<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
+<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
+<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
+</ul>
+<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
+<li><p>程序计数器：Program Counter Register</p>
+</li>
+<li><ul>
+<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
+<li><p>方法区：Method Area</p>
+</li>
+<li><ul>
+<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
+<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
+<li>static、final、Class模板、常量池</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>jvm</category>
@@ -2571,6 +2571,33 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 
 <p>输出结果</p>
 <p><a href="https://gitee.com/ming0419/tuchuang/raw/master/202004081221309406966.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/202004081221309406966.png" alt="img"></a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>激活 IntelliJ IDEA 2020.3.2</title>
+    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
+<p>密码：e3ee</p>
+<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
+<p>2.在idea跟目录下随便建一个文件夹</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
+<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib  **BetterIntelliJ-1.16.jar **复制到新建的文件夹里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
+<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
+<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
+<p>6.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
+<p>7.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
+<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
+<p>最后再点击Activate</p>
 ]]></content>
       <categories>
         <category>java</category>
