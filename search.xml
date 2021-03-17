@@ -500,72 +500,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CentOS安装Redis</title>
-    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/</url>
-    <content><![CDATA[<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><h3 id="1-1下载安装包"><a href="#1-1下载安装包" class="headerlink" title="1.1下载安装包"></a>1.1下载安装包</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png" alt="img"></a></p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我这里是解压并放在redis这个目录下</p>
-<h3 id="1-2在线下载"><a href="#1-2在线下载" class="headerlink" title="1.2在线下载"></a>1.2在线下载</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png" alt="img"></a></p>
-<pre class="line-numbers language-none"><code class="language-none">[kite@localhost redis]# wget https:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png" alt="img"></a></p>
-<p>然后解压</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="2-确认GCC的版本，进入终端命令如下："><a href="#2-确认GCC的版本，进入终端命令如下：" class="headerlink" title="2.确认GCC的版本，进入终端命令如下："></a>2.确认GCC的版本，进入终端命令如下：</h2><pre class="line-numbers language-none"><code class="language-none">yum install gcc
-
-gcc -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>安装Redis6.0需要将gcc版本升级到5.3以上，则升级gcc命令如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">yum -y install centos-release-scl
-yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
-#临时修改gcc版本
-scl enable devtoolset-9 bash
-#永久修改gcc版本
-echo &quot;source &#x2F;opt&#x2F;rh&#x2F;devtoolset-9&#x2F;enable&quot; &gt;&gt;&#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>执行完成后，再次查看gcc的版本</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png" alt="img"></a></p>
-<h2 id="3-编译redis"><a href="#3-编译redis" class="headerlink" title="3.编译redis"></a>3.编译redis</h2><p>进入redis解压后的目录</p>
-<p>编译</p>
-<pre class="line-numbers language-none"><code class="language-none">make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png" alt="img"></a></p>
-<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><p>绑定所有ip，后台方式运行进程，设置密码</p>
-<pre class="line-numbers language-none"><code class="language-none">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#允许任何ip都可以连接</p>
-<pre class="line-numbers language-none"><code class="language-none">bind 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#允许后台运行</p>
-<pre class="line-numbers language-none"><code class="language-none">daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#保护模式</p>
-<blockquote>
-<p>redis3.2版本后新增protected-mode配置，默认是yes，即开启。设置外部网络连接redis服务，设置方式如下： 1、关闭protected-mode模式，此时外部网络可以直接访问 2、开启protected-mode保护模式，需配置bind ip或者设置访问密码</p>
-</blockquote>
-<p><strong>默认是开启的，需要再启用密码配置如下：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">requirepass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>或者关闭保护模式，无需密码设置</p>
-<h2 id="5-启动redis，带上配置文件"><a href="#5-启动redis，带上配置文件" class="headerlink" title="5.启动redis，带上配置文件"></a>5.启动redis，带上配置文件</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost redis-6.0.9]#.&#x2F;src&#x2F;redis-server redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="6-命令行客户端连接"><a href="#6-命令行客户端连接" class="headerlink" title="6.命令行客户端连接"></a>6.命令行客户端连接</h2><p>输入密码</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost redis-6.0.9]# .&#x2F;src&#x2F;redis-cli
-127.0.0.1:6379&gt; auth 123456
-OK
-127.0.0.1:6379&gt; set a b
-OK
-127.0.0.1:6379&gt; get a
-&quot;b&quot;
-127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-  </entry>
-  <entry>
     <title>用Vue路由模拟京东导航条</title>
     <url>/2020/11/12/2020-11-12-%E7%94%A8Vue%E8%B7%AF%E7%94%B1%E6%A8%A1%E6%8B%9F%E4%BA%AC%E4%B8%9C%E5%AF%BC%E8%88%AA%E6%9D%A1/</url>
     <content><![CDATA[<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/vue110.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/vue110.png" alt="img"></a></p>
@@ -794,41 +728,69 @@ OK
       </categories>
   </entry>
   <entry>
-    <title>上传项目到github</title>
-    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
-    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <title>CentOS安装Redis</title>
+    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/</url>
+    <content><![CDATA[<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><h3 id="1-1下载安装包"><a href="#1-1下载安装包" class="headerlink" title="1.1下载安装包"></a>1.1下载安装包</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png" alt="img"></a></p>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<hr>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
-<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
-<p><strong>3.并复制到</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
-<p><strong>4.首先是初始化本地仓库</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我这里是解压并放在redis这个目录下</p>
+<h3 id="1-2在线下载"><a href="#1-2在线下载" class="headerlink" title="1.2在线下载"></a>1.2在线下载</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png" alt="img"></a></p>
+<pre class="line-numbers language-none"><code class="language-none">[kite@localhost redis]# wget https:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
-<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png" alt="img"></a></p>
+<p>然后解压</p>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
-<p><strong>6.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-确认GCC的版本，进入终端命令如下："><a href="#2-确认GCC的版本，进入终端命令如下：" class="headerlink" title="2.确认GCC的版本，进入终端命令如下："></a>2.确认GCC的版本，进入终端命令如下：</h2><pre class="line-numbers language-none"><code class="language-none">yum install gcc
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
-<p><strong>7.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+gcc -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
-<p><strong>8.登录</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装Redis6.0需要将gcc版本升级到5.3以上，则升级gcc命令如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">yum -y install centos-release-scl
+yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
+#临时修改gcc版本
+scl enable devtoolset-9 bash
+#永久修改gcc版本
+echo &quot;source &#x2F;opt&#x2F;rh&#x2F;devtoolset-9&#x2F;enable&quot; &gt;&gt;&#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
-<p><strong>9.输入你github用户名账号</strong></p>
-]]></content>
+<p>执行完成后，再次查看gcc的版本</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png" alt="img"></a></p>
+<h2 id="3-编译redis"><a href="#3-编译redis" class="headerlink" title="3.编译redis"></a>3.编译redis</h2><p>进入redis解压后的目录</p>
+<p>编译</p>
+<pre class="line-numbers language-none"><code class="language-none">make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png" alt="img"></a></p>
+<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><p>绑定所有ip，后台方式运行进程，设置密码</p>
+<pre class="line-numbers language-none"><code class="language-none">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#允许任何ip都可以连接</p>
+<pre class="line-numbers language-none"><code class="language-none">bind 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#允许后台运行</p>
+<pre class="line-numbers language-none"><code class="language-none">daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#保护模式</p>
+<blockquote>
+<p>redis3.2版本后新增protected-mode配置，默认是yes，即开启。设置外部网络连接redis服务，设置方式如下： 1、关闭protected-mode模式，此时外部网络可以直接访问 2、开启protected-mode保护模式，需配置bind ip或者设置访问密码</p>
+</blockquote>
+<p><strong>默认是开启的，需要再启用密码配置如下：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">requirepass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或者关闭保护模式，无需密码设置</p>
+<h2 id="5-启动redis，带上配置文件"><a href="#5-启动redis，带上配置文件" class="headerlink" title="5.启动redis，带上配置文件"></a>5.启动redis，带上配置文件</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost redis-6.0.9]#.&#x2F;src&#x2F;redis-server redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="6-命令行客户端连接"><a href="#6-命令行客户端连接" class="headerlink" title="6.命令行客户端连接"></a>6.命令行客户端连接</h2><p>输入密码</p>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost redis-6.0.9]# .&#x2F;src&#x2F;redis-cli
+127.0.0.1:6379&gt; auth 123456
+OK
+127.0.0.1:6379&gt; set a b
+OK
+127.0.0.1:6379&gt; get a
+&quot;b&quot;
+127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
-        <category>github</category>
+        <category>linux</category>
       </categories>
   </entry>
   <entry>
@@ -924,6 +886,44 @@ OK
       </categories>
   </entry>
   <entry>
+    <title>上传项目到github</title>
+    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
+    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
+<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
+<p><strong>3.并复制到</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
+<p><strong>4.首先是初始化本地仓库</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
+<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
+<p><strong>6.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
+<p><strong>7.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
+<p><strong>8.登录</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
+<p><strong>9.输入你github用户名账号</strong></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JVM详解 -&gt; native &amp; 方法区</title>
     <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
     <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
@@ -951,75 +951,6 @@ OK
 </ul>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>GC垃圾回收机制</title>
-    <url>/2020/11/23/2020-11-23-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<p>不能手动回收，只能自动回收</p>
-<p>垃圾回收的区域只有在堆（Heap）和方法区（Method Area）中存在</p>
-<p>JVM在垃圾回收时，并不是对三个区域统一回收，大部分时候都是针对新生代</p>
-<ul>
-<li>新生代</li>
-<li>幸存区(from/to)，谁空谁是to</li>
-<li><ol>
-<li>每次GC都会将Eden中存活的对象移到幸存区：一旦伊甸园区被GC后，就是空的</li>
-<li>复制算法</li>
-</ol>
-</li>
-<li>老年区</li>
-</ul>
-<p>GC两种类型：轻GC（MinorGC）、重GC（FullGC）</p>
-<p>GC题目：</p>
-<ol>
-<li>JVM的内存模型和分区，详细到每个区放什么</li>
-<li>堆里的分区都有哪些？Eden, from, to,， 老年区，说说他们的特点</li>
-<li>GC的算法有哪些？</li>
-<li><ol>
-<li>标记清除法</li>
-<li>标记压缩</li>
-<li>复制算法</li>
-<li>引用计数器</li>
-</ol>
-</li>
-<li>轻GC与重GC分别在什么时候发生</li>
-</ol>
-<h2 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h2><h3 id="1-引用计数法"><a href="#1-引用计数法" class="headerlink" title="1.引用计数法"></a>1.引用计数法</h3><p>对每个对象设置一个计数器，计数器本身也有消耗。当某个对象没用过时，即计数为0，则会被清除</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/2020112316282881.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/2020112316282881.png" alt="img"></a></p>
-<p>现在JVM中不使用这种方法</p>
-<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2.复制算法"></a>2.复制算法</h3><p>当幸存from, to区里面都有东西的话，则会使用复制算法，将其中一个区中的内容复制到另外一个区域，保证to区是空的</p>
-<ul>
-<li>好处：没有内存碎片</li>
-<li>坏处：浪费了很多内存，多了一半的空间永远是空to，假设对象（100%）成活</li>
-</ul>
-<p>复制算法最佳使用场景：对象存活度较低，即新生区</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/20201123162901705.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/20201123162901705.png" alt="在这里插入图片描述"></a></p>
-<h3 id="3-标记清除算法"><a href="#3-标记清除算法" class="headerlink" title="3 .标记清除算法"></a>3 .标记清除算法</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/20201123162919328.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/20201123162919328.png" alt="在这里插入图片描述"></a></p>
-<ul>
-<li>好处：不需要额外的空间</li>
-<li>坏处：两次扫描，严重浪费时间，会产生内存碎片</li>
-</ul>
-<h3 id="4-标记清除压缩"><a href="#4-标记清除压缩" class="headerlink" title="4 .标记清除压缩"></a>4 .标记清除压缩</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/20201123162923629.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/20201123162923629.png" alt="在这里插入图片描述"></a></p>
-<p>可以先进行多次标记清除，再进行一次压缩，但是都无尽头</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
-<li>内存效率：复制算法&gt;标记清除&gt;标记压缩（时间复杂度）</li>
-<li>内存整齐度：复制算法=标记压缩&gt;标记清除</li>
-<li>内存利用率：标记压缩=标记清除&gt;复制算法</li>
-</ol>
-<p>思考：难道没有最优的算法吗</p>
-<p>结论：没有最好的算法，但是只有每种场景下最合适的算法—————–&gt;GC：分代收集算法</p>
-<p>年轻代：</p>
-<ol>
-<li>存活率低，使用复制算法</li>
-</ol>
-<p>老年代：</p>
-<ol>
-<li>存活率高，区域大，使用标记清除+标记压缩</li>
-</ol>
-<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
 ]]></content>
       <categories>
         <category>jvm</category>
@@ -1183,6 +1114,75 @@ OK
 <h1 id="堆Heap-2"><a href="#堆Heap-2" class="headerlink" title="堆Heap"></a>堆Heap</h1><p>一个JVM只有一个Heap，堆内存的大小是可以调节的。</p>
 <p>类加载器读取了类文件后，一般会把什么东西放到堆中呢？类、方法、常量、变量，保存引用类型的真实对象</p>
 <p>堆内存中还要细分三个区域：</p>
+<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
+]]></content>
+      <categories>
+        <category>jvm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>GC垃圾回收机制</title>
+    <url>/2020/11/23/2020-11-23-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<p>不能手动回收，只能自动回收</p>
+<p>垃圾回收的区域只有在堆（Heap）和方法区（Method Area）中存在</p>
+<p>JVM在垃圾回收时，并不是对三个区域统一回收，大部分时候都是针对新生代</p>
+<ul>
+<li>新生代</li>
+<li>幸存区(from/to)，谁空谁是to</li>
+<li><ol>
+<li>每次GC都会将Eden中存活的对象移到幸存区：一旦伊甸园区被GC后，就是空的</li>
+<li>复制算法</li>
+</ol>
+</li>
+<li>老年区</li>
+</ul>
+<p>GC两种类型：轻GC（MinorGC）、重GC（FullGC）</p>
+<p>GC题目：</p>
+<ol>
+<li>JVM的内存模型和分区，详细到每个区放什么</li>
+<li>堆里的分区都有哪些？Eden, from, to,， 老年区，说说他们的特点</li>
+<li>GC的算法有哪些？</li>
+<li><ol>
+<li>标记清除法</li>
+<li>标记压缩</li>
+<li>复制算法</li>
+<li>引用计数器</li>
+</ol>
+</li>
+<li>轻GC与重GC分别在什么时候发生</li>
+</ol>
+<h2 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h2><h3 id="1-引用计数法"><a href="#1-引用计数法" class="headerlink" title="1.引用计数法"></a>1.引用计数法</h3><p>对每个对象设置一个计数器，计数器本身也有消耗。当某个对象没用过时，即计数为0，则会被清除</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/2020112316282881.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/2020112316282881.png" alt="img"></a></p>
+<p>现在JVM中不使用这种方法</p>
+<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2.复制算法"></a>2.复制算法</h3><p>当幸存from, to区里面都有东西的话，则会使用复制算法，将其中一个区中的内容复制到另外一个区域，保证to区是空的</p>
+<ul>
+<li>好处：没有内存碎片</li>
+<li>坏处：浪费了很多内存，多了一半的空间永远是空to，假设对象（100%）成活</li>
+</ul>
+<p>复制算法最佳使用场景：对象存活度较低，即新生区</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/20201123162901705.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/20201123162901705.png" alt="在这里插入图片描述"></a></p>
+<h3 id="3-标记清除算法"><a href="#3-标记清除算法" class="headerlink" title="3 .标记清除算法"></a>3 .标记清除算法</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/20201123162919328.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/20201123162919328.png" alt="在这里插入图片描述"></a></p>
+<ul>
+<li>好处：不需要额外的空间</li>
+<li>坏处：两次扫描，严重浪费时间，会产生内存碎片</li>
+</ul>
+<h3 id="4-标记清除压缩"><a href="#4-标记清除压缩" class="headerlink" title="4 .标记清除压缩"></a>4 .标记清除压缩</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/20201123162923629.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/20201123162923629.png" alt="在这里插入图片描述"></a></p>
+<p>可以先进行多次标记清除，再进行一次压缩，但是都无尽头</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>内存效率：复制算法&gt;标记清除&gt;标记压缩（时间复杂度）</li>
+<li>内存整齐度：复制算法=标记压缩&gt;标记清除</li>
+<li>内存利用率：标记压缩=标记清除&gt;复制算法</li>
+</ol>
+<p>思考：难道没有最优的算法吗</p>
+<p>结论：没有最好的算法，但是只有每种场景下最合适的算法—————–&gt;GC：分代收集算法</p>
+<p>年轻代：</p>
+<ol>
+<li>存活率低，使用复制算法</li>
+</ol>
+<p>老年代：</p>
+<ol>
+<li>存活率高，区域大，使用标记清除+标记压缩</li>
+</ol>
 <p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
 ]]></content>
       <categories>
@@ -1532,23 +1532,6 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
       </categories>
   </entry>
   <entry>
-    <title>mybatis对于MySQL8.0的配置</title>
-    <url>/2020/11/25/2020-11-25-mybatis%E5%AF%B9%E4%BA%8EMySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>版本的不同，8.0的驱动和url变为：<br><strong>com.mysql.cj.jdbc.Driver</strong></p>
-<p><strong>jdbc:mysql://localhost:3306/firstsql?characterEncoding=utf-8&amp;&amp;serverTimezone=UTC&amp;&amp;useSSL=false</strong></p>
-<p>驱动：*<strong>jar：mysql-connector-java-8.0.11.jar*</strong></p>
-<p>但在****mybatis****中用以上配置报错：</p>
-<p><strong>对实体 “serverTimezone” 的引用必须以 ‘;’ 分隔符结尾。</strong><br>解决方法：<br>改为&amp;；<br>useUnicode=true&amp;；serverTimezone=GMT&amp;；useSSL=fals</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&lt;property name&#x3D;&quot;driver&quot; value&#x3D;&quot;com.mysql.cj.jdbc.Driver&quot;&#x2F;&gt;
-&lt;!-- 后面的参数不能省略，&amp;符号需要使用&quot;&amp; amp;&quot;转义（注意中间没有空格） --&gt;
-&lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;firstsql?useUnicode&#x3D;true&amp;serverTimezone&#x3D;GMT&amp;useSSL&#x3D;false&quot;&#x2F;&gt;
-&lt;property name&#x3D;&quot;username&quot; value&#x3D;&quot;root&quot;&#x2F;&gt;
-&lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;*********&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-  </entry>
-  <entry>
     <title>工厂模式</title>
     <url>/2020/12/19/2020-12-19-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
@@ -1706,6 +1689,23 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
 ]]></content>
       <categories>
         <category>DesignPattern</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>mybatis对于MySQL8.0的配置</title>
+    <url>/2020/11/25/2020-11-25-mybatis%E5%AF%B9%E4%BA%8EMySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>版本的不同，8.0的驱动和url变为：<br><strong>com.mysql.cj.jdbc.Driver</strong></p>
+<p><strong>jdbc:mysql://localhost:3306/firstsql?characterEncoding=utf-8&amp;&amp;serverTimezone=UTC&amp;&amp;useSSL=false</strong></p>
+<p>驱动：*<strong>jar：mysql-connector-java-8.0.11.jar*</strong></p>
+<p>但在****mybatis****中用以上配置报错：</p>
+<p><strong>对实体 “serverTimezone” 的引用必须以 ‘;’ 分隔符结尾。</strong><br>解决方法：<br>改为&amp;；<br>useUnicode=true&amp;；serverTimezone=GMT&amp;；useSSL=fals</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&lt;property name&#x3D;&quot;driver&quot; value&#x3D;&quot;com.mysql.cj.jdbc.Driver&quot;&#x2F;&gt;
+&lt;!-- 后面的参数不能省略，&amp;符号需要使用&quot;&amp; amp;&quot;转义（注意中间没有空格） --&gt;
+&lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;firstsql?useUnicode&#x3D;true&amp;serverTimezone&#x3D;GMT&amp;useSSL&#x3D;false&quot;&#x2F;&gt;
+&lt;property name&#x3D;&quot;username&quot; value&#x3D;&quot;root&quot;&#x2F;&gt;
+&lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;*********&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>mysql</category>
       </categories>
   </entry>
   <entry>
@@ -2283,6 +2283,17 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>Mysql找不到服务</title>
+    <url>/2021/02/01/2021-02-01-Mysql%E6%89%BE%E4%B8%8D%E5%88%B0%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<h4 id="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："><a href="#MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：" class="headerlink" title="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："></a>MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：</h4><p>1.以管理员身份执行cmd；</p>
+<p>2.切换到mysql安装目录下的bin目录，执行<strong>mysqld.exe –install</strong>命令，看到service successfully installed.表示安装服务成功。</p>
+<p>3.开启服务：<code>net start mysql</code></p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+  </entry>
+  <entry>
     <title>IDEA中resources资源导出失败的问题</title>
     <url>/2021/02/03/2021-02-03-IDEA%E4%B8%ADresources%E8%B5%84%E6%BA%90%E5%AF%BC%E5%87%BA%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>1.如果在IDEA中发现自己的resources文件无法导出，可以在<strong>当前项目的pom.xml文件</strong>中添加如下的代码</p>
@@ -2315,17 +2326,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>Mysql找不到服务</title>
-    <url>/2021/02/01/2021-02-01-Mysql%E6%89%BE%E4%B8%8D%E5%88%B0%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<h4 id="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："><a href="#MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：" class="headerlink" title="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："></a>MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：</h4><p>1.以管理员身份执行cmd；</p>
-<p>2.切换到mysql安装目录下的bin目录，执行<strong>mysqld.exe –install</strong>命令，看到service successfully installed.表示安装服务成功。</p>
-<p>3.开启服务：<code>net start mysql</code></p>
-]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-  </entry>
-  <entry>
     <title>IDEA报org.testng.TestNGException:错误</title>
     <url>/2021/02/03/2021-02-03-IDEA%E6%8A%A5org.testng.TestNGException-%E9%94%99%E8%AF%AF/</url>
     <content><![CDATA[<p>1.原因：没有注入testng的依赖</p>
@@ -2334,32 +2334,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 ]]></content>
       <categories>
         <category>error</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>安装Office.Project.Visio.2021</title>
-    <url>/2021/03/16/2021-03-16-%E5%AE%89%E8%A3%85Office.Project.Visio.2021/</url>
-    <content><![CDATA[<p><a href="https://wws.lanzous.com/iarnGmzsnwf">https://wws.lanzous.com/iarnGmzsnwf</a><br>密码:73fd</p>
-<p>下载好后解压打开</p>
-<p><strong>1</strong>.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316151125983.png" alt="image-20210316151125983"></p>
-<p><strong>2</strong>.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316140326662.png" alt="image-20210316140326662"></p>
-<p><strong>3</strong>.部署产品，已经安装过office这里会显示的，如果你想要更新需要卸载原来的office</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316141529626.png" alt="image-20210316141529626"></p>
-<p><strong>4</strong>.如果已装有以下应用程序可不选择</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142244104.png" alt="image-20210316142244104"></p>
-<p><strong>5</strong>.设置好后开始部署</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142658614.png" alt="image-20210316142658614"></p>
-<p><strong>6</strong>.安装完后回到主界面，点击激活</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316144647292.png" alt="image-20210316144647292"></p>
-<p><strong>7</strong>.三个产品都是相同的操作，<code>如果报错可以试一下先打开安装好的office</code></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150952869.png" alt="image-20210316150952869"></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316145903776.png" alt="image-20210316145903776"></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150137063.png" alt="image-20210316150137063"></p>
-]]></content>
-      <categories>
-        <category>installation</category>
       </categories>
   </entry>
   <entry>
@@ -2478,6 +2452,32 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>安装Office.Project.Visio.2021</title>
+    <url>/2021/03/16/2021-03-16-%E5%AE%89%E8%A3%85Office.Project.Visio.2021/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/iarnGmzsnwf">https://wws.lanzous.com/iarnGmzsnwf</a><br>密码:73fd</p>
+<p>下载好后解压打开</p>
+<p><strong>1</strong>.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316151125983.png" alt="image-20210316151125983"></p>
+<p><strong>2</strong>.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316140326662.png" alt="image-20210316140326662"></p>
+<p><strong>3</strong>.部署产品，已经安装过office这里会显示的，如果你想要更新需要卸载原来的office</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316141529626.png" alt="image-20210316141529626"></p>
+<p><strong>4</strong>.如果已装有以下应用程序可不选择</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142244104.png" alt="image-20210316142244104"></p>
+<p><strong>5</strong>.设置好后开始部署</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142658614.png" alt="image-20210316142658614"></p>
+<p><strong>6</strong>.安装完后回到主界面，点击激活</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316144647292.png" alt="image-20210316144647292"></p>
+<p><strong>7</strong>.三个产品都是相同的操作，<code>如果报错可以试一下先打开安装好的office</code></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150952869.png" alt="image-20210316150952869"></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316145903776.png" alt="image-20210316145903776"></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150137063.png" alt="image-20210316150137063"></p>
+]]></content>
+      <categories>
+        <category>installation</category>
+      </categories>
+  </entry>
+  <entry>
     <title>mysql解决不能使用中文问题</title>
     <url>/2020/04/06/mysql%20%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p><span class="md-expand" md-inline="strong" style="box-sizing: border-box;"><strong>修改字符集</strong></span></p>
@@ -2530,26 +2530,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       <categories>
         <category>mysql</category>
       </categories>
-  </entry>
-  <entry>
-    <title>网站收藏</title>
-    <url>/2020/01/01/www/</url>
-    <content><![CDATA[<p><a href="https://wallroom.io/">https://wallroom.io/</a>     高清图片</p>
-<p><a href="https://www.examcoo.com/index/ku">https://www.examcoo.com/index/ku</a>     考试酷</p>
-<p><a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>      <a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a>     操作系统下载</p>
-<p><a href="https://www.youzack.com/">https://www.youzack.com/</a>             <a href="https://bdc.youzack.com/">https://bdc.youzack.com</a>      英语听力</p>
-<p><a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a>      ASCII文字，SpringBoot自定义启动Banner在线生成工具</p>
-<p><a href="https://www.processon.com/">https://www.processon.com/</a>      免费在线作图、实时协作</p>
-<p><a href="https://www.sojson.com/">https://www.sojson.com/</a>         JSON 格式转换工具</p>
-<p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a>              站酷  —–  图片</p>
-<p><a href="https://www.nowcoder.com/">https://www.nowcoder.com/</a>        牛客网</p>
-<p><a href="https://beginnersbook.com/">https://beginnersbook.com/</a>         编程网站</p>
-<p><a href="https://github.com/LingCoder/OnJava8">https://github.com/LingCoder/OnJava8</a>    java编程思想</p>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a><br><a href="https://huaban.com/">https://huaban.com/</a><br><a href="https://www.pexels.com/zh-cn/">https://www.pexels.com/zh-cn/</a></p>
-<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a><strong>配色</strong></h3><p><a href="https://colorhunt.co/">https://colorhunt.co/</a><br><a href="https://webgradients.com/">https://webgradients.com/</a><br><a href="https://webkul.github.io/coolhue/">https://webkul.github.io/coolhue/</a><br><a href="http://www.peise.net/tools/web/">http://www.peise.net/tools/web/</a><br><a href="https://www.materialpalette.com/">https://www.materialpalette.com/</a><br><a href="https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25">https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25</a><br><a href="http://bjango.com/mac/skalacolor/">http://bjango.com/mac/skalacolor/</a><br><a href="https://color.adobe.com/zh/create/color-wheel/">https://color.adobe.com/zh/create/color-wheel/</a></p>
-<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a><strong>导航</strong></h3><p><a href="https://www.91sotu.com/">https://www.91sotu.com/</a><br><a href="http://hao.shejidaren.com/">http://hao.shejidaren.com/</a><br><a href="http://www.foolo.cn/">http://www.foolo.cn/</a></p>
-<h3 id="外网"><a href="#外网" class="headerlink" title="外网"></a><strong>外网</strong></h3><p><a href="https://dribbble.com/">https://dribbble.com/</a><br><a href="https://dribbble.com/">https://dribbble.com/</a><br><a href="https://www.boredpanda.com/">https://www.boredpanda.com/</a><br><a href="https://www.designspiration.com/">https://www.designspiration.com/</a></p>
-]]></content>
   </entry>
   <entry>
     <title>新建一个标准类</title>
@@ -2623,31 +2603,24 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>激活 IntelliJ IDEA 2020.3.2</title>
-    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
-    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
-<p>密码：e3ee</p>
-<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
-<p>2.在idea跟目录下随便建一个文件夹</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
-<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
-<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
-<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
-<p>6.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
-<p>7.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
-<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
-<p>最后再点击Activate</p>
+    <title>网站收藏</title>
+    <url>/2020/01/01/www/</url>
+    <content><![CDATA[<p><a href="https://wallroom.io/">https://wallroom.io/</a>     高清图片</p>
+<p><a href="https://www.examcoo.com/index/ku">https://www.examcoo.com/index/ku</a>     考试酷</p>
+<p><a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>      <a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a>     操作系统下载</p>
+<p><a href="https://www.youzack.com/">https://www.youzack.com/</a>             <a href="https://bdc.youzack.com/">https://bdc.youzack.com</a>      英语听力</p>
+<p><a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a>      ASCII文字，SpringBoot自定义启动Banner在线生成工具</p>
+<p><a href="https://www.processon.com/">https://www.processon.com/</a>      免费在线作图、实时协作</p>
+<p><a href="https://www.sojson.com/">https://www.sojson.com/</a>         JSON 格式转换工具</p>
+<p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a>              站酷  —–  图片</p>
+<p><a href="https://www.nowcoder.com/">https://www.nowcoder.com/</a>        牛客网</p>
+<p><a href="https://beginnersbook.com/">https://beginnersbook.com/</a>         编程网站</p>
+<p><a href="https://github.com/LingCoder/OnJava8">https://github.com/LingCoder/OnJava8</a>    java编程思想</p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a><br><a href="https://huaban.com/">https://huaban.com/</a><br><a href="https://www.pexels.com/zh-cn/">https://www.pexels.com/zh-cn/</a></p>
+<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a><strong>配色</strong></h3><p><a href="https://colorhunt.co/">https://colorhunt.co/</a><br><a href="https://webgradients.com/">https://webgradients.com/</a><br><a href="https://webkul.github.io/coolhue/">https://webkul.github.io/coolhue/</a><br><a href="http://www.peise.net/tools/web/">http://www.peise.net/tools/web/</a><br><a href="https://www.materialpalette.com/">https://www.materialpalette.com/</a><br><a href="https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25">https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25</a><br><a href="http://bjango.com/mac/skalacolor/">http://bjango.com/mac/skalacolor/</a><br><a href="https://color.adobe.com/zh/create/color-wheel/">https://color.adobe.com/zh/create/color-wheel/</a></p>
+<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a><strong>导航</strong></h3><p><a href="https://www.91sotu.com/">https://www.91sotu.com/</a><br><a href="http://hao.shejidaren.com/">http://hao.shejidaren.com/</a><br><a href="http://www.foolo.cn/">http://www.foolo.cn/</a></p>
+<h3 id="外网"><a href="#外网" class="headerlink" title="外网"></a><strong>外网</strong></h3><p><a href="https://dribbble.com/">https://dribbble.com/</a><br><a href="https://dribbble.com/">https://dribbble.com/</a><br><a href="https://www.boredpanda.com/">https://www.boredpanda.com/</a><br><a href="https://www.designspiration.com/">https://www.designspiration.com/</a></p>
 ]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
   </entry>
   <entry>
     <title>随机点名器</title>
@@ -2699,6 +2672,33 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>html</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>激活 IntelliJ IDEA 2020.3.2</title>
+    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
+<p>密码：e3ee</p>
+<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
+<p>2.在idea跟目录下随便建一个文件夹</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
+<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
+<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
+<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
+<p>6.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
+<p>7.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
+<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
+<p>最后再点击Activate</p>
+]]></content>
+      <categories>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
