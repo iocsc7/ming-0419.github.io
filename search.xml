@@ -91,72 +91,6 @@
       </categories>
   </entry>
   <entry>
-    <title>class样式</title>
-    <url>/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>vue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-       <span class="token selector">.n1</span><span class="token punctuation">&#123;</span>
-           <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-
-       <span class="token selector">.n2</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-size</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-
-       <span class="token selector">.n3</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span><span class="token comment">/*斜体字*/</span>
-       <span class="token punctuation">&#125;</span>
-       
-       <span class="token selector">.n4</span><span class="token punctuation">&#123;</span>
-           <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
-           <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-   </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--引入css样式 同时使用多个样式的话  一起倒入  用空格隔开--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>n1 n2 n3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--v-bind来绑定样式  中使用这个数组来绑定css样式 效果同上--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--
-           v-bind来绑定样式  在这个v-bind中我们可以进行一些简单逻辑判断
-           根据不同的情况 去选择不同的样式 可以编写三目运算符
-           v-bind里面的内容 如果不用单引号的话就是data中的数据
-                           用了=单引号的话就是css样式
-       --></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,aaa ? <span class="token punctuation">'</span>n4<span class="token punctuation">'</span> : <span class="token punctuation">'</span>n2<span class="token punctuation">'</span> ,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--在页面设置一个按钮 改变这个aaa的值--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>改变大小<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa=!aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--也可以直接在数组中进行显示判断  &#123;'n3': bbb&#125; 在这个花括号里面 就是可以根据后面的数值决定这个特性是否显示  bbb为false--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,&#123;<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>: bbb&#125;]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-           aaa<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
-           bbb<span class="token operator">:</span><span class="token boolean">false</span>
-       <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
     <title>v-for</title>
     <url>/2020/09/17/2020-09-17-v-for/</url>
     <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -233,6 +167,152 @@
    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CentOS安装Mysql</title>
+    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Mysql/</url>
+    <content><![CDATA[<h3 id="1-下载wget命令"><a href="#1-下载wget命令" class="headerlink" title="1 下载wget命令"></a>1 下载wget命令</h3><pre class="line-numbers language-none"><code class="language-none">yum -y install wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-在线下载mysql安装包"><a href="#2-在线下载mysql安装包" class="headerlink" title="2 在线下载mysql安装包"></a>2 在线下载mysql安装包</h3><pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el7-8.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="3-安装MySQL"><a href="#3-安装MySQL" class="headerlink" title="3 安装MySQL"></a>3 安装MySQL</h3><pre class="line-numbers language-none"><code class="language-none">rpm -ivh mysql57-community-release-el7-8.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/001.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/001.png" alt="img"></a></p>
+<h3 id="4-安装mysql服务"><a href="#4-安装mysql服务" class="headerlink" title="4 安装mysql服务"></a>4 安装mysql服务</h3><ul>
+<li>首先进入<code>cd /etc/yum.repos.d/</code>目录。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;yum.repos.d&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/002.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/002.png" alt="img"></a></p>
+<ul>
+<li>安装MySQL服务（这个过程可能有点慢）</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">yum -y install mysql-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/003.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/003.png" alt="img"></a></p>
+<h3 id="5-启动MySQL"><a href="#5-启动MySQL" class="headerlink" title="5 启动MySQL"></a>5 启动MySQL</h3><pre class="line-numbers language-none"><code class="language-none">systemctl start mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="6-修改MySQL临时密码"><a href="#6-修改MySQL临时密码" class="headerlink" title="6 修改MySQL临时密码"></a>6 修改MySQL临时密码</h2><p>MySQL安装成功后会有一个临时密码，我们可以使用<code>grep</code>命令查看临时密码先登录进去MySQL，然后修改MySQL密码。</p>
+<h3 id="7-获取MySQL临时密码"><a href="#7-获取MySQL临时密码" class="headerlink" title="7 获取MySQL临时密码"></a>7 获取MySQL临时密码</h3><pre class="line-numbers language-none"><code class="language-none">grep &#39;temporary password&#39; &#x2F;var&#x2F;log&#x2F;mysqld.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/004.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/004.png" alt="img"></a></p>
+<h3 id="8-使用临时密码先登录"><a href="#8-使用临时密码先登录" class="headerlink" title="8 使用临时密码先登录"></a>8 使用临时密码先登录</h3><pre class="line-numbers language-none"><code class="language-none">mysql -uroot -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>我的临时密码是：a22XRJ88=+a;</p>
+</blockquote>
+<h3 id="10-把MySQL的密码校验强度改为低风险"><a href="#10-把MySQL的密码校验强度改为低风险" class="headerlink" title="10 把MySQL的密码校验强度改为低风险"></a>10 把MySQL的密码校验强度改为低风险</h3><pre class="line-numbers language-none"><code class="language-none">set global validate_password_policy&#x3D;LOW;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="11-修改MySQL的密码长度"><a href="#11-修改MySQL的密码长度" class="headerlink" title="11 修改MySQL的密码长度"></a>11 修改MySQL的密码长度</h3><pre class="line-numbers language-none"><code class="language-none">set global validate_password_length&#x3D;5;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="12-修改MySQL密码"><a href="#12-修改MySQL密码" class="headerlink" title="12 修改MySQL密码"></a>12 修改MySQL密码</h3><pre class="line-numbers language-none"><code class="language-none">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;admin&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="13-允许远程访问"><a href="#13-允许远程访问" class="headerlink" title="13 允许远程访问"></a>13 允许远程访问</h2><h3 id="首先要关闭Cenots的防火墙"><a href="#首先要关闭Cenots的防火墙" class="headerlink" title="首先要关闭Cenots的防火墙"></a>首先要关闭Cenots的防火墙</h3><pre class="line-numbers language-none"><code class="language-none">sudo systemctl disable firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="修改MySQL允许任何人连接"><a href="#修改MySQL允许任何人连接" class="headerlink" title="修改MySQL允许任何人连接"></a>修改MySQL允许任何人连接</h3><p>1）首先登录MySQL</p>
+<pre class="line-numbers language-none"><code class="language-none">mysql -uroot -padmin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2）切换到mysql数据</p>
+<pre class="line-numbers language-none"><code class="language-none">use mysql;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3）查看user表</p>
+<pre class="line-numbers language-none"><code class="language-none">select Host,User from user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/005.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/005.png" alt="img"></a></p>
+<p>发现<code>root</code>用户只允许<code>localhost</code>主机登录登录。</p>
+</blockquote>
+<p>4）修改为允许任何地址访问</p>
+<pre class="line-numbers language-none"><code class="language-none">update user set Host&#x3D;&#39;%&#39; where User&#x3D;&#39;root&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>5）刷新权限</p>
+<pre class="line-numbers language-none"><code class="language-none">flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="14-防火墙开放3306端口"><a href="#14-防火墙开放3306端口" class="headerlink" title="14 防火墙开放3306端口"></a>14 防火墙开放3306端口</h3><pre class="line-numbers language-none"><code class="language-none">firewall-cmd --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp --permanentfirewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/006.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/006.png" alt="img"></a></p>
+<h2 id="15-设置字符集"><a href="#15-设置字符集" class="headerlink" title="15 设置字符集"></a>15 设置字符集</h2><p>修改/etc/my.cnf配置文件，在[mysqld]下添加编码配置</p>
+<pre class="line-numbers language-none"><code class="language-none">character_set_server&#x3D;utf8init_connect&#x3D;&#39;SET NAMES utf8&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/007.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/007.png" alt="img"></a></p>
+<h2 id="17重启MySQL"><a href="#17重启MySQL" class="headerlink" title="17重启MySQL"></a>17重启MySQL</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost data]# systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="登录root用户查看编码"><a href="#登录root用户查看编码" class="headerlink" title="登录root用户查看编码"></a>登录root用户查看编码</h3><pre class="line-numbers language-none"><code class="language-none">show variables like &#39;char%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/008.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/008.png" alt="img"></a></p>
+<h2 id="18-远程工具连接"><a href="#18-远程工具连接" class="headerlink" title="18 远程工具连接"></a>18 远程工具连接</h2><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/009.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/009.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/010.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/010.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/011.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/011.png" alt="img"></a></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>class样式</title>
+    <url>/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/</url>
+    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>vue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+       <span class="token selector">.n1</span><span class="token punctuation">&#123;</span>
+           <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+
+       <span class="token selector">.n2</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-size</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+
+       <span class="token selector">.n3</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span><span class="token comment">/*斜体字*/</span>
+       <span class="token punctuation">&#125;</span>
+       
+       <span class="token selector">.n4</span><span class="token punctuation">&#123;</span>
+           <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+           <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+   </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--引入css样式 同时使用多个样式的话  一起倒入  用空格隔开--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>n1 n2 n3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--v-bind来绑定样式  中使用这个数组来绑定css样式 效果同上--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--
+           v-bind来绑定样式  在这个v-bind中我们可以进行一些简单逻辑判断
+           根据不同的情况 去选择不同的样式 可以编写三目运算符
+           v-bind里面的内容 如果不用单引号的话就是data中的数据
+                           用了=单引号的话就是css样式
+       --></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,aaa ? <span class="token punctuation">'</span>n4<span class="token punctuation">'</span> : <span class="token punctuation">'</span>n2<span class="token punctuation">'</span> ,<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--在页面设置一个按钮 改变这个aaa的值--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>改变大小<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa=!aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--也可以直接在数组中进行显示判断  &#123;'n3': bbb&#125; 在这个花括号里面 就是可以根据后面的数值决定这个特性是否显示  bbb为false--></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>n1<span class="token punctuation">'</span>,<span class="token punctuation">'</span>n2<span class="token punctuation">'</span>,&#123;<span class="token punctuation">'</span>n3<span class="token punctuation">'</span>: bbb&#125;]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界那么大,我想去看看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+           aaa<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+           bbb<span class="token operator">:</span><span class="token boolean">false</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 ]]></content>
       <categories>
@@ -420,81 +500,67 @@
       </categories>
   </entry>
   <entry>
-    <title>CentOS安装Mysql</title>
-    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Mysql/</url>
-    <content><![CDATA[<h3 id="1-下载wget命令"><a href="#1-下载wget命令" class="headerlink" title="1 下载wget命令"></a>1 下载wget命令</h3><pre class="line-numbers language-none"><code class="language-none">yum -y install wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <title>CentOS安装Redis</title>
+    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/</url>
+    <content><![CDATA[<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><h3 id="1-1下载安装包"><a href="#1-1下载安装包" class="headerlink" title="1.1下载安装包"></a>1.1下载安装包</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png" alt="img"></a></p>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="2-在线下载mysql安装包"><a href="#2-在线下载mysql安装包" class="headerlink" title="2 在线下载mysql安装包"></a>2 在线下载mysql安装包</h3><pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el7-8.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我这里是解压并放在redis这个目录下</p>
+<h3 id="1-2在线下载"><a href="#1-2在线下载" class="headerlink" title="1.2在线下载"></a>1.2在线下载</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png" alt="img"></a></p>
+<pre class="line-numbers language-none"><code class="language-none">[kite@localhost redis]# wget https:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="3-安装MySQL"><a href="#3-安装MySQL" class="headerlink" title="3 安装MySQL"></a>3 安装MySQL</h3><pre class="line-numbers language-none"><code class="language-none">rpm -ivh mysql57-community-release-el7-8.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png" alt="img"></a></p>
+<p>然后解压</p>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/001.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/001.png" alt="img"></a></p>
-<h3 id="4-安装mysql服务"><a href="#4-安装mysql服务" class="headerlink" title="4 安装mysql服务"></a>4 安装mysql服务</h3><ul>
-<li>首先进入<code>cd /etc/yum.repos.d/</code>目录。</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;yum.repos.d&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-确认GCC的版本，进入终端命令如下："><a href="#2-确认GCC的版本，进入终端命令如下：" class="headerlink" title="2.确认GCC的版本，进入终端命令如下："></a>2.确认GCC的版本，进入终端命令如下：</h2><pre class="line-numbers language-none"><code class="language-none">yum install gcc
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/002.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/002.png" alt="img"></a></p>
-<ul>
-<li>安装MySQL服务（这个过程可能有点慢）</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">yum -y install mysql-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+gcc -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/003.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/003.png" alt="img"></a></p>
-<h3 id="5-启动MySQL"><a href="#5-启动MySQL" class="headerlink" title="5 启动MySQL"></a>5 启动MySQL</h3><pre class="line-numbers language-none"><code class="language-none">systemctl start mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装Redis6.0需要将gcc版本升级到5.3以上，则升级gcc命令如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">yum -y install centos-release-scl
+yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
+#临时修改gcc版本
+scl enable devtoolset-9 bash
+#永久修改gcc版本
+echo &quot;source &#x2F;opt&#x2F;rh&#x2F;devtoolset-9&#x2F;enable&quot; &gt;&gt;&#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="6-修改MySQL临时密码"><a href="#6-修改MySQL临时密码" class="headerlink" title="6 修改MySQL临时密码"></a>6 修改MySQL临时密码</h2><p>MySQL安装成功后会有一个临时密码，我们可以使用<code>grep</code>命令查看临时密码先登录进去MySQL，然后修改MySQL密码。</p>
-<h3 id="7-获取MySQL临时密码"><a href="#7-获取MySQL临时密码" class="headerlink" title="7 获取MySQL临时密码"></a>7 获取MySQL临时密码</h3><pre class="line-numbers language-none"><code class="language-none">grep &#39;temporary password&#39; &#x2F;var&#x2F;log&#x2F;mysqld.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行完成后，再次查看gcc的版本</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png" alt="img"></a></p>
+<h2 id="3-编译redis"><a href="#3-编译redis" class="headerlink" title="3.编译redis"></a>3.编译redis</h2><p>进入redis解压后的目录</p>
+<p>编译</p>
+<pre class="line-numbers language-none"><code class="language-none">make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/004.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/004.png" alt="img"></a></p>
-<h3 id="8-使用临时密码先登录"><a href="#8-使用临时密码先登录" class="headerlink" title="8 使用临时密码先登录"></a>8 使用临时密码先登录</h3><pre class="line-numbers language-none"><code class="language-none">mysql -uroot -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png" alt="img"></a></p>
+<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><p>绑定所有ip，后台方式运行进程，设置密码</p>
+<pre class="line-numbers language-none"><code class="language-none">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>#允许任何ip都可以连接</p>
+<pre class="line-numbers language-none"><code class="language-none">bind 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#允许后台运行</p>
+<pre class="line-numbers language-none"><code class="language-none">daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>#保护模式</p>
 <blockquote>
-<p>我的临时密码是：a22XRJ88=+a;</p>
+<p>redis3.2版本后新增protected-mode配置，默认是yes，即开启。设置外部网络连接redis服务，设置方式如下： 1、关闭protected-mode模式，此时外部网络可以直接访问 2、开启protected-mode保护模式，需配置bind ip或者设置访问密码</p>
 </blockquote>
-<h3 id="10-把MySQL的密码校验强度改为低风险"><a href="#10-把MySQL的密码校验强度改为低风险" class="headerlink" title="10 把MySQL的密码校验强度改为低风险"></a>10 把MySQL的密码校验强度改为低风险</h3><pre class="line-numbers language-none"><code class="language-none">set global validate_password_policy&#x3D;LOW;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>默认是开启的，需要再启用密码配置如下：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">requirepass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="11-修改MySQL的密码长度"><a href="#11-修改MySQL的密码长度" class="headerlink" title="11 修改MySQL的密码长度"></a>11 修改MySQL的密码长度</h3><pre class="line-numbers language-none"><code class="language-none">set global validate_password_length&#x3D;5;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>或者关闭保护模式，无需密码设置</p>
+<h2 id="5-启动redis，带上配置文件"><a href="#5-启动redis，带上配置文件" class="headerlink" title="5.启动redis，带上配置文件"></a>5.启动redis，带上配置文件</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost redis-6.0.9]#.&#x2F;src&#x2F;redis-server redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="12-修改MySQL密码"><a href="#12-修改MySQL密码" class="headerlink" title="12 修改MySQL密码"></a>12 修改MySQL密码</h3><pre class="line-numbers language-none"><code class="language-none">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;admin&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="13-允许远程访问"><a href="#13-允许远程访问" class="headerlink" title="13 允许远程访问"></a>13 允许远程访问</h2><h3 id="首先要关闭Cenots的防火墙"><a href="#首先要关闭Cenots的防火墙" class="headerlink" title="首先要关闭Cenots的防火墙"></a>首先要关闭Cenots的防火墙</h3><pre class="line-numbers language-none"><code class="language-none">sudo systemctl disable firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="修改MySQL允许任何人连接"><a href="#修改MySQL允许任何人连接" class="headerlink" title="修改MySQL允许任何人连接"></a>修改MySQL允许任何人连接</h3><p>1）首先登录MySQL</p>
-<pre class="line-numbers language-none"><code class="language-none">mysql -uroot -padmin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>2）切换到mysql数据</p>
-<pre class="line-numbers language-none"><code class="language-none">use mysql;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>3）查看user表</p>
-<pre class="line-numbers language-none"><code class="language-none">select Host,User from user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/005.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/005.png" alt="img"></a></p>
-<p>发现<code>root</code>用户只允许<code>localhost</code>主机登录登录。</p>
-</blockquote>
-<p>4）修改为允许任何地址访问</p>
-<pre class="line-numbers language-none"><code class="language-none">update user set Host&#x3D;&#39;%&#39; where User&#x3D;&#39;root&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>5）刷新权限</p>
-<pre class="line-numbers language-none"><code class="language-none">flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="14-防火墙开放3306端口"><a href="#14-防火墙开放3306端口" class="headerlink" title="14 防火墙开放3306端口"></a>14 防火墙开放3306端口</h3><pre class="line-numbers language-none"><code class="language-none">firewall-cmd --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp --permanentfirewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/006.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/006.png" alt="img"></a></p>
-<h2 id="15-设置字符集"><a href="#15-设置字符集" class="headerlink" title="15 设置字符集"></a>15 设置字符集</h2><p>修改/etc/my.cnf配置文件，在[mysqld]下添加编码配置</p>
-<pre class="line-numbers language-none"><code class="language-none">character_set_server&#x3D;utf8init_connect&#x3D;&#39;SET NAMES utf8&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/007.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/007.png" alt="img"></a></p>
-<h2 id="17重启MySQL"><a href="#17重启MySQL" class="headerlink" title="17重启MySQL"></a>17重启MySQL</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost data]# systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="登录root用户查看编码"><a href="#登录root用户查看编码" class="headerlink" title="登录root用户查看编码"></a>登录root用户查看编码</h3><pre class="line-numbers language-none"><code class="language-none">show variables like &#39;char%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/008.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/008.png" alt="img"></a></p>
-<h2 id="18-远程工具连接"><a href="#18-远程工具连接" class="headerlink" title="18 远程工具连接"></a>18 远程工具连接</h2><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/009.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/009.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/010.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/010.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/011.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/011.png" alt="img"></a></p>
-]]></content>
+<h2 id="6-命令行客户端连接"><a href="#6-命令行客户端连接" class="headerlink" title="6.命令行客户端连接"></a>6.命令行客户端连接</h2><p>输入密码</p>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost redis-6.0.9]# .&#x2F;src&#x2F;redis-cli
+127.0.0.1:6379&gt; auth 123456
+OK
+127.0.0.1:6379&gt; set a b
+OK
+127.0.0.1:6379&gt; get a
+&quot;b&quot;
+127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -725,72 +791,6 @@
 &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CentOS安装Redis</title>
-    <url>/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/</url>
-    <content><![CDATA[<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><h3 id="1-1下载安装包"><a href="#1-1下载安装包" class="headerlink" title="1.1下载安装包"></a>1.1下载安装包</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-11-07.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-15-08.png" alt="img"></a></p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我这里是解压并放在redis这个目录下</p>
-<h3 id="1-2在线下载"><a href="#1-2在线下载" class="headerlink" title="1.2在线下载"></a>1.2在线下载</h3><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-45-08.png" alt="img"></a></p>
-<pre class="line-numbers language-none"><code class="language-none">[kite@localhost redis]# wget https:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-06-51.png" alt="img"></a></p>
-<p>然后解压</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf redis-6.0.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="2-确认GCC的版本，进入终端命令如下："><a href="#2-确认GCC的版本，进入终端命令如下：" class="headerlink" title="2.确认GCC的版本，进入终端命令如下："></a>2.确认GCC的版本，进入终端命令如下：</h2><pre class="line-numbers language-none"><code class="language-none">yum install gcc
-
-gcc -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>安装Redis6.0需要将gcc版本升级到5.3以上，则升级gcc命令如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">yum -y install centos-release-scl
-yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
-#临时修改gcc版本
-scl enable devtoolset-9 bash
-#永久修改gcc版本
-echo &quot;source &#x2F;opt&#x2F;rh&#x2F;devtoolset-9&#x2F;enable&quot; &gt;&gt;&#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>执行完成后，再次查看gcc的版本</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-53-34.png" alt="img"></a></p>
-<h2 id="3-编译redis"><a href="#3-编译redis" class="headerlink" title="3.编译redis"></a>3.编译redis</h2><p>进入redis解压后的目录</p>
-<p>编译</p>
-<pre class="line-numbers language-none"><code class="language-none">make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/Snipaste_2020-11-02_09-58-56.png" alt="img"></a></p>
-<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><p>绑定所有ip，后台方式运行进程，设置密码</p>
-<pre class="line-numbers language-none"><code class="language-none">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#允许任何ip都可以连接</p>
-<pre class="line-numbers language-none"><code class="language-none">bind 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#允许后台运行</p>
-<pre class="line-numbers language-none"><code class="language-none">daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>#保护模式</p>
-<blockquote>
-<p>redis3.2版本后新增protected-mode配置，默认是yes，即开启。设置外部网络连接redis服务，设置方式如下： 1、关闭protected-mode模式，此时外部网络可以直接访问 2、开启protected-mode保护模式，需配置bind ip或者设置访问密码</p>
-</blockquote>
-<p><strong>默认是开启的，需要再启用密码配置如下：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">requirepass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>或者关闭保护模式，无需密码设置</p>
-<h2 id="5-启动redis，带上配置文件"><a href="#5-启动redis，带上配置文件" class="headerlink" title="5.启动redis，带上配置文件"></a>5.启动redis，带上配置文件</h2><pre class="line-numbers language-none"><code class="language-none">[root@localhost redis-6.0.9]#.&#x2F;src&#x2F;redis-server redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="6-命令行客户端连接"><a href="#6-命令行客户端连接" class="headerlink" title="6.命令行客户端连接"></a>6.命令行客户端连接</h2><p>输入密码</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@localhost redis-6.0.9]# .&#x2F;src&#x2F;redis-cli
-127.0.0.1:6379&gt; auth 123456
-OK
-127.0.0.1:6379&gt; set a b
-OK
-127.0.0.1:6379&gt; get a
-&quot;b&quot;
-127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>linux</category>
       </categories>
   </entry>
   <entry>
@@ -1190,6 +1190,36 @@ OK
       </categories>
   </entry>
   <entry>
+    <title>初探JVM---3</title>
+    <url>/2020/11/23/2020-11-23-%E5%88%9D%E6%8E%A2JVM---3/</url>
+    <content><![CDATA[<h1 id="三种JVM"><a href="#三种JVM" class="headerlink" title="三种JVM"></a>三种JVM</h1><ul>
+<li>Sun公司 HotSpot Java HotSpot™ 64-Bit Server VM 18.9 (build 11.0.5+10-LTS, mixed mode)</li>
+<li>BEA JRokit 号称最快的JVM</li>
+<li>IBM J9VM</li>
+</ul>
+<h1 id="堆Heap"><a href="#堆Heap" class="headerlink" title="堆Heap"></a>堆Heap</h1><p>一个JVM只有一个Heap，堆内存的大小是可以调节的。</p>
+<p>类加载器读取了类文件后，一般会把什么东西放到堆中呢？类、方法、常量、变量，保存引用类型的真实对象</p>
+<p>堆内存中还要细分三个区域：</p>
+<h2 id="新生区（伊甸园区）Young-New"><a href="#新生区（伊甸园区）Young-New" class="headerlink" title="新生区（伊甸园区）Young/New"></a>新生区（伊甸园区）Young/New</h2><p>类：诞生、成长、死亡的地方</p>
+<p>伊甸园区：所有的对象都是在伊甸园区new出来的</p>
+<p>幸存者（0/1）区：轻GC之后，仍然留下的对象会来到幸存者区，其中0区与1区是动态可交换的</p>
+<p>当一个对象经历了15次（默认值）GC，还没有被清除，则会从新生区进入老年区</p>
+<h2 id="养老区-Old"><a href="#养老区-Old" class="headerlink" title="养老区 Old"></a>养老区 Old</h2><p>重GC之后，仍然留下的对象回来到养老区</p>
+<h2 id="永久区-Perm"><a href="#永久区-Perm" class="headerlink" title="永久区 Perm"></a>永久区 Perm</h2><p>这个区域常驻内存的，用来存放JDK自身携带的Class对象，Interface元数据，存储的是java运行时环境或类信息。这个区域不存在垃圾回收。关闭虚拟机就会释放永久区。</p>
+<p>当一个启动类加载了大量的第三方jar包。Tomcat部署了太多的应用，大量动态生成的反射类，不断的被加载，直到内存满，就会出现OOM；</p>
+<ul>
+<li>JDK1.6之前：永久代，常量池在方法区中</li>
+<li>JDK1.7：永久代，但是慢慢的退化了（去永久代），常量池在堆中</li>
+<li>JDK1.8之后：无永久代-&gt;元空间，常量池在元空间</li>
+</ul>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123220614337.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123220614337.png" alt="image-20201123220614337"></a></p>
+<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
+]]></content>
+      <categories>
+        <category>jvm</category>
+      </categories>
+  </entry>
+  <entry>
     <title>初探JVM---4</title>
     <url>/2020/11/23/2020-11-23-%E5%88%9D%E6%8E%A2JVM---4/</url>
     <content><![CDATA[<p>GC垃圾回收主要针对伊甸园区与养老区</p>
@@ -1404,36 +1434,6 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
       </categories>
   </entry>
   <entry>
-    <title>初探JVM---3</title>
-    <url>/2020/11/23/2020-11-23-%E5%88%9D%E6%8E%A2JVM---3/</url>
-    <content><![CDATA[<h1 id="三种JVM"><a href="#三种JVM" class="headerlink" title="三种JVM"></a>三种JVM</h1><ul>
-<li>Sun公司 HotSpot Java HotSpot™ 64-Bit Server VM 18.9 (build 11.0.5+10-LTS, mixed mode)</li>
-<li>BEA JRokit 号称最快的JVM</li>
-<li>IBM J9VM</li>
-</ul>
-<h1 id="堆Heap"><a href="#堆Heap" class="headerlink" title="堆Heap"></a>堆Heap</h1><p>一个JVM只有一个Heap，堆内存的大小是可以调节的。</p>
-<p>类加载器读取了类文件后，一般会把什么东西放到堆中呢？类、方法、常量、变量，保存引用类型的真实对象</p>
-<p>堆内存中还要细分三个区域：</p>
-<h2 id="新生区（伊甸园区）Young-New"><a href="#新生区（伊甸园区）Young-New" class="headerlink" title="新生区（伊甸园区）Young/New"></a>新生区（伊甸园区）Young/New</h2><p>类：诞生、成长、死亡的地方</p>
-<p>伊甸园区：所有的对象都是在伊甸园区new出来的</p>
-<p>幸存者（0/1）区：轻GC之后，仍然留下的对象会来到幸存者区，其中0区与1区是动态可交换的</p>
-<p>当一个对象经历了15次（默认值）GC，还没有被清除，则会从新生区进入老年区</p>
-<h2 id="养老区-Old"><a href="#养老区-Old" class="headerlink" title="养老区 Old"></a>养老区 Old</h2><p>重GC之后，仍然留下的对象回来到养老区</p>
-<h2 id="永久区-Perm"><a href="#永久区-Perm" class="headerlink" title="永久区 Perm"></a>永久区 Perm</h2><p>这个区域常驻内存的，用来存放JDK自身携带的Class对象，Interface元数据，存储的是java运行时环境或类信息。这个区域不存在垃圾回收。关闭虚拟机就会释放永久区。</p>
-<p>当一个启动类加载了大量的第三方jar包。Tomcat部署了太多的应用，大量动态生成的反射类，不断的被加载，直到内存满，就会出现OOM；</p>
-<ul>
-<li>JDK1.6之前：永久代，常量池在方法区中</li>
-<li>JDK1.7：永久代，但是慢慢的退化了（去永久代），常量池在堆中</li>
-<li>JDK1.8之后：无永久代-&gt;元空间，常量池在元空间</li>
-</ul>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123220614337.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123220614337.png" alt="image-20201123220614337"></a></p>
-<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
-]]></content>
-      <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
     <title>初探JVM</title>
     <url>/2020/11/23/2020-11-23-%E5%88%9D%E6%8E%A2JVM/</url>
     <content><![CDATA[<h1 id="1-JVM的位置"><a href="#1-JVM的位置" class="headerlink" title="1. JVM的位置"></a>1. JVM的位置</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215348517.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215348517.png" alt="img"></a></p>
@@ -1529,23 +1529,6 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
 ]]></content>
       <categories>
         <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>mybatis对于MySQL8.0的配置</title>
-    <url>/2020/11/25/2020-11-25-mybatis%E5%AF%B9%E4%BA%8EMySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>版本的不同，8.0的驱动和url变为：<br><strong>com.mysql.cj.jdbc.Driver</strong></p>
-<p><strong>jdbc:mysql://localhost:3306/firstsql?characterEncoding=utf-8&amp;&amp;serverTimezone=UTC&amp;&amp;useSSL=false</strong></p>
-<p>驱动：*<strong>jar：mysql-connector-java-8.0.11.jar*</strong></p>
-<p>但在****mybatis****中用以上配置报错：</p>
-<p><strong>对实体 “serverTimezone” 的引用必须以 ‘;’ 分隔符结尾。</strong><br>解决方法：<br>改为&amp;；<br>useUnicode=true&amp;；serverTimezone=GMT&amp;；useSSL=fals</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&lt;property name&#x3D;&quot;driver&quot; value&#x3D;&quot;com.mysql.cj.jdbc.Driver&quot;&#x2F;&gt;
-&lt;!-- 后面的参数不能省略，&amp;符号需要使用&quot;&amp; amp;&quot;转义（注意中间没有空格） --&gt;
-&lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;firstsql?useUnicode&#x3D;true&amp;serverTimezone&#x3D;GMT&amp;useSSL&#x3D;false&quot;&#x2F;&gt;
-&lt;property name&#x3D;&quot;username&quot; value&#x3D;&quot;root&quot;&#x2F;&gt;
-&lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;*********&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>mysql</category>
       </categories>
   </entry>
   <entry>
@@ -1996,6 +1979,23 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
 ]]></content>
       <categories>
         <category>DesignPattern</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>mybatis对于MySQL8.0的配置</title>
+    <url>/2020/11/25/2020-11-25-mybatis%E5%AF%B9%E4%BA%8EMySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>版本的不同，8.0的驱动和url变为：<br><strong>com.mysql.cj.jdbc.Driver</strong></p>
+<p><strong>jdbc:mysql://localhost:3306/firstsql?characterEncoding=utf-8&amp;&amp;serverTimezone=UTC&amp;&amp;useSSL=false</strong></p>
+<p>驱动：*<strong>jar：mysql-connector-java-8.0.11.jar*</strong></p>
+<p>但在****mybatis****中用以上配置报错：</p>
+<p><strong>对实体 “serverTimezone” 的引用必须以 ‘;’ 分隔符结尾。</strong><br>解决方法：<br>改为&amp;；<br>useUnicode=true&amp;；serverTimezone=GMT&amp;；useSSL=fals</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&lt;property name&#x3D;&quot;driver&quot; value&#x3D;&quot;com.mysql.cj.jdbc.Driver&quot;&#x2F;&gt;
+&lt;!-- 后面的参数不能省略，&amp;符号需要使用&quot;&amp; amp;&quot;转义（注意中间没有空格） --&gt;
+&lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;firstsql?useUnicode&#x3D;true&amp;serverTimezone&#x3D;GMT&amp;useSSL&#x3D;false&quot;&#x2F;&gt;
+&lt;property name&#x3D;&quot;username&quot; value&#x3D;&quot;root&quot;&#x2F;&gt;
+&lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;*********&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>mysql</category>
       </categories>
   </entry>
   <entry>
@@ -2464,6 +2464,126 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>实现多线程同步下载图片</title>
+    <url>/2021/03/20/2021-03-20-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>下载commons-io-2.8.0.jar到项目的lib目录并Add as Library</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320133223477.png" alt="image-20210320133223477"></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">FileUtils</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span>URL<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Thread01</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> url<span class="token punctuation">;</span>      <span class="token comment">//网络图片地址</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>     <span class="token comment">//保存的文件名</span>
+
+    <span class="token keyword">public</span>  <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">//下载图片线程的执行体</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">WebDownloader</span> webDownloader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        webDownloader<span class="token punctuation">.</span><span class="token function">downloader</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"下载了文件名为:"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Thread01</span> t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/kite01.png"</span><span class="token punctuation">,</span><span class="token string">"1.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread01</span> t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/fog-1850228_1920-1606229124305.jpg"</span><span class="token punctuation">,</span><span class="token string">"2.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread01</span> t3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/bg-745f2ad.jpg"</span><span class="token punctuation">,</span><span class="token string">"3.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t3<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//下载方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">downloader</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">copyURLToFile</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">URL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"IO异常,downloader方法出现问题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出结果：</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132836982.png" alt="image-20210320132836982"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>反射.注解---分析类初始化</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="什么时候会发生类初始化？"><a href="#什么时候会发生类初始化？" class="headerlink" title="什么时候会发生类初始化？"></a>什么时候会发生类初始化？</h3><h4 id="类的主动引用（一定会发生类的初始化）"><a href="#类的主动引用（一定会发生类的初始化）" class="headerlink" title="类的主动引用（一定会发生类的初始化）"></a>类的主动引用（一定会发生类的初始化）</h4><ul>
+<li>当虚拟机启动，先初始化main方法所在的类</li>
+<li>new一个类的对象</li>
+<li>调用类的静态成员（除了final常量）和静态方法</li>
+<li>使用java.lang.reflect包的方法对类进行反射调用</li>
+<li>当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类</li>
+</ul>
+<h4 id="类的被动引用（不会发生类的初始化）"><a href="#类的被动引用（不会发生类的初始化）" class="headerlink" title="类的被动引用（不会发生类的初始化）"></a>类的被动引用（不会发生类的初始化）</h4><ul>
+<li>当访问一个静态域时，只有真正声明这个域的类才会被初始化。如：当通过子类引用父类的静态变量，不会导致子类初始化</li>
+<li>通过数组定义类引用，不会触发此类的初始化</li>
+<li>引用常量不会触发此类的初始化（常量在链接阶段就存入调用类的常量池中了）</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test02</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//1.主动引用</span>
+        <span class="token comment">// Son son = new Son();</span>
+
+        <span class="token comment">//反射也会产生引用</span>
+        <span class="token comment">//Class.forName("test.Son");</span>
+
+        <span class="token comment">//不会产生类的引用的方法</span>
+        <span class="token comment">//System.out.println(Son.b);</span>
+        <span class="token comment">//Son[] array = new Son[5];</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Son<span class="token punctuation">.</span>M</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span>  <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"父类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"子类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token class-name">M</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
     <title>多线程---模拟龟兔赛跑</title>
     <url>/2021/03/20/2021-03-20-%E5%A4%9A%E7%BA%BF%E7%A8%8B---%E6%A8%A1%E6%8B%9F%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91/</url>
     <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Race</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
@@ -2524,59 +2644,219 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>实现多线程同步下载图片</title>
-    <url>/2021/03/20/2021-03-20-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<p>下载commons-io-2.8.0.jar到项目的lib目录并Add as Library</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320133223477.png" alt="image-20210320133223477"></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">FileUtils</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span>URL<span class="token punctuation">;</span>
+    <title>反射.注解---反射操作注解</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%8F%8D%E5%B0%84%E6%93%8D%E4%BD%9C%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Thread01</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Field</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">private</span> <span class="token class-name">String</span> url<span class="token punctuation">;</span>      <span class="token comment">//网络图片地址</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>     <span class="token comment">//保存的文件名</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test04</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span><span class="token punctuation">,</span> <span class="token class-name">NoSuchFieldException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Class</span> c1 <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"test.Studen2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">public</span>  <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    
-    <span class="token comment">//下载图片线程的执行体</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">WebDownloader</span> webDownloader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        webDownloader<span class="token punctuation">.</span><span class="token function">downloader</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"下载了文件名为:"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+        <span class="token comment">//通过反射获得注解</span>
+        <span class="token class-name">Annotation</span><span class="token punctuation">[</span><span class="token punctuation">]</span> annotations <span class="token operator">=</span> c1<span class="token punctuation">.</span><span class="token function">getAnnotations</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Annotation</span> annotation <span class="token operator">:</span> annotations<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>annotation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
 
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Thread01</span> t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/kite01.png"</span><span class="token punctuation">,</span><span class="token string">"1.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Thread01</span> t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/fog-1850228_1920-1606229124305.jpg"</span><span class="token punctuation">,</span><span class="token string">"2.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Thread01</span> t3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/bg-745f2ad.jpg"</span><span class="token punctuation">,</span><span class="token string">"3.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//获得注解的value的值</span>
+        <span class="token class-name">Tableming</span> tableming <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Tableming</span><span class="token punctuation">)</span>c1<span class="token punctuation">.</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span><span class="token class-name">Tableming</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> value <span class="token operator">=</span> tableming<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t3<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+        <span class="token comment">//获得指定的注解</span>
+        <span class="token class-name">Field</span> f <span class="token operator">=</span> c1<span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Fieldming</span> annotation <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span><span class="token class-name">Fieldming</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>annotation<span class="token punctuation">.</span><span class="token function">columnName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>annotation<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>annotation<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">//下载方法</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">downloader</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">copyURLToFile</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">URL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"IO异常,downloader方法出现问题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token annotation punctuation">@Tableming</span><span class="token punctuation">(</span><span class="token string">"db_student"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Studen2</span><span class="token punctuation">&#123;</span>
 
-<p>输出结果：</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132836982.png" alt="image-20210320132836982"></p>
+    <span class="token annotation punctuation">@Fieldming</span><span class="token punctuation">(</span>columnName <span class="token operator">=</span> <span class="token string">"db_id"</span><span class="token punctuation">,</span>type <span class="token operator">=</span> <span class="token string">"int"</span><span class="token punctuation">,</span>length <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Fieldming</span><span class="token punctuation">(</span>columnName <span class="token operator">=</span> <span class="token string">"db_age"</span><span class="token punctuation">,</span>type <span class="token operator">=</span> <span class="token string">"int"</span><span class="token punctuation">,</span>length <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Fieldming</span><span class="token punctuation">(</span>columnName <span class="token operator">=</span> <span class="token string">"db_name"</span><span class="token punctuation">,</span>type <span class="token operator">=</span> <span class="token string">"varchar"</span><span class="token punctuation">,</span>length <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Studen2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Studen2</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> id<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> age<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setId</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"Studen2&#123;"</span> <span class="token operator">+</span>
+                <span class="token string">"id="</span> <span class="token operator">+</span> id <span class="token operator">+</span>
+                <span class="token string">", age="</span> <span class="token operator">+</span> age <span class="token operator">+</span>
+                <span class="token string">", name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">'&#125;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//类名的注解</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@interface</span> <span class="token class-name">Tableming</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//属性的注解</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>FIELD<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@interface</span> <span class="token class-name">Fieldming</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> <span class="token function">columnName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000847850.png" alt="image-20210321000847850"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>反射.注解---类加载内存分析</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/*
+        1.加载到内存,会产生一个类对应Class对象
+        2.链接,链接结束后 m = 0;
+        3.初始化
+          &lt;clinit>()&#123;
+          System.out.println("A类静态代码块初始化");
+           m = 300;
+           m = 100;
+
+         */</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类静态代码块初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/*
+    m = 300;
+    m = 100;
+     */</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类的无参构造初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000134646.png" alt="image-20210321000134646"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>反射.注解---类加载器</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test03</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span> <span class="token punctuation">&#123;</span>
+
+
+        <span class="token comment">//获取系统类的加载器</span>
+        <span class="token class-name">ClassLoader</span> systemClassLoader <span class="token operator">=</span> <span class="token class-name">ClassLoader</span><span class="token punctuation">.</span><span class="token function">getSystemClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>systemClassLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//获取系统类加载器的父类加载器-->扩展类加载器</span>
+        <span class="token class-name">ClassLoader</span> parent <span class="token operator">=</span> systemClassLoader<span class="token punctuation">.</span><span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//获取扩展类加载器的父类加载器-->根加载器(C/C++)</span>
+        <span class="token class-name">ClassLoader</span> parent1 <span class="token operator">=</span> parent<span class="token punctuation">.</span><span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>parent1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//测试当前类是哪个加载器的</span>
+        <span class="token class-name">ClassLoader</span> classLoader <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"test.Test03"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//测试JDK内置的类是谁加载的</span>
+        classLoader <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"java.lang.Object"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//如何获得系统加载器可以加载的路径</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"java.class.path"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/*
+
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\charsets.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\deploy.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\access-bridge-64.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\cldrdata.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\dnsns.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\jaccess.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\jfxrt.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\localedata.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\nashorn.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\sunec.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\sunjce_provider.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\sunmscapi.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\sunpkcs11.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext\zipfs.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\javaws.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\jce.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfr.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfxswt.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\jsse.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\management-agent.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\plugin.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\resources.jar;
+       C:\Program Files\Java\jdk1.8.0_131\jre\lib\rt.jar;
+       D:\xiangmu\TestThread1\out\production\TestThread1;
+       D:\xiangmu\TestThread1\src\lib\commons-io-2.8.0.jar;
+       D:\IntelliJ IDEA 2020.3.2\lib\idea_rt.jar
+*/</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000522458.png" alt="image-20210321000522458"></p>
 ]]></content>
       <categories>
         <category>java</category>
@@ -2772,6 +3052,33 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 ]]></content>
   </entry>
   <entry>
+    <title>激活 IntelliJ IDEA 2020.3.2</title>
+    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
+<p>密码：e3ee</p>
+<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
+<p>2.在idea跟目录下随便建一个文件夹</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
+<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
+<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
+<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
+<p>6.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
+<p>7.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
+<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
+<p>最后再点击Activate</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
     <title>新建一个标准类</title>
     <url>/2020/04/08/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%A0%87%E5%87%86%E7%B1%BB/</url>
     <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">biaozhunlei</span><span class="token punctuation">;</span>
@@ -2837,33 +3144,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 
 <p>输出结果</p>
 <p><a href="https://gitee.com/ming0419/tuchuang/raw/master/202004081221309406966.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/202004081221309406966.png" alt="img"></a></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>激活 IntelliJ IDEA 2020.3.2</title>
-    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
-    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
-<p>密码：e3ee</p>
-<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
-<p>2.在idea跟目录下随便建一个文件夹</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
-<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
-<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
-<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
-<p>6.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
-<p>7.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
-<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
-<p>最后再点击Activate</p>
 ]]></content>
       <categories>
         <category>java</category>

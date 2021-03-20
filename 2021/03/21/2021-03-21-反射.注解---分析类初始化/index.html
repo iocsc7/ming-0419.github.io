@@ -11,34 +11,34 @@
   <meta charset="utf-8">
 
   
-  <title>Hexo</title>
+  <title>反射.注解---分析类初始化</title>
   
-  <link rel="canonical" href="http://example.com/page/2/">
+  <link rel="canonical" href="http://example.com/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/">
   
-  <meta name="description" content="">
+  <meta name="description" content="什么时候会发生类初始化？类的主动引用（一定会发生类的初始化） 当虚拟机启动，先初始化main方法所在的类 new一个类的对象 调用类的静态成员（除了final常量）和静态方法 使用java.lang.reflect包的方法对类进行反射调用 当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类">
   
   
   <meta name="author" content="John Doe">
   
-  <meta property="og:image" content="http://example.com/images/thumbnail.jpg">
+  <meta property="og:image" content="http://example.comundefined">
   
   <meta property="og:site_name" content="Hexo" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Hexo" />
+  <meta property="og:title" content="反射.注解---分析类初始化" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="什么时候会发生类初始化？类的主动引用（一定会发生类的初始化） 当虚拟机启动，先初始化main方法所在的类 new一个类的对象 调用类的静态成员（除了final常量）和静态方法 使用java.lang.reflect包的方法对类进行反射调用 当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类">
   
-  <meta property="og:url" content="http://example.com/page/2/" />
+  <meta property="og:url" content="http://example.com/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hexo">
+  <meta name="twitter:title" content="反射.注解---分析类初始化">
   
-  <meta name="twitter:description" content="">
+  <meta name="twitter:description" content="什么时候会发生类初始化？类的主动引用（一定会发生类的初始化） 当虚拟机启动，先初始化main方法所在的类 new一个类的对象 调用类的静态成员（除了final常量）和静态方法 使用java.lang.reflect包的方法对类进行反射调用 当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类">
   
   
-  <meta name="twitter:image" content="http://example.com/images/thumbnail.jpg">
+  <meta name="twitter:image" content="http://example.comundefined">
   
-  <meta name="twitter:url" content="http://example.com/page/2/" />
+  <meta name="twitter:url" content="http://example.com/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -193,104 +193,65 @@
 </div>
 
         <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">永远相信美好的事情即将发生😁</h2>
-    <p></p>
-    <p></p>
-  </div>
-</div>
+            <h2>反射.注解---分析类初始化</h2>
 
-<h3>Recent Posts</h3>
+  <h3 id="什么时候会发生类初始化？"><a href="#什么时候会发生类初始化？" class="headerlink" title="什么时候会发生类初始化？"></a>什么时候会发生类初始化？</h3><h4 id="类的主动引用（一定会发生类的初始化）"><a href="#类的主动引用（一定会发生类的初始化）" class="headerlink" title="类的主动引用（一定会发生类的初始化）"></a>类的主动引用（一定会发生类的初始化）</h4><ul>
+<li>当虚拟机启动，先初始化main方法所在的类</li>
+<li>new一个类的对象</li>
+<li>调用类的静态成员（除了final常量）和静态方法</li>
+<li>使用java.lang.reflect包的方法对类进行反射调用</li>
+<li>当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类</li>
+</ul>
+<h4 id="类的被动引用（不会发生类的初始化）"><a href="#类的被动引用（不会发生类的初始化）" class="headerlink" title="类的被动引用（不会发生类的初始化）"></a>类的被动引用（不会发生类的初始化）</h4><ul>
+<li>当访问一个静态域时，只有真正声明这个域的类才会被初始化。如：当通过子类引用父类的静态变量，不会导致子类初始化</li>
+<li>通过数组定义类引用，不会触发此类的初始化</li>
+<li>引用常量不会触发此类的初始化（常量在链接阶段就存入调用类的常量池中了）</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test02</span> <span class="token punctuation">&#123;</span>
 
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-<div class="row">
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//1.主动引用</span>
+        <span class="token comment">// Son son = new Son();</span>
 
-  <div class="three columns left lit">
-    <p class="bottom">Mar 21, 2021</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/" class="">
-      
-        反射.注解---分析类初始化
-      
-    </a>
-  </div>
-</div>
+        <span class="token comment">//反射也会产生引用</span>
+        <span class="token comment">//Class.forName("test.Son");</span>
 
-<div class="row">
+        <span class="token comment">//不会产生类的引用的方法</span>
+        <span class="token comment">//System.out.println(Son.b);</span>
+        <span class="token comment">//Son[] array = new Son[5];</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Son<span class="token punctuation">.</span>M</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-  <div class="three columns left lit">
-    <p class="bottom">Mar 21, 2021</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%8F%8D%E5%B0%84%E6%93%8D%E4%BD%9C%E6%B3%A8%E8%A7%A3/" class="">
-      
-        反射.注解---反射操作注解
-      
-    </a>
-  </div>
-</div>
+<span class="token keyword">class</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
 
-<div class="row">
+    <span class="token keyword">static</span> <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
-  <div class="three columns left lit">
-    <p class="bottom">Mar 21, 2021</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/" class="">
-      
-        反射.注解---类加载内存分析
-      
-    </a>
-  </div>
-</div>
+    <span class="token keyword">static</span>  <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"父类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-<div class="row">
+<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
 
-  <div class="three columns left lit">
-    <p class="bottom">Mar 21, 2021</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/" class="">
-      
-        反射.注解---类加载器
-      
-    </a>
-  </div>
-</div>
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"子类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-<div class="row">
+    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token class-name">M</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
-  <div class="three columns left lit">
-    <p class="bottom">Mar 20, 2021</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/03/20/2021-03-20-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="">
-      
-        创建线程池
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">Mar 20, 2021</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/03/20/2021-03-20-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="">
-      
-        创建线程的三种方式
-      
-    </a>
-  </div>
-</div>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4> <a href="/archives">All Posts</a></h4>
+  <p> — Mar 21, 2021</p>
+  
+
 
           <div class="row mt-2">
   
