@@ -11,34 +11,34 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - John Doe</title>
+  <title>使用yaml多环境配置</title>
   
-  <link rel="canonical" href="http://example.com/archives/page/4/">
+  <link rel="canonical" href="http://example.com/2021/03/21/2021-03-21-%E4%BD%BF%E7%94%A8yaml%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
   
-  <meta name="description" content="">
+  <meta name="description" content="application.yaml server:   port: 8081 spring:   profiles:     active: dve  --- server:   port: 8082 spring:   profiles: test        #提示被弃用   原因：简单的解释就">
   
   
   <meta name="author" content="John Doe">
   
-  <meta property="og:image" content="http://example.com/images/thumbnail.jpg">
+  <meta property="og:image" content="http://example.comundefined">
   
   <meta property="og:site_name" content="Hexo" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - John Doe" />
+  <meta property="og:title" content="使用yaml多环境配置" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="application.yaml server:   port: 8081 spring:   profiles:     active: dve  --- server:   port: 8082 spring:   profiles: test        #提示被弃用   原因：简单的解释就">
   
-  <meta property="og:url" content="http://example.com/archives/page/4/" />
+  <meta property="og:url" content="http://example.com/2021/03/21/2021-03-21-%E4%BD%BF%E7%94%A8yaml%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - John Doe">
+  <meta name="twitter:title" content="使用yaml多环境配置">
   
-  <meta name="twitter:description" content="">
+  <meta name="twitter:description" content="application.yaml server:   port: 8081 spring:   profiles:     active: dve  --- server:   port: 8082 spring:   profiles: test        #提示被弃用   原因：简单的解释就">
   
   
-  <meta name="twitter:image" content="http://example.com/images/thumbnail.jpg">
+  <meta name="twitter:image" content="http://example.comundefined">
   
-  <meta name="twitter:url" content="http://example.com/archives/page/4/" />
+  <meta name="twitter:url" content="http://example.com/2021/03/21/2021-03-21-%E4%BD%BF%E7%94%A8yaml%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -193,196 +193,37 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>使用yaml多环境配置</h2>
+
+  <p><code>application.yaml</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> dve
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8082</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span> test        <span class="token comment">#提示被弃用   原因：简单的解释就是：Spring Boot 2.4为了提升对Kubernetes的支持而作的修改。</span>
+						<span class="token comment">#首先这两种都是可以正常使用的，只是不推荐使用被弃用的，但是仍然都是可以正常使用。</span>
 
 
-    <article>
-      <div class="row">
+<span class="token comment">#推荐写法</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8083</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">activate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">on-profile</span><span class="token punctuation">:</span> dve
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-        <div class="three columns left lit">
-          <p class="bottom">Nov 17, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/11/17/2020-11-17-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6/" class="">
-            
-              双亲委派机制
-            
-          </a>
-        </div>
-      </div>
-    </article>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43883917/article/details/114025528?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161634068316780269835054%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161634068316780269835054&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-7-114025528.pc_search_result_before_js&utm_term=spring:+++profiles:">被弃用-&gt;原文：</a></p>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Nov 15, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" class="">
-            
-              上传项目到github
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Nov 12, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/11/12/2020-11-12-%E7%94%A8Vue%E8%B7%AF%E7%94%B1%E6%A8%A1%E6%8B%9F%E4%BA%AC%E4%B8%9C%E5%AF%BC%E8%88%AA%E6%9D%A1/" class="">
-            
-              用Vue路由模拟京东导航条
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Nov 2, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Mysql/" class="">
-            
-              CentOS安装Mysql
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Nov 2, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/11/02/2020-11-02-CentOS%E5%AE%89%E8%A3%85Redis/" class="">
-            
-              CentOS安装Redis
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Sep 17, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/17/2020-09-17-Vue/" class="">
-            
-              Vue
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Sep 17, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/17/2020-09-17-v-for/" class="">
-            
-              v-for
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Sep 17, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/17/2020-09-17-class%E6%A0%B7%E5%BC%8F/" class="">
-            
-              class样式
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Sep 17, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/17/2020-09-17-v-mode/" class="">
-            
-              v-mode
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Sep 17, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/17/2020-09-17-%E7%94%A8Vue%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8/" class="">
-            
-              用Vue编写一个简易计算器
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-
-    <a class="mr" href="/archives/page/3/">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-      </svg>
-      <span>Recent</span>
-    </a>
-
-    
-    
-
-    <a class="" href="/archives/page/5/">
-      <span>Older</span>
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
-      </svg>
-    </a>
-
-    
-  </ul>
-</div>
+  <p> — Mar 21, 2021</p>
+  
 
 
           <div class="row mt-2">
