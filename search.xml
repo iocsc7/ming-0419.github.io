@@ -3344,7 +3344,7 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">spring:
   datasource:
     username: root
-    password: ming000419
+    password: 123456
     #?serverTimezone&#x3D;UTC解决时区的报错
     url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;auctiondb?serverTimezone&#x3D;UTC&amp;useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -6476,7 +6476,7 @@ INSERT INTO user VALUES (7, &#39;王小花&#39;, 1000);<span aria-hidden="true" 
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">spring:
   datasource:
     username: root        
-    password: 				 #根据自己配置填写
+    password: 123456				 #根据自己配置填写
     #?serverTimezone&#x3D;UTC解决时区的报错
     url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;auctiondb?serverTimezone&#x3D;UTC&amp;useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
