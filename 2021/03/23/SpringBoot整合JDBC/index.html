@@ -15,7 +15,7 @@
   
   <link rel="canonical" href="http://example.com/2021/03/23/SpringBoot%E6%95%B4%E5%90%88JDBC/">
   
-  <meta name="description" content="1.编写yml配置文件连接数据库 spring:   datasource:     username: root     password: 123456     #?serverTimezone&amp;#x3D;UTC解决时区的报错     url: jdbc:mysql:&amp;#x2F;&amp;#x2F;lo">
+  <meta name="description" content="1.编写yml配置文件连接数据库 spring:   datasource:     username: root     password: 123456     #?serverTimezone=UTC解决时区的报错     url: jdbc:mysql://localhost:3306/au">
   
   
   <meta name="author" content="John Doe">
@@ -26,14 +26,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="SpringBoot整合JDBC" />
   
-  <meta property="og:description" content="1.编写yml配置文件连接数据库 spring:   datasource:     username: root     password: 123456     #?serverTimezone&amp;#x3D;UTC解决时区的报错     url: jdbc:mysql:&amp;#x2F;&amp;#x2F;lo">
+  <meta property="og:description" content="1.编写yml配置文件连接数据库 spring:   datasource:     username: root     password: 123456     #?serverTimezone=UTC解决时区的报错     url: jdbc:mysql://localhost:3306/au">
   
   <meta property="og:url" content="http://example.com/2021/03/23/SpringBoot%E6%95%B4%E5%90%88JDBC/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SpringBoot整合JDBC">
   
-  <meta name="twitter:description" content="1.编写yml配置文件连接数据库 spring:   datasource:     username: root     password: 123456     #?serverTimezone&amp;#x3D;UTC解决时区的报错     url: jdbc:mysql:&amp;#x2F;&amp;#x2F;lo">
+  <meta name="twitter:description" content="1.编写yml配置文件连接数据库 spring:   datasource:     username: root     password: 123456     #?serverTimezone=UTC解决时区的报错     url: jdbc:mysql://localhost:3306/au">
   
   
   <meta name="twitter:image" content="http://example.comundefined">
@@ -196,13 +196,13 @@
             <h2>SpringBoot整合JDBC</h2>
 
   <p><strong>1.编写yml配置文件连接数据库</strong></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">spring:
-  datasource:
-    username: root
-    password: 123456
-    #?serverTimezone&#x3D;UTC解决时区的报错
-    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;auctiondb?serverTimezone&#x3D;UTC&amp;useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8
-    driver-class-name: com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+    <span class="token comment">#?serverTimezone=UTC解决时区的报错</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/auctiondb<span class="token punctuation">?</span>serverTimezone=UTC<span class="token important">&amp;useUnicode=true&amp;characterEncoding=utf-</span><span class="token number">8</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>2.测试</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ming01<span class="token punctuation">.</span></span><span class="token class-name">Controller</span><span class="token punctuation">;</span>
