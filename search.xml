@@ -157,6 +157,89 @@
       </categories>
   </entry>
   <entry>
+    <title>v-for</title>
+    <url>/2020/09/17/2020-09-17-v-for/</url>
+    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>v-for指令<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token comment">&lt;!--  
+           v-for 指令 就是用来循环遍历数组数据 一般来说我们就是用在动态显示表格数据
+           学习前端：页面布局绘制（样式的编写）、数据的渲染（将从服务端获取的数据 渲染到页面）
+
+           v-for语法：
+               v-for="(item,index) in list"
+                   item指的是 循环后取出的每一项
+                   index表示的是 循环取出的每一项的下标（类似于数组的下标）
+                   in 表示你遍历的是哪个数组
+                   list  这个list名字就跟你遍历的数据的名称相同
+       --></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(item,index) in list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+           &#123;&#123;index&#125;&#125; -------------- &#123;&#123;item&#125;&#125;
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+       <span class="token comment">&lt;!-- 一般来说我们就是用在动态显示表格数据
+           一般来说 这边表格的数据 都是存放到服务器端的数据库
+           前端使用来展示 后台的存放在数据库中的数据 来实现这个动态网站的效果
+       --></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>明星列表<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">cellspacing</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">></span></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>序号<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>姓名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>年龄<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>性别<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>地址<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">></span></span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(item,index) in msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--vue执行的时候 会根据 v-for指令  来循环访问这个msg里面的数据--></span>
+               <span class="token comment">&lt;!--里面就是循环体的内容--></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.id&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.name&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.age&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.sex&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.address&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+           <span class="token comment">//如何将这里的数组数据 显示到页面中</span>
+           list<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'李四'</span><span class="token punctuation">,</span><span class="token string">'王五'</span><span class="token punctuation">,</span><span class="token string">'赵柳'</span><span class="token punctuation">,</span><span class="token string">'陆琪'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+           <span class="token comment">//假设 我这里的数据 是从服务器端获取</span>
+           <span class="token comment">//[]表示的是个数组</span>
+           <span class="token comment">//&#123;&#125;表示的是单个对象</span>
+           msg<span class="token operator">:</span><span class="token punctuation">[</span>
+               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'坤坤'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">23</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'中国篮球县'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'凡凡'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">24</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'加拿大电音县'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'涛涛'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'中国河南'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'晗晗'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">26</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'中国'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+
+           <span class="token punctuation">]</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
     <title>v-mode</title>
     <url>/2020/09/17/2020-09-17-v-mode/</url>
     <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -330,89 +413,6 @@
    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>v-for</title>
-    <url>/2020/09/17/2020-09-17-v-for/</url>
-    <content><![CDATA[<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>v-for指令<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--  
-           v-for 指令 就是用来循环遍历数组数据 一般来说我们就是用在动态显示表格数据
-           学习前端：页面布局绘制（样式的编写）、数据的渲染（将从服务端获取的数据 渲染到页面）
-
-           v-for语法：
-               v-for="(item,index) in list"
-                   item指的是 循环后取出的每一项
-                   index表示的是 循环取出的每一项的下标（类似于数组的下标）
-                   in 表示你遍历的是哪个数组
-                   list  这个list名字就跟你遍历的数据的名称相同
-       --></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(item,index) in list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-           &#123;&#123;index&#125;&#125; -------------- &#123;&#123;item&#125;&#125;
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-
-       <span class="token comment">&lt;!-- 一般来说我们就是用在动态显示表格数据
-           一般来说 这边表格的数据 都是存放到服务器端的数据库
-           前端使用来展示 后台的存放在数据库中的数据 来实现这个动态网站的效果
-       --></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>明星列表<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">cellspacing</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">></span></span>
-               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>序号<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>姓名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>年龄<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>性别<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>地址<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">></span></span>
-           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(item,index) in msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--vue执行的时候 会根据 v-for指令  来循环访问这个msg里面的数据--></span>
-               <span class="token comment">&lt;!--里面就是循环体的内容--></span>
-               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.id&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.name&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.age&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.sex&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>&#123;&#123;item.address&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-       el<span class="token operator">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-       data<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-           <span class="token comment">//如何将这里的数组数据 显示到页面中</span>
-           list<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'李四'</span><span class="token punctuation">,</span><span class="token string">'王五'</span><span class="token punctuation">,</span><span class="token string">'赵柳'</span><span class="token punctuation">,</span><span class="token string">'陆琪'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-           <span class="token comment">//假设 我这里的数据 是从服务器端获取</span>
-           <span class="token comment">//[]表示的是个数组</span>
-           <span class="token comment">//&#123;&#125;表示的是单个对象</span>
-           msg<span class="token operator">:</span><span class="token punctuation">[</span>
-               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'坤坤'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">23</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'中国篮球县'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'凡凡'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">24</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'加拿大电音县'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'涛涛'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'中国河南'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-               <span class="token punctuation">&#123;</span>id<span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span>name<span class="token operator">:</span><span class="token string">'晗晗'</span><span class="token punctuation">,</span>age<span class="token operator">:</span><span class="token number">26</span><span class="token punctuation">,</span>sex<span class="token operator">:</span><span class="token string">'男'</span><span class="token punctuation">,</span>address<span class="token operator">:</span><span class="token string">'中国'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-
-           <span class="token punctuation">]</span>
-       <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 ]]></content>
       <categories>
@@ -794,6 +794,44 @@ OK
       </categories>
   </entry>
   <entry>
+    <title>上传项目到github</title>
+    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
+    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
+<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
+<p><strong>3.并复制到</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
+<p><strong>4.首先是初始化本地仓库</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
+<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
+<p><strong>6.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
+<p><strong>7.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
+<p><strong>8.登录</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
+<p><strong>9.输入你github用户名账号</strong></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+  </entry>
+  <entry>
     <title>双亲委派机制</title>
     <url>/2020/11/17/2020-11-17-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/cmm0401/article/details/108808522?biz_id=102&utm_term=%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-108808522&spm=1018.2118.3001.4449">原文：CSDN博主风暴计划</a></p>
@@ -886,77 +924,6 @@ OK
       </categories>
   </entry>
   <entry>
-    <title>上传项目到github</title>
-    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
-    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<hr>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
-<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
-<p><strong>3.并复制到</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
-<p><strong>4.首先是初始化本地仓库</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
-<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
-<p><strong>6.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
-<p><strong>7.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
-<p><strong>8.登录</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
-<p><strong>9.输入你github用户名账号</strong></p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JVM详解 -&gt; native &amp; 方法区</title>
-    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
-    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
-<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
-<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
-<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
-<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
-<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
-</ul>
-<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
-<li><p>程序计数器：Program Counter Register</p>
-</li>
-<li><ul>
-<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
-<li><p>方法区：Method Area</p>
-</li>
-<li><ul>
-<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
-<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
-<li>static、final、Class模板、常量池</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
     <title>GC垃圾回收机制</title>
     <url>/2020/11/23/2020-11-23-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<p>不能手动回收，只能自动回收</p>
@@ -1020,6 +987,39 @@ OK
 <li>存活率高，区域大，使用标记清除+标记压缩</li>
 </ol>
 <p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
+]]></content>
+      <categories>
+        <category>jvm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JVM详解 -&gt; native &amp; 方法区</title>
+    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
+    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
+<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
+<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
+<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
+<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
+<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
+</ul>
+<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
+<li><p>程序计数器：Program Counter Register</p>
+</li>
+<li><ul>
+<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
+<li><p>方法区：Method Area</p>
+</li>
+<li><ul>
+<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
+<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
+<li>static、final、Class模板、常量池</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>jvm</category>
@@ -1466,208 +1466,6 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
 &lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;*********&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>mysql</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>抽象工厂模式</title>
-    <url>/2020/12/20/2020-12-20-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
-<p>**定义:**抽象工厂模式提供了一个创建一系列相关或者相互依赖对象的接口，无需指定它们具体的类</p>
-<p><strong>不可以增加产品，可以增加产品族！</strong></p>
-<p><strong>适用场景:</strong></p>
-<blockquote>
-<p>◆ 客户端（应用层）不依赖于产品类实例如何被创建、实现等细节<br>◆ 强调一系列相关的产品对象（属于同一产品族）一起使用创建对象需要大量的重复代码<br>◆ 提供一个产品类的库，所有的产品以同样的接口出现，从而使得客户端不依赖于具体的实现</p>
-</blockquote>
-<p><strong>优点:</strong></p>
-<blockquote>
-<p>◆ 具体产品在应用层的代码隔离，无需关心创建的细节<br>◆ 将一个系列的产品统一到一起创建</p>
-</blockquote>
-<p><strong>缺点:</strong></p>
-<blockquote>
-<p>◆ 规定了所有可能被创建的产品集合，产品族中扩展新的产品困难；<br>◆ 增加了系统的抽象性和理解难度</p>
-</blockquote>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220005949.jpg"><img src="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220005949.jpg" alt="QQ图片20201220005949"></a></p>
-<p>1.</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//手机产品接口</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IphoneProduct</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>2.</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//路由器产品接口</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IRouterProduct</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>3.</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//抽象产品工厂</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IProductFactory</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//生产手机</span>
-    <span class="token class-name">IphoneProduct</span> <span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//生产路由器</span>
-    <span class="token class-name">IRouterProduct</span> <span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//生产笔记本...</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>4.华为手机</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//华为手机</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuaweiPhone</span> <span class="token keyword">implements</span> <span class="token class-name">IphoneProduct</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"开启华为手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭华为手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"华为打电话"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"华为发短信"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>5.华为路由器</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//华为路由器</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuaweiRouter</span> <span class="token keyword">implements</span> <span class="token class-name">IRouterProduct</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动华为路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭华为路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"打开华为网络"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"华为设置"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>6.华为工厂</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuaweiFactory</span> <span class="token keyword">implements</span> <span class="token class-name">IProductFactory</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">IphoneProduct</span> <span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HuaweiPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">IRouterProduct</span> <span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HuaweiRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>7.小米手机</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//小米手机</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XiaomiPhone</span> <span class="token keyword">implements</span> <span class="token class-name">IphoneProduct</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"开启小米手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭小米手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小米打电话"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小米发短信"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>8.小米路由器</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token comment">//小米路由器</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XiaomiRouter</span> <span class="token keyword">implements</span> <span class="token class-name">IRouterProduct</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动小米路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭小米路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"打开小米网络"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小米设置"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>9.小米工厂</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XiaomiFactory</span> <span class="token keyword">implements</span> <span class="token class-name">IProductFactory</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">IphoneProduct</span> <span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">XiaomiPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">IRouterProduct</span> <span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">XiaomiRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>10.实现类</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"==============小米系列产品=============="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//小米工厂</span>
-        <span class="token class-name">XiaomiFactory</span> xiaomiFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XiaomiFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//小米手机</span>
-        <span class="token class-name">IphoneProduct</span> iphoneProduct <span class="token operator">=</span> xiaomiFactory<span class="token punctuation">.</span><span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iphoneProduct<span class="token punctuation">.</span><span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iphoneProduct<span class="token punctuation">.</span><span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iphoneProduct<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//小米路由</span>
-        <span class="token class-name">IRouterProduct</span> iRouterProduct <span class="token operator">=</span> xiaomiFactory<span class="token punctuation">.</span><span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iRouterProduct<span class="token punctuation">.</span><span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iRouterProduct<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"==============华为系列产品=============="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//华为工厂</span>
-        <span class="token class-name">HuaweiFactory</span> huaweiFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HuaweiFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//华为手机</span>
-        iphoneProduct <span class="token operator">=</span> huaweiFactory<span class="token punctuation">.</span><span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iphoneProduct<span class="token punctuation">.</span><span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iphoneProduct<span class="token punctuation">.</span><span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iphoneProduct<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//华为路由</span>
-        iRouterProduct <span class="token operator">=</span> huaweiFactory<span class="token punctuation">.</span><span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iRouterProduct<span class="token punctuation">.</span><span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        iRouterProduct<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201220011203030.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201220011203030.png" alt="image-20201220011203030"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220010052-1608397955459.jpg"><img src="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220010052-1608397955459.jpg" alt="QQ图片20201220010052"></a></p>
-]]></content>
-      <categories>
-        <category>DesignPattern</category>
       </categories>
   </entry>
   <entry>
@@ -2121,6 +1919,208 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
       </categories>
   </entry>
   <entry>
+    <title>抽象工厂模式</title>
+    <url>/2020/12/20/2020-12-20-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
+<p>**定义:**抽象工厂模式提供了一个创建一系列相关或者相互依赖对象的接口，无需指定它们具体的类</p>
+<p><strong>不可以增加产品，可以增加产品族！</strong></p>
+<p><strong>适用场景:</strong></p>
+<blockquote>
+<p>◆ 客户端（应用层）不依赖于产品类实例如何被创建、实现等细节<br>◆ 强调一系列相关的产品对象（属于同一产品族）一起使用创建对象需要大量的重复代码<br>◆ 提供一个产品类的库，所有的产品以同样的接口出现，从而使得客户端不依赖于具体的实现</p>
+</blockquote>
+<p><strong>优点:</strong></p>
+<blockquote>
+<p>◆ 具体产品在应用层的代码隔离，无需关心创建的细节<br>◆ 将一个系列的产品统一到一起创建</p>
+</blockquote>
+<p><strong>缺点:</strong></p>
+<blockquote>
+<p>◆ 规定了所有可能被创建的产品集合，产品族中扩展新的产品困难；<br>◆ 增加了系统的抽象性和理解难度</p>
+</blockquote>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220005949.jpg"><img src="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220005949.jpg" alt="QQ图片20201220005949"></a></p>
+<p>1.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//手机产品接口</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IphoneProduct</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//路由器产品接口</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IRouterProduct</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//抽象产品工厂</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IProductFactory</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//生产手机</span>
+    <span class="token class-name">IphoneProduct</span> <span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//生产路由器</span>
+    <span class="token class-name">IRouterProduct</span> <span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//生产笔记本...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>4.华为手机</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//华为手机</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuaweiPhone</span> <span class="token keyword">implements</span> <span class="token class-name">IphoneProduct</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"开启华为手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭华为手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"华为打电话"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"华为发短信"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>5.华为路由器</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//华为路由器</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuaweiRouter</span> <span class="token keyword">implements</span> <span class="token class-name">IRouterProduct</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动华为路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭华为路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"打开华为网络"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"华为设置"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>6.华为工厂</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HuaweiFactory</span> <span class="token keyword">implements</span> <span class="token class-name">IProductFactory</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IphoneProduct</span> <span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HuaweiPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IRouterProduct</span> <span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HuaweiRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>7.小米手机</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//小米手机</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XiaomiPhone</span> <span class="token keyword">implements</span> <span class="token class-name">IphoneProduct</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"开启小米手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭小米手机"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小米打电话"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小米发短信"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>8.小米路由器</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token comment">//小米路由器</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XiaomiRouter</span> <span class="token keyword">implements</span> <span class="token class-name">IRouterProduct</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动小米路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"关闭小米路由器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"打开小米网络"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小米设置"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>9.小米工厂</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">XiaomiFactory</span> <span class="token keyword">implements</span> <span class="token class-name">IProductFactory</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IphoneProduct</span> <span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">XiaomiPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IRouterProduct</span> <span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">XiaomiRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>10.实现类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">factory<span class="token punctuation">.</span>abstract1</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"==============小米系列产品=============="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//小米工厂</span>
+        <span class="token class-name">XiaomiFactory</span> xiaomiFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XiaomiFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//小米手机</span>
+        <span class="token class-name">IphoneProduct</span> iphoneProduct <span class="token operator">=</span> xiaomiFactory<span class="token punctuation">.</span><span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iphoneProduct<span class="token punctuation">.</span><span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iphoneProduct<span class="token punctuation">.</span><span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iphoneProduct<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//小米路由</span>
+        <span class="token class-name">IRouterProduct</span> iRouterProduct <span class="token operator">=</span> xiaomiFactory<span class="token punctuation">.</span><span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iRouterProduct<span class="token punctuation">.</span><span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iRouterProduct<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"==============华为系列产品=============="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//华为工厂</span>
+        <span class="token class-name">HuaweiFactory</span> huaweiFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HuaweiFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//华为手机</span>
+        iphoneProduct <span class="token operator">=</span> huaweiFactory<span class="token punctuation">.</span><span class="token function">iphoneProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iphoneProduct<span class="token punctuation">.</span><span class="token function">callup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iphoneProduct<span class="token punctuation">.</span><span class="token function">sendSMS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iphoneProduct<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//华为路由</span>
+        iRouterProduct <span class="token operator">=</span> huaweiFactory<span class="token punctuation">.</span><span class="token function">routerProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iRouterProduct<span class="token punctuation">.</span><span class="token function">openWife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        iRouterProduct<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201220011203030.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201220011203030.png" alt="image-20201220011203030"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220010052-1608397955459.jpg"><img src="https://gitee.com/ming0419/tuchuang/raw/master/QQ%E5%9B%BE%E7%89%8720201220010052-1608397955459.jpg" alt="QQ图片20201220010052"></a></p>
+]]></content>
+      <categories>
+        <category>DesignPattern</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Win10下mysql 8.0的安装</title>
     <url>/2021/01/24/2021-01-24-Win10%E4%B8%8Bmysql-8.0%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h4 id="一-去官网下载MySQL-地址-https-www-mysql-com"><a href="#一-去官网下载MySQL-地址-https-www-mysql-com" class="headerlink" title="一 .去官网下载MySQL 地址:https://www.mysql.com/"></a>一 .去官网下载MySQL 地址:<a href="https://www.mysql.com/">https://www.mysql.com/</a></h4><p><strong>1.</strong></p>
@@ -2214,17 +2214,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>IDEA报org.testng.TestNGException:错误</title>
-    <url>/2021/02/03/2021-02-03-IDEA%E6%8A%A5org.testng.TestNGException-%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>1.原因：没有注入testng的依赖</p>
-<p>2.查看pom.xml更改为<code>&lt;version&gt;7.0.0-beta7&lt;/version&gt;</code></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210203055346551.png"></p>
-]]></content>
-      <categories>
-        <category>error</category>
-      </categories>
-  </entry>
-  <entry>
     <title>IDEA中resources资源导出失败的问题</title>
     <url>/2021/02/03/2021-02-03-IDEA%E4%B8%ADresources%E8%B5%84%E6%BA%90%E5%AF%BC%E5%87%BA%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>1.如果在IDEA中发现自己的resources文件无法导出，可以在<strong>当前项目的pom.xml文件</strong>中添加如下的代码</p>
@@ -2257,29 +2246,14 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>安装Office.Project.Visio.2021</title>
-    <url>/2021/03/16/2021-03-16-%E5%AE%89%E8%A3%85Office.Project.Visio.2021/</url>
-    <content><![CDATA[<p><a href="https://wws.lanzous.com/iarnGmzsnwf">https://wws.lanzous.com/iarnGmzsnwf</a><br>密码:73fd</p>
-<p>下载好后解压打开</p>
-<p><strong>1</strong>.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316151125983.png" alt="image-20210316151125983"></p>
-<p><strong>2</strong>.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316140326662.png" alt="image-20210316140326662"></p>
-<p><strong>3</strong>.部署产品，已经安装过office这里会显示的，如果你想要更新需要卸载原来的office</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316141529626.png" alt="image-20210316141529626"></p>
-<p><strong>4</strong>.如果已装有以下应用程序可不选择</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142244104.png" alt="image-20210316142244104"></p>
-<p><strong>5</strong>.设置好后开始部署</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142658614.png" alt="image-20210316142658614"></p>
-<p><strong>6</strong>.安装完后回到主界面，点击激活</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316144647292.png" alt="image-20210316144647292"></p>
-<p><strong>7</strong>.三个产品都是相同的操作，<code>如果报错可以试一下先打开安装好的office</code></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150952869.png" alt="image-20210316150952869"></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316145903776.png" alt="image-20210316145903776"></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150137063.png" alt="image-20210316150137063"></p>
+    <title>IDEA报org.testng.TestNGException:错误</title>
+    <url>/2021/02/03/2021-02-03-IDEA%E6%8A%A5org.testng.TestNGException-%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>1.原因：没有注入testng的依赖</p>
+<p>2.查看pom.xml更改为<code>&lt;version&gt;7.0.0-beta7&lt;/version&gt;</code></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210203055346551.png"></p>
 ]]></content>
       <categories>
-        <category>installation</category>
+        <category>error</category>
       </categories>
   </entry>
   <entry>
@@ -2317,6 +2291,92 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 
 <p>输出结果：</p>
 <p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320131812300.png" alt="image-20210320131812300"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>安装Office.Project.Visio.2021</title>
+    <url>/2021/03/16/2021-03-16-%E5%AE%89%E8%A3%85Office.Project.Visio.2021/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/iarnGmzsnwf">https://wws.lanzous.com/iarnGmzsnwf</a><br>密码:73fd</p>
+<p>下载好后解压打开</p>
+<p><strong>1</strong>.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316151125983.png" alt="image-20210316151125983"></p>
+<p><strong>2</strong>.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316140326662.png" alt="image-20210316140326662"></p>
+<p><strong>3</strong>.部署产品，已经安装过office这里会显示的，如果你想要更新需要卸载原来的office</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316141529626.png" alt="image-20210316141529626"></p>
+<p><strong>4</strong>.如果已装有以下应用程序可不选择</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142244104.png" alt="image-20210316142244104"></p>
+<p><strong>5</strong>.设置好后开始部署</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316142658614.png" alt="image-20210316142658614"></p>
+<p><strong>6</strong>.安装完后回到主界面，点击激活</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316144647292.png" alt="image-20210316144647292"></p>
+<p><strong>7</strong>.三个产品都是相同的操作，<code>如果报错可以试一下先打开安装好的office</code></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150952869.png" alt="image-20210316150952869"></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316145903776.png" alt="image-20210316145903776"></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210316150137063.png" alt="image-20210316150137063"></p>
+]]></content>
+      <categories>
+        <category>installation</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>多线程---模拟龟兔赛跑</title>
+    <url>/2021/03/20/2021-03-20-%E5%A4%9A%E7%BA%BF%E7%A8%8B---%E6%A8%A1%E6%8B%9F%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Race</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//胜利者</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">String</span> winner<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+            <span class="token comment">//模拟兔子休息</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"兔子"</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> i<span class="token operator">%</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//Thread.sleep在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">//判断比赛是否结束</span>
+            <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token function">gameOver</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//如果比赛结束了，就停止程序</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"--->跑了"</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">"步"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//判断是否完成比赛</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">gameOver</span><span class="token punctuation">(</span><span class="token keyword">int</span> steps<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//判断是否有胜利者</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>winner<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">//已存在胜利者</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>steps<span class="token operator">>=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                winner <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"winner is"</span><span class="token operator">+</span>winner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span>  <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Race</span> race <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Race</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>race<span class="token punctuation">,</span><span class="token string">"兔子"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>race<span class="token punctuation">,</span><span class="token string">"乌龟"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出结果：</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132534598.png" alt="image-20210320132534598"></p>
 ]]></content>
       <categories>
         <category>java</category>
@@ -2378,66 +2438,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 
 <p>输出结果：</p>
 <p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132034607.png" alt="image-20210320132034607"></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>多线程---模拟龟兔赛跑</title>
-    <url>/2021/03/20/2021-03-20-%E5%A4%9A%E7%BA%BF%E7%A8%8B---%E6%A8%A1%E6%8B%9F%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91/</url>
-    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Race</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">//胜利者</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">String</span> winner<span class="token punctuation">;</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-
-            <span class="token comment">//模拟兔子休息</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"兔子"</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> i<span class="token operator">%</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">//Thread.sleep在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</span>
-                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token comment">//判断比赛是否结束</span>
-            <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token function">gameOver</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//如果比赛结束了，就停止程序</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"--->跑了"</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">"步"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//判断是否完成比赛</span>
-    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">gameOver</span><span class="token punctuation">(</span><span class="token keyword">int</span> steps<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token comment">//判断是否有胜利者</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>winner<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">//已存在胜利者</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>steps<span class="token operator">>=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                winner <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"winner is"</span><span class="token operator">+</span>winner<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">return</span>  <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Race</span> race <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Race</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>race<span class="token punctuation">,</span><span class="token string">"兔子"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>race<span class="token punctuation">,</span><span class="token string">"乌龟"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>输出结果：</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132534598.png" alt="image-20210320132534598"></p>
 ]]></content>
       <categories>
         <category>java</category>
@@ -2791,6 +2791,49 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>反射.注解---类加载内存分析</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/*
+        1.加载到内存,会产生一个类对应Class对象
+        2.链接,链接结束后 m = 0;
+        3.初始化
+          &lt;clinit>()&#123;
+          System.out.println("A类静态代码块初始化");
+           m = 300;
+           m = 100;
+
+         */</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类静态代码块初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/*
+    m = 300;
+    m = 100;
+     */</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类的无参构造初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000134646.png" alt="image-20210321000134646"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
     <title>反射.注解---反射操作注解</title>
     <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%8F%8D%E5%B0%84%E6%93%8D%E4%BD%9C%E6%B3%A8%E8%A7%A3/</url>
     <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
@@ -2897,49 +2940,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>反射.注解---类加载内存分析</title>
-    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">/*
-        1.加载到内存,会产生一个类对应Class对象
-        2.链接,链接结束后 m = 0;
-        3.初始化
-          &lt;clinit>()&#123;
-          System.out.println("A类静态代码块初始化");
-           m = 300;
-           m = 100;
-
-         */</span>
-    <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类静态代码块初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">/*
-    m = 300;
-    m = 100;
-     */</span>
-
-    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类的无参构造初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000134646.png" alt="image-20210321000134646"></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>反射.注解---类加载器</title>
     <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/</url>
     <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
@@ -3007,23 +3007,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 ]]></content>
       <categories>
         <category>java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>静态资源导入探究</title>
-    <url>/2021/03/22/2021-03-22-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AF%BC%E5%85%A5%E6%8E%A2%E7%A9%B6/</url>
-    <content><![CDATA[<p>1.在springboot ,我们可以使用以下方式处理静态资源</p>
-<ul>
-<li>webjars   <code>localhost:8080/webjars/</code></li>
-<li>public，static，/**，resources， <code>localhost:8080/</code></li>
-</ul>
-<p>2.优先级：resources(默认)&gt;static&gt;public</p>
-<p>查看源码：</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210322090333055.png" alt="image-20210322090333055"></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210322090429896.png" alt="image-20210322090429896"></p>
-]]></content>
-      <categories>
-        <category>springboot</category>
       </categories>
   </entry>
   <entry>
@@ -3169,6 +3152,23 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>静态资源导入探究</title>
+    <url>/2021/03/22/2021-03-22-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AF%BC%E5%85%A5%E6%8E%A2%E7%A9%B6/</url>
+    <content><![CDATA[<p>1.在springboot ,我们可以使用以下方式处理静态资源</p>
+<ul>
+<li>webjars   <code>localhost:8080/webjars/</code></li>
+<li>public，static，/**，resources， <code>localhost:8080/</code></li>
+</ul>
+<p>2.优先级：resources(默认)&gt;static&gt;public</p>
+<p>查看源码：</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210322090333055.png" alt="image-20210322090333055"></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210322090429896.png" alt="image-20210322090429896"></p>
+]]></content>
+      <categories>
+        <category>springboot</category>
+      </categories>
+  </entry>
+  <entry>
     <title>java数据库连接---JDBC</title>
     <url>/2020/06/10/java%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5---JDBC/</url>
     <content><![CDATA[<p><em>本文来源于</em>：<a href="https://www.runoob.com/">菜鸟教程</a></p>
@@ -3284,82 +3284,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>SpringBoot整合JDBC</title>
-    <url>/2021/03/23/SpringBoot%E6%95%B4%E5%90%88JDBC/</url>
-    <content><![CDATA[<p><strong>1.编写yaml配置文件连接数据库</strong></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> ming000419
-    <span class="token comment">#?serverTimezone=UTC解决时区的报错</span>
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/auctiondb<span class="token punctuation">?</span>serverTimezone=UTC<span class="token important">&amp;useUnicode=true&amp;characterEncoding=utf-</span><span class="token number">8</span>
-    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>2.测试</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ming01<span class="token punctuation">.</span></span><span class="token class-name">Controller</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">JdbcTemplate</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span><span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@RestController</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JDBCController</span> <span class="token punctuation">&#123;</span>
-
-    <span class="token annotation punctuation">@Autowired</span>
-    <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
-
-    <span class="token comment">//查询employee表中所有数据</span>
-    <span class="token comment">//List 中的1个 Map 对应数据库的 1行数据</span>
-    <span class="token comment">//Map 中的 key 对应数据库的字段名，value 对应数据库的字段值</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/userList"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">userList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"select * from stu"</span><span class="token punctuation">;</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span><span class="token punctuation">></span></span> list_maps <span class="token operator">=</span> jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForList</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> list_maps<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//新增一个用户</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/addUser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"insert into auctiondb.stu(id,username,score) values(9,'媛媛','89')"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"update-ok"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//修改用户信息</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/updateUser/&#123;id&#125;"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"update auctiondb.stu set username=?,score=?  where id="</span> <span class="token operator">+</span> id<span class="token punctuation">;</span>
-        <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> objects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        objects<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"小明"</span><span class="token punctuation">;</span>
-        objects<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"77"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> objects<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"updateUser-ok"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//删除用户信息</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/deleteUser/&#123;id&#125;"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"delete from auctiondb.stu where id =?"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"deleteUser-ok"</span><span class="token punctuation">;</span>
-
-
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>springboot</category>
-      </categories>
-  </entry>
-  <entry>
     <title>mysql解决不能使用中文问题</title>
     <url>/2020/04/06/mysql%20%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p><span class="md-expand" md-inline="strong" style="box-sizing: border-box;"><strong>修改字符集</strong></span></p>
@@ -3412,6 +3336,32 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       <categories>
         <category>mysql</category>
       </categories>
+  </entry>
+  <entry>
+    <title>网站收藏</title>
+    <url>/2020/01/01/www/</url>
+    <content><![CDATA[<p><a href="https://github.com/">https://github.com/</a> GitHub</p>
+<p><a href="https://gitee.com/">https://gitee.com/</a> 码云</p>
+<p><a href="http://www.csdn.net/">http://www.csdn.net/</a>  CSDN</p>
+<p><a href="https://www.nowcoder.com/">https://www.nowcoder.com/</a>        牛客网</p>
+<p><a href="https://beginnersbook.com/">https://beginnersbook.com/</a>         编程网站</p>
+<p><a href="https://github.com/LingCoder/OnJava8">https://github.com/LingCoder/OnJava8</a>    java编程思想</p>
+<p><a href="https://www.runoob.com/">https://www.runoob.com/</a> 菜鸟教程</p>
+<p><a href="https://www.w3school.com.cn/">https://www.w3school.com.cn/</a>  W3school</p>
+<p><a href="https://simpleicons.org/">https://simpleicons.org/</a> SVG图标</p>
+<h3 id="资源下载"><a href="#资源下载" class="headerlink" title="资源下载"></a><strong>资源下载</strong></h3><p><a href="https://wallroom.io/">https://wallroom.io/</a>     高清图片</p>
+<p><a href="https://www.examcoo.com/index/ku">https://www.examcoo.com/index/ku</a>     考试酷</p>
+<p><a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>      <a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a>     操作系统下载</p>
+<p><a href="https://greasyfork.org/zh-CN/scripts">https://greasyfork.org/zh-CN/scripts</a> 油猴插件</p>
+<p><a href="https://www.youzack.com/">https://www.youzack.com/</a>    英语听力</p>
+<p><a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a>      ASCII文字，SpringBoot自定义启动Banner在线生成工具</p>
+<p><a href="https://www.processon.com/">https://www.processon.com/</a>      免费在线作图、实时协作</p>
+<p><a href="https://www.sojson.com/">https://www.sojson.com/</a>         JSON 格式转换工具</p>
+<p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a>              站酷  —–  图片</p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a><br><a href="https://huaban.com/">https://huaban.com/</a><br><a href="https://www.pexels.com/zh-cn/">https://www.pexels.com/zh-cn/</a></p>
+<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a><strong>配色</strong></h3><p><a href="https://colorhunt.co/">https://colorhunt.co/</a><br><a href="https://webgradients.com/">https://webgradients.com/</a><br><a href="https://webkul.github.io/coolhue/">https://webkul.github.io/coolhue/</a><br><a href="https://www.materialpalette.com/">https://www.materialpalette.com/</a><br><a href="https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25">https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25</a><br><a href="http://bjango.com/mac/skalacolor/">http://bjango.com/mac/skalacolor/</a><br><a href="https://color.adobe.com/zh/create/color-wheel/">https://color.adobe.com/zh/create/color-wheel/</a></p>
+<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a><strong>导航</strong></h3><p><a href="https://www.91sotu.com/">https://www.91sotu.com/</a><br><a href="http://hao.shejidaren.com/">http://hao.shejidaren.com/</a><br><a href="http://www.foolo.cn/">http://www.foolo.cn/</a></p>
+]]></content>
   </entry>
   <entry>
     <title>新建一个标准类</title>
@@ -3485,30 +3435,31 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>网站收藏</title>
-    <url>/2020/01/01/www/</url>
-    <content><![CDATA[<p><a href="https://github.com/">https://github.com/</a> GitHub</p>
-<p><a href="https://gitee.com/">https://gitee.com/</a> 码云</p>
-<p><a href="http://www.csdn.net/">http://www.csdn.net/</a>  CSDN</p>
-<p><a href="https://www.nowcoder.com/">https://www.nowcoder.com/</a>        牛客网</p>
-<p><a href="https://beginnersbook.com/">https://beginnersbook.com/</a>         编程网站</p>
-<p><a href="https://github.com/LingCoder/OnJava8">https://github.com/LingCoder/OnJava8</a>    java编程思想</p>
-<p><a href="https://www.runoob.com/">https://www.runoob.com/</a> 菜鸟教程</p>
-<p><a href="https://www.w3school.com.cn/">https://www.w3school.com.cn/</a>  W3school</p>
-<p><a href="https://simpleicons.org/">https://simpleicons.org/</a> SVG图标</p>
-<h3 id="资源下载"><a href="#资源下载" class="headerlink" title="资源下载"></a><strong>资源下载</strong></h3><p><a href="https://wallroom.io/">https://wallroom.io/</a>     高清图片</p>
-<p><a href="https://www.examcoo.com/index/ku">https://www.examcoo.com/index/ku</a>     考试酷</p>
-<p><a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>      <a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a>     操作系统下载</p>
-<p><a href="https://greasyfork.org/zh-CN/scripts">https://greasyfork.org/zh-CN/scripts</a> 油猴插件</p>
-<p><a href="https://www.youzack.com/">https://www.youzack.com/</a>    英语听力</p>
-<p><a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a>      ASCII文字，SpringBoot自定义启动Banner在线生成工具</p>
-<p><a href="https://www.processon.com/">https://www.processon.com/</a>      免费在线作图、实时协作</p>
-<p><a href="https://www.sojson.com/">https://www.sojson.com/</a>         JSON 格式转换工具</p>
-<p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a>              站酷  —–  图片</p>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a><br><a href="https://huaban.com/">https://huaban.com/</a><br><a href="https://www.pexels.com/zh-cn/">https://www.pexels.com/zh-cn/</a></p>
-<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a><strong>配色</strong></h3><p><a href="https://colorhunt.co/">https://colorhunt.co/</a><br><a href="https://webgradients.com/">https://webgradients.com/</a><br><a href="https://webkul.github.io/coolhue/">https://webkul.github.io/coolhue/</a><br><a href="https://www.materialpalette.com/">https://www.materialpalette.com/</a><br><a href="https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25">https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25</a><br><a href="http://bjango.com/mac/skalacolor/">http://bjango.com/mac/skalacolor/</a><br><a href="https://color.adobe.com/zh/create/color-wheel/">https://color.adobe.com/zh/create/color-wheel/</a></p>
-<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a><strong>导航</strong></h3><p><a href="https://www.91sotu.com/">https://www.91sotu.com/</a><br><a href="http://hao.shejidaren.com/">http://hao.shejidaren.com/</a><br><a href="http://www.foolo.cn/">http://www.foolo.cn/</a></p>
+    <title>激活 IntelliJ IDEA 2020.3.2</title>
+    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
+<p>密码：e3ee</p>
+<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
+<p>2.在idea跟目录下随便建一个文件夹</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
+<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
+<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
+<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
+<p>6.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
+<p>7.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
+<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
+<p>最后再点击Activate</p>
 ]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
   </entry>
   <entry>
     <title>随机点名器</title>
@@ -3560,33 +3511,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>html</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>激活 IntelliJ IDEA 2020.3.2</title>
-    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
-    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
-<p>密码：e3ee</p>
-<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
-<p>2.在idea跟目录下随便建一个文件夹</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
-<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
-<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
-<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
-<p>6.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
-<p>7.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
-<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
-<p>最后再点击Activate</p>
-]]></content>
-      <categories>
-        <category>java</category>
       </categories>
   </entry>
   <entry>
