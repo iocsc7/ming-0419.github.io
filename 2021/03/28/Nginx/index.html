@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>一、Nginx笔记---基于Docker</title>
+  
+  <link rel="canonical" href="http://example.com/2021/03/28/Nginx/">
+  
+  <meta name="description" content="1.1引言为什么要学习Nginx  问题1：客户端到底要将请求发送给哪台服务器 问题2：如果所有客户端的请求都发送给了服务器1 问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的  服务器搭建集群后  在搭建集群后，使用Nginx做反向代理  1.2Nginx介绍Nginx (engi">
+  
+  
+  <meta name="author" content="John Doe">
+  
+  <meta property="og:image" content="http://example.comundefined">
+  
+  <meta property="og:site_name" content="Hexo" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="一、Nginx笔记---基于Docker" />
+  
+  <meta property="og:description" content="1.1引言为什么要学习Nginx  问题1：客户端到底要将请求发送给哪台服务器 问题2：如果所有客户端的请求都发送给了服务器1 问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的  服务器搭建集群后  在搭建集群后，使用Nginx做反向代理  1.2Nginx介绍Nginx (engi">
+  
+  <meta property="og:url" content="http://example.com/2021/03/28/Nginx/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="一、Nginx笔记---基于Docker">
+  
+  <meta name="twitter:description" content="1.1引言为什么要学习Nginx  问题1：客户端到底要将请求发送给哪台服务器 问题2：如果所有客户端的请求都发送给了服务器1 问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的  服务器搭建集群后  在搭建集群后，使用Nginx做反向代理  1.2Nginx介绍Nginx (engi">
+  
+  
+  <meta name="twitter:image" content="http://example.comundefined">
+  
+  <meta name="twitter:url" content="http://example.com/2021/03/28/Nginx/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      小冷
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/About" class="ml">About</a>             
+          
+        
+          
+          <a href="/categories" class="ml">categories</a>             
+          
+        
+          
+          <a href="/Email" class="ml">Email</a>             
+          
+        
+        
+          
+          
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>一、Nginx笔记---基于Docker</h2>
+
+  <h4 id="1-1引言"><a href="#1-1引言" class="headerlink" title="1.1引言"></a>1.1引言</h4><p>为什么要学习Nginx</p>
+<ul>
+<li>问题1：客户端到底要将请求发送给哪台服务器</li>
+<li>问题2：如果所有客户端的请求都发送给了服务器1</li>
+<li>问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的</li>
+</ul>
+<p>服务器搭建集群后 <img src="https://gitee.com/ming0419/tuchuang/raw/master/33922ba5e9c245faba44e6a3beba4de6.png" alt="img"></p>
+<p>在搭建集群后，使用Nginx做反向代理 <img src="https://gitee.com/ming0419/tuchuang/raw/master/0995d783e7f445bd95171c152ea9d160.png" alt="img"></p>
+<h4 id="1-2Nginx介绍"><a href="#1-2Nginx介绍" class="headerlink" title="1.2Nginx介绍"></a>1.2Nginx介绍</h4><p><em>Nginx</em> (engine x) 是一个高性能的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/HTTP">HTTP</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>web服务器，同时也提供了IMAP/POP3/SMTP<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1/100571">服务</a>。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<p>其将<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81/3814213">源代码</a>以类<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81/10642412">BSD许可证</a>的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%97%BB%E5%90%8D/2303308">闻名</a>。2011年6月1日，nginx 1.0.4发布。</p>
+<p>Nginx是一款<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7/10002835">轻量级</a>的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Web/150564">Web</a> 服务器/<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>服务器及<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/111106">电子邮件</a>（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。—-<code>百度百科</code></p>
+<p>Nginx的特点</p>
+<ol>
+<li>稳定性极强，7*24小时不间断运行(就是一直运行)</li>
+<li>Nginx提供了非常丰富的配置实例</li>
+<li>占用内存小，并发能力强(随便配置一下就是5w+,而tomcat的默认线程池是150)</li>
+</ol>
+<h3 id="二、Nginx的安装"><a href="#二、Nginx的安装" class="headerlink" title="二、Nginx的安装"></a>二、Nginx的安装</h3><h4 id="2-1安装Nginx"><a href="#2-1安装Nginx" class="headerlink" title="2.1安装Nginx"></a>2.1安装Nginx</h4><p>使用docker-compose安装</p>
+<p>#在/opt目录下创建docker_nginx目录</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">mkdir docker_nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>创建docker-compose.yml文件并编写下面的内容,保存退出<code>vim docker-compose.yml</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &#39;3.1&#39;
+services: 
+  nginx:
+    restart: always
+    image: daocloud.io&#x2F;library&#x2F;nginx:latest
+    container_name: nginx
+    ports: 
+      - 80:80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行<code>docker-compose up -d</code></p>
+<p>访问80端口，看到下图说明安装成功（ncthz.top是我阿里云服务器的域名，大家输入自己服务器的Ip就可以访问80端口了） <img src="https://gitee.com/ming0419/tuchuang/raw/master/d8fe40f912d340cf9b6a223be3dafb08.png" alt="img"></p>
+<h4 id="2-2Nginx的配置文件"><a href="#2-2Nginx的配置文件" class="headerlink" title="2.2Nginx的配置文件"></a>2.2Nginx的配置文件</h4><p>查看当前nginx的配置需要进入docker容器中</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">#进入容器后
+cd /etc/nginx/
+cat nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>nginx.conf文件内容如下</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">user  nginx;
+worker_processes  <span class="token number">1</span>;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+# 以上同城为全局块
+# worker_processes的数值越大，Nginx的并发能力就越强
+# error_log代表Nginx错误日志存放的位置
+# pid是Nginx运行的一个标识
+
+events <span class="token punctuation">&#123;</span>
+    worker_connections  <span class="token number">1024</span>;
+<span class="token punctuation">&#125;</span>
+# events块
+# worker_connections的数值越大，Nginx的并发能力就越强
+
+http <span class="token punctuation">&#123;</span>
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user <span class="token punctuation">[</span>$time_local<span class="token punctuation">]</span> <span class="token string">"$request"</span> '
+                      '$status $body_bytes_sent <span class="token string">"$http_referer"</span> '
+                      '<span class="token string">"$http_user_agent"</span> <span class="token string">"$http_x_forwarded_for"</span>';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  <span class="token number">65</span>;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d<span class="token comment">/*.conf;
+&#125;
+
+# http块
+# include代表引入一个外部文件
+# include       /etc/nginx/mime.types;	mime.types中存放着大量媒体类型
+#include /etc/nginx/conf.d/*.conf;	引入了conf.d下以.conf为结尾的配置文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>conf.d目录下只有一个default.conf文件，内容如下</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    #charset koi8-r;
+    #access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log  main;
+
+    location &#x2F; &#123;
+        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+        index  index.html index.htm;
+    &#125;
+	# location块
+	# root:将接受到的请求根据&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html去查找静态资源
+	# index:默认去上述的路径中找到index.html或index.htm
+
+    #error_page  404              &#x2F;404.html;
+
+    # redirect server error pages to the static page &#x2F;50x.html
+    #
+    error_page   500 502 503 504  &#x2F;50x.html;
+    location &#x3D; &#x2F;50x.html &#123;
+        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+    &#125;
+	
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ &#123;
+    #    proxy_pass   http:&#x2F;&#x2F;127.0.0.1;
+    #&#125;
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ &#123;
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #&#125;
+
+    # deny access to .htaccess files, if Apache&#39;s document root
+    # concurs with nginx&#39;s one
+    #
+    #location ~ &#x2F;\.ht &#123;
+    #    deny  all;
+    #&#125;
+&#125;
+
+# server块
+# listen代表Nginx监听的端口号
+# server_name代表Nginx接受请求的IP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-3修改docker-compose文件"><a href="#2-3修改docker-compose文件" class="headerlink" title="2.3修改docker-compose文件"></a>2.3修改docker-compose文件</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">exit
+#关闭容器
+docker-compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>#修改docker-compose.yml文件如下</p>
+<pre class="line-numbers language-none"><code class="language-none">version: &#39;3.1&#39;
+services: 
+  nginx:
+    restart: always
+    image: daocloud.io&#x2F;library&#x2F;nginx:latest
+    container_name: nginx
+    ports: 
+      - 80:80
+    volumes:
+      - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重新构建容器
+docker-compose bulid
+
+#重新启动容器
+docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这时我们再次访问80端口是访问不到的，因为我们映射了数据卷之后还没有编写server块中的内容</p>
+<p>我们在/opt/docker_nginx/conf.d下新建default.conf，并插入如下内容</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    location &#x2F; &#123;
+        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+        index  index.html index.htm;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
+docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这时我们再访问80端口，可以看到是访问成功的</p>
+<h3 id="三、Nginx的反向代理"><a href="#三、Nginx的反向代理" class="headerlink" title="三、Nginx的反向代理"></a>三、Nginx的反向代理</h3><h4 id="3-1正向代理和反向代理介绍"><a href="#3-1正向代理和反向代理介绍" class="headerlink" title="3.1正向代理和反向代理介绍"></a>3.1正向代理和反向代理介绍</h4><p>正向代理：</p>
+<ol>
+<li>正向代理服务是由客户端设立的</li>
+<li>客户端了解代理服务器和目标服务器都是谁</li>
+<li>帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的ip地址</li>
+</ol>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/d76529ea39d7449a9c146a0422da6c86.png" alt="img"></p>
+<p>反向代理：</p>
+<ol>
+<li>反向代理服务器是配置在服务端的</li>
+<li>客户端不知道访问的到底是哪一台服务器</li>
+<li>达到负载均衡，并且可以隐藏服务器真正的ip地址 <img src="https://gitee.com/ming0419/tuchuang/raw/master/5f61e7df04b1451d83c96528bd5c00cb.png" alt="img"></li>
+</ol>
+<p>3.2基于Nginx实现反向代理 准备一个目标服务器 启动tomcat服务器 编写nginx的配置文件(/opt/docker_nginx/conf.d/default.conf)，通过Nginx访问到tomcat服务器</p>
+<p>准备tomcat服务器</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">docker run -d -p 8080:8080 --name tomcat  daocloud.io&#x2F;library&#x2F;tomcat:8.5.15-jre8
+#或者已经下载了tomcat镜像
+docker run -d -p 8080:8080 --name tomcat 镜像的标识
+
+#添加数据卷
+docker run -it -v &#x2F;宿主机绝对目录:&#x2F;容器内目录 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>default.conf文件内容如下</p>
+<pre class="line-numbers language-none"><code class="language-none">server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
+docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这时我们访问80端口可以看到8080端口tomcat的默认首页</p>
+<h4 id="3-3关于Nginx的location路径映射"><a href="#3-3关于Nginx的location路径映射" class="headerlink" title="3.3关于Nginx的location路径映射"></a>3.3关于Nginx的location路径映射</h4><p>优先级关系：<code>(location = ) &gt; (location /xxx/yyy/zzz) &gt; (location ^~) &gt; (location ~,~*) &gt; (location /起始路径) &gt; (location /)</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 1. &#x3D; 匹配
+location &#x2F; &#123;
+	#精准匹配，主机名后面不能带能和字符串
+	#例如www.baidu.com不能是www.baidu.com&#x2F;id&#x3D;xxx
+&#125;
+
+#2. 通用匹配
+location &#x2F;xxx &#123;
+	#匹配所有以&#x2F;xxx开头的路径
+	#例如127.0.0.1:8080&#x2F;xxx	xxx可以为空，为空则和&#x3D;匹配一样
+&#125;
+
+#3. 正则匹配
+location ~ &#x2F;xxx &#123;
+	#匹配所有以&#x2F;xxx开头的路径
+&#125;
+
+#4. 匹配开头路径
+location ^~ &#x2F;xxx&#x2F;xx &#123;
+	#匹配所有以&#x2F;xxx&#x2F;xx开头的路径
+&#125;
+
+#5. 匹配结尾路径
+location ~* \.(gif&#x2F;jpg&#x2F;png)$ &#123;
+	#匹配以.gif、.jpg或者.png结尾的路径
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改/opt/docker_nginx/conf.d/default.conf如下</p>
+<pre class="line-numbers language-none"><code class="language-none">server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+	location &#x2F;index &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8081&#x2F;;	#tomcat首页
+    &#125;
+
+	location ^~ &#x2F;CR&#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;CR&#x2F;;	#毕设前台首页
+    &#125;
+
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;CRAdmin&#x2F;;	#毕设后台首页
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
+docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>#访问ncthz.top/index可以进入tomcat首页 #访问ncthz.top/CR/XXX可以进入毕设前台首页 #访问ncthz.top或者ncthz.top:80可以进入毕设后台首页</p>
+<h3 id="四、Nginx负载均衡"><a href="#四、Nginx负载均衡" class="headerlink" title="四、Nginx负载均衡"></a>四、Nginx负载均衡</h3><p>Nginx为我们默认提供了三种负载均衡的策略：</p>
+<ol>
+<li>轮询： 将客户端发起的请求，平均分配给每一台服务器</li>
+<li>权重： 会将客户端的请求，根据服务器的权重值不同，分配不同的数量</li>
+<li>ip_hash: 基于发起请求的客户端的ip地址不同，他始终会将请求发送到指定的服务器上 就是说如果这个客户端的请求的ip地址不变，那么处理请求的服务器将一直是同一个</li>
+</ol>
+<h4 id="4-1轮询"><a href="#4-1轮询" class="headerlink" title="4.1轮询"></a>4.1轮询</h4><p>想实现Nginx轮询负载均衡机制只需要修改配置文件如下</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
+    server ncthz.top:8080;
+    server ncthz.top:8081;
+&#125;
+server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+	location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream 名字&#123;
+    server ip:端口;
+    server 域名:端口;
+&#125;
+server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+	location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;upstream的名字&#x2F;;	
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
+docker-compose restart#重启nginx
+docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>多次刷新ncthz.top页面，根据版本号我们可以发现我们进入的是不同的tomcat</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/a56b958152f749aabbaa500c23605495.png" alt="img"> <img src="https://gitee.com/ming0419/tuchuang/raw/master/1f61789f10ad4dde936e4b4f8b5a7982.png" alt="img"></p>
+<h4 id="4-2权重"><a href="#4-2权重" class="headerlink" title="4.2权重"></a>4.2权重</h4><p>实现权重的方式：在配置文件中upstream块中加上weight</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
+    server ncthz.top:8080 weight&#x3D;10;
+    server ncthz.top:8081 weight&#x3D;2;
+&#125;
+server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+	location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-3ip-hash"><a href="#4-3ip-hash" class="headerlink" title="4.3ip_hash"></a>4.3ip_hash</h4><p>实现ip_hash方式：在配置文件upstream块中加上ip_hash;</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
+	ip_hash;
+    server ncthz.top:8080 weight&#x3D;10;
+    server ncthz.top:8081 weight&#x3D;2;
+&#125;
+server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+	location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="五、Nginx动静分离"><a href="#五、Nginx动静分离" class="headerlink" title="五、Nginx动静分离"></a>五、Nginx动静分离</h3><p>Nginx的并发能力公式：<code>worker_processes * worker_connections / 4|2 = Nginx最终的并发能力</code>动态资源需要/4，静态资源需要/2 Nginx通过动静分离来提升Nginx的并发能力，更快的给用户响应</p>
+<h4 id="5-1动态资源代理"><a href="#5-1动态资源代理" class="headerlink" title="5.1动态资源代理"></a>5.1动态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#配置如下
+location &#x2F; &#123;
+  proxy_pass 路径;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-2静态资源代理"><a href="#5-2静态资源代理" class="headerlink" title="5.2静态资源代理"></a>5.2静态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#停掉nginx
+docker-compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>修改docker-compose.yml添加静态资源数据卷 不同版本的静态资源位置可能不同，可以在2.2中查看默认的位置（location块中root后的路径）</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#启动nginx
+docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &#39;3.1&#39;
+services: 
+  nginx:
+    restart: always
+    image: daocloud.io&#x2F;library&#x2F;nginx:latest
+    container_name: nginx
+    ports: 
+      - 80:80
+    volumes:
+      - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d
+      - &#x2F;opt&#x2F;docker_nginx&#x2F;html&#x2F;:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在/opt/docker_nginx/html下新建一个index.html 在index.html里面随便写点东西展示 修改nginx的配置文件</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">location &#x2F; &#123;
+    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+    index index.html;
+&#125;
+
+#配置如下
+location &#x2F; &#123;
+    root 静态资源路径;
+    index 默认访问路径下的什么资源;
+    autoindex on;#代表展示静态资源的全部内容，以列表的形式展开
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
+docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>#访问ncthz.top如下 <img src="https://gitee.com/ming0419/tuchuang/raw/master/b6fb017de17a4aa2b6390933e412a0a4.png" alt="img"></p>
+<h3 id="六、Nginx集群"><a href="#六、Nginx集群" class="headerlink" title="六、Nginx集群"></a>六、Nginx集群</h3><h4 id="6-1引言"><a href="#6-1引言" class="headerlink" title="6.1引言"></a>6.1引言</h4><p>单点故障，避免nginx的宕机，导致整个程序的崩溃 准备多台Nginx 准备keepalived，监听nginx的健康情况 准备haproxy，提供一个虚拟的路径，统一的去接收用户的请求 <img src="https://gitee.com/ming0419/tuchuang/raw/master/9a1dbbdb1ccf46a9963b33ae9614985a.png" alt="img"></p>
+<h4 id="6-2搭建"><a href="#6-2搭建" class="headerlink" title="6.2搭建"></a>6.2搭建</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#先准备好以下文件放入&#x2F;opt&#x2F;docker_nginx_cluster目录中
+#然后启动容器	注意确保80、8081和8082端口未被占用(或者修改docker-compose.yml中的端口)
+docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>然后我们访问8081端口可以看到master，访问8082端口可以看到slave 因为我们设置了81端口的master优先级未200比82端口的slave优先级100高，所以我们访问80端口看到的是master 现在我们模仿8081端口的nginx宕机了 docker stop 8081端口nginx容器的ID 这时我们再去访问80端口看到的就是slave了</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Dockerfile</span>
+
+FROM nginx<span class="token operator">:</span><span class="token number">1.13</span><span class="token number">.5</span><span class="token operator">-</span>alpine
+
+RUN apk update <span class="token operator">&amp;&amp;</span> apk upgrade
+
+RUN apk add <span class="token operator">--</span>no<span class="token operator">-</span>cache bash curl ipvsadm iproute2 openrc keepalived
+
+COPY entrypoint<span class="token punctuation">.</span>sh <span class="token operator">/</span>entrypoint<span class="token punctuation">.</span>sh
+
+RUN chmod <span class="token operator">+</span>x <span class="token operator">/</span>entrypoint<span class="token punctuation">.</span>sh
+
+CMD <span class="token punctuation">[</span><span class="token string">"/entrypoint.sh"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>entrypoint.sh</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#!&#x2F;bin&#x2F;sh
+
+#&#x2F;usr&#x2F;sbin&#x2F;keepalvined -n -l -D -f &#x2F;etc&#x2F;keepalived&#x2F;keepalived.conf --dont-fork --log-console &amp;
+&#x2F;usr&#x2F;sbin&#x2F;keepalvined -D -f &#x2F;etc&#x2F;keepalived&#x2F;keepalived.conf
+
+
+nginx -g &quot;daemon off;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>docker-compose.yml</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &quot;3.1&quot;
+services:
+  nginx_master:
+    build:
+      context: .&#x2F;
+      dockerfile: .&#x2F;Dockerfile
+    ports:
+      -8081:80
+    volumes:
+      - .&#x2F;index-master.html:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;index.html
+      - .&#x2F;favicon.ico:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;favicon.ico
+      - .&#x2F;keepalived-master.conf:&#x2F;etv&#x2F;keepalived&#x2F;keepalived.conf
+    networks:
+      static-network:
+        ipv4_address:172.20.128.2
+    cap_add:
+      - NET_ADMIN
+  nginx_slave:
+    build:
+      context: .&#x2F;
+      dockerfile: .&#x2F;Dockerfile
+    ports:
+      -8082:80
+    volumes:
+      - .&#x2F;index-slave.html:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;index.html
+      - .&#x2F;favicon.ico:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;favicon.ico
+      - .&#x2F;keepalived-slave.conf:&#x2F;etv&#x2F;keepalived&#x2F;keepalived.conf
+    networks:
+      static-network:
+        ipv4_address:172.20.128.3
+    cap_add:
+      - NET_ADMIN
+  proxy:
+    image:  haproxy:1.7-apline
+    ports:
+      - 80:6301
+    volumes:
+      - .&#x2F;happroxy.cfg:&#x2F;usr&#x2F;local&#x2F;etc&#x2F;haproxy&#x2F;haproxy.cfg
+    networks:
+      - static-network
+networks:
+  static-network:
+    ipam:
+      congig:
+        - subnet: 172.20.0.0&#x2F;16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>keepalived-master.conf</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx &#123;
+    script &quot;pidof nginx&quot;
+    interval 2
+&#125;
+
+vrrp_instance VI_1 &#123;
+    state MASTER
+    interface etch0	#容器内部的网卡名称
+    virtual_router_id 33
+    priority 200	#优先级
+    advert_int 1
+    
+    autheentication &#123;
+    	auth_type PASS
+    	auth_pass letmein
+	&#125;
+
+	virtual_ipaddress &#123;
+        172.20.128.50	#虚拟路径
+    &#125;
+
+	track_script &#123;
+        chk_nginx
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>keepalived-slave.conf</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx &#123;
+    script &quot;pidof nginx&quot;
+    interval 2
+&#125;
+
+vrrp_instance VI_1 &#123;
+    state BACKUP
+    interface etch0	#容器内部的网卡名称
+    virtual_router_id 33
+    priority 100	#优先级
+    advert_int 1
+    
+    autheentication &#123;
+    	auth_type PASS
+    	auth_pass letmein
+	&#125;
+
+	virtual_ipaddress &#123;
+        172.20.128.50	#虚拟路径
+    &#125;
+
+	track_script &#123;
+        chk_nginx
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>haproxy.cfg</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">global
+	log 127.0.0.1 local0
+	maxconn 4096
+	daemon
+	nbproc 4
+	
+defaults
+	log 127.0.0.1 local3
+	mode http
+	option dontlognull
+	option redispatch
+	retries 2
+	maxconn 2000
+	balance roundrobin
+	timeout connect 5000ms
+	timeout client 5000ms
+	timeout server 5000ms
+	
+frontend main
+	bind *:6301
+	default_backend webserver
+	
+backend webserveer
+	server nginx_master 127.20.127.50:80 check inter 2000 rise 2 fall 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>index-master.html</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1&gt;master！&lt;&#x2F;h1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>index-slave.html</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1&gt;slave！&lt;&#x2F;h1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>来源：<a target="_blank" rel="noopener" href="https://space.bilibili.com/416186032/"><strong>B站 千锋教育Java学院</strong></a></p>
+
+  <p> — Mar 28, 2021</p>
+  
+
+
+          <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+          at <target="_blank" rel="noreferrer">Earth</a>.</p>
+        
+    </div>
+
+     <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+     <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/ming-0419" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://gitee.com/ming0419" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
+        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gitee</title><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" a ="#" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+        <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Java</title><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://space.bilibili.com/375742090" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Instagram">
+        <svg class="instagram svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>bilibili</title><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg>
+      </a>
+      
+
+      
+        <a class="ml-0 footer-link icon" a ="" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Unreal">
+          <svg class="Unreal svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unreal Engine</title><path d="M11.999 0C5.427 0 .1 5.373.1 12c0 6.628 5.327 12 11.899 12 6.571 0 11.899-5.372 11.899-12 0-6.627-5.328-12-11.9-12zm0 .528c3.038 0 5.895 1.194 8.043 3.36A11.446 11.446 0 0 1 23.374 12c0 3.064-1.183 5.945-3.332 8.112A11.254 11.254 0 0 1 12 23.472a11.253 11.253 0 0 1-8.044-3.36A11.447 11.447 0 0 1 .623 12c0-3.064 1.184-5.945 3.332-8.112A11.252 11.252 0 0 1 12 .528zm-.595 4.223c-1.938.52-3.732 1.516-6.123 4.258-2.392 2.742-1.938 5.006-1.938 5.006s.66-1.558 2.247-3.199c.752-.777 1.314-1.037 1.698-1.038a.598.598 0 0 1 .632.602v5.567c0 .55-.354.669-.68.663-.279-.005-.537-.102-.537-.102 1.63 2.368 5.526 2.7 5.526 2.7l1.711-1.828.04.035 1.568 1.336c2.866-1.703 4.248-4.86 4.248-4.86-1.279 1.353-2.094 1.669-2.578 1.667-.429-.003-.597-.255-.597-.255-.023-.117-.063-1.81-.078-3.505-.014-1.756-.001-3.513.087-3.518.494-.929 2.073-2.802 2.073-2.802-2.948.581-4.556 2.513-4.556 2.513-.475-.374-1.444-.311-1.444-.311.454.25.907.976.907 1.578v5.92s-.99.873-1.752.873c-.451 0-.729-.247-.881-.449a1.182 1.182 0 0 1-.15-.258V8.033a.634.634 0 0 1-.363.123c-.162 0-.33-.082-.444-.32-.086-.18-.141-.45-.141-.842 0-1.35 1.525-2.243 1.525-2.243z"/></svg>
+        </a>
+        
+        
+
+          
+            <a class="ml-0 footer-link icon" href ="https://ming0419.gitee.io/2020/01/01/www/" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+              <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>www</title><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg>
+            </a>
+            
+  
+    </div>
+  
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> 
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "<br />本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
