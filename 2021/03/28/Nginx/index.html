@@ -160,7 +160,7 @@
 
   <div class="six columns ml-1">
     <h1 class="mt-2">
-      小冷
+      简
     </h1>
   </div>
 
@@ -217,14 +217,14 @@
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">mkdir docker_nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>创建docker-compose.yml文件并编写下面的内容,保存退出<code>vim docker-compose.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &#39;3.1&#39;
-services: 
-  nginx:
-    restart: always
-    image: daocloud.io&#x2F;library&#x2F;nginx:latest
-    container_name: nginx
-    ports: 
-      - 80:80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span> 
+  <span class="token key atrule">nginx</span><span class="token punctuation">:</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> daocloud.io/library/nginx<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span> 
+      <span class="token punctuation">-</span> <span class="token datetime number">80:80</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>执行<code>docker-compose up -d</code></p>
 <p>访问80端口，看到下图说明安装成功（ncthz.top是我阿里云服务器的域名，大家输入自己服务器的Ip就可以访问80端口了） <img src="https://gitee.com/ming0419/tuchuang/raw/master/d8fe40f912d340cf9b6a223be3dafb08.png" alt="img"></p>
@@ -276,63 +276,63 @@ http <span class="token punctuation">&#123;</span>
 #include /etc/nginx/conf.d/*.conf;	引入了conf.d下以.conf为结尾的配置文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>conf.d目录下只有一个default.conf文件，内容如下</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server &#123;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server <span class="token punctuation">&#123;</span>
     listen       80;
-    listen  [::]:80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
     server_name  localhost;
 
-    #charset koi8-r;
-    #access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log  main;
+    <span class="token comment">#charset koi8-r;</span>
+    <span class="token comment">#access_log  /var/log/nginx/host.access.log  main;</span>
 
-    location &#x2F; &#123;
-        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+    location / <span class="token punctuation">&#123;</span>
+        root   /usr/share/nginx/html;
         index  index.html index.htm;
-    &#125;
-	# location块
-	# root:将接受到的请求根据&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html去查找静态资源
-	# index:默认去上述的路径中找到index.html或index.htm
+    <span class="token punctuation">&#125;</span>
+	<span class="token comment"># location块</span>
+	<span class="token comment"># root:将接受到的请求根据/usr/share/nginx/html去查找静态资源</span>
+	<span class="token comment"># index:默认去上述的路径中找到index.html或index.htm</span>
 
-    #error_page  404              &#x2F;404.html;
+    <span class="token comment">#error_page  404              /404.html;</span>
 
-    # redirect server error pages to the static page &#x2F;50x.html
-    #
-    error_page   500 502 503 504  &#x2F;50x.html;
-    location &#x3D; &#x2F;50x.html &#123;
-        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
-    &#125;
+    <span class="token comment"># redirect server error pages to the static page /50x.html</span>
+    <span class="token comment">#</span>
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html <span class="token punctuation">&#123;</span>
+        root   /usr/share/nginx/html;
+    <span class="token punctuation">&#125;</span>
 	
 
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ &#123;
-    #    proxy_pass   http:&#x2F;&#x2F;127.0.0.1;
-    #&#125;
+    <span class="token comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ \.php$ &#123;</span>
+    <span class="token comment">#    proxy_pass   http://127.0.0.1;</span>
+    <span class="token comment">#&#125;</span>
 
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ &#123;
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #&#125;
+    <span class="token comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ \.php$ &#123;</span>
+    <span class="token comment">#    root           html;</span>
+    <span class="token comment">#    fastcgi_pass   127.0.0.1:9000;</span>
+    <span class="token comment">#    fastcgi_index  index.php;</span>
+    <span class="token comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
+    <span class="token comment">#    include        fastcgi_params;</span>
+    <span class="token comment">#&#125;</span>
 
-    # deny access to .htaccess files, if Apache&#39;s document root
-    # concurs with nginx&#39;s one
-    #
-    #location ~ &#x2F;\.ht &#123;
-    #    deny  all;
-    #&#125;
-&#125;
+    <span class="token comment"># deny access to .htaccess files, if Apache's document root</span>
+    <span class="token comment"># concurs with nginx's one</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ /\.ht &#123;</span>
+    <span class="token comment">#    deny  all;</span>
+    <span class="token comment">#&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-# server块
-# listen代表Nginx监听的端口号
-# server_name代表Nginx接受请求的IP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># server块</span>
+<span class="token comment"># listen代表Nginx监听的端口号</span>
+<span class="token comment"># server_name代表Nginx接受请求的IP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="2-3修改docker-compose文件"><a href="#2-3修改docker-compose文件" class="headerlink" title="2.3修改docker-compose文件"></a>2.3修改docker-compose文件</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">exit
-#关闭容器
-docker-compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">#关闭容器</span>
+docker<span class="token punctuation">-</span>compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>#修改docker-compose.yml文件如下</p>
 <pre class="line-numbers language-none"><code class="language-none">version: &#39;3.1&#39;
@@ -346,27 +346,27 @@ services:
     volumes:
       - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重新构建容器
-docker-compose bulid
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重新构建容器</span>
+docker<span class="token punctuation">-</span>compose bulid
 
-#重新启动容器
-docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">#重新启动容器</span>
+docker<span class="token punctuation">-</span>compose up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这时我们再次访问80端口是访问不到的，因为我们映射了数据卷之后还没有编写server块中的内容</p>
 <p>我们在/opt/docker_nginx/conf.d下新建default.conf，并插入如下内容</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server &#123;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server <span class="token punctuation">&#123;</span>
     listen       80;
-    listen  [::]:80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
     server_name  localhost;
 
-    location &#x2F; &#123;
-        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+    location / <span class="token punctuation">&#123;</span>
+        root   /usr/share/nginx/html;
         index  index.html index.htm;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>这时我们再访问80端口，可以看到是访问成功的</p>
 <h3 id="三、Nginx的反向代理"><a href="#三、Nginx的反向代理" class="headerlink" title="三、Nginx的反向代理"></a>三、Nginx的反向代理</h3><h4 id="3-1正向代理和反向代理介绍"><a href="#3-1正向代理和反向代理介绍" class="headerlink" title="3.1正向代理和反向代理介绍"></a>3.1正向代理和反向代理介绍</h4><p>正向代理：</p>
@@ -384,12 +384,12 @@ docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span><
 </ol>
 <p>3.2基于Nginx实现反向代理 准备一个目标服务器 启动tomcat服务器 编写nginx的配置文件(/opt/docker_nginx/conf.d/default.conf)，通过Nginx访问到tomcat服务器</p>
 <p>准备tomcat服务器</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">docker run -d -p 8080:8080 --name tomcat  daocloud.io&#x2F;library&#x2F;tomcat:8.5.15-jre8
-#或者已经下载了tomcat镜像
-docker run -d -p 8080:8080 --name tomcat 镜像的标识
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 8080<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span><span class="token punctuation">-</span>name tomcat  daocloud.io/library/tomcat<span class="token punctuation">:</span>8.5.15<span class="token punctuation">-</span>jre8
+<span class="token comment">#或者已经下载了tomcat镜像</span>
+docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 8080<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span><span class="token punctuation">-</span>name tomcat 镜像的标识
 
-#添加数据卷
-docker run -it -v &#x2F;宿主机绝对目录:&#x2F;容器内目录 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">#添加数据卷</span>
+docker run <span class="token punctuation">-</span>it <span class="token punctuation">-</span>v /宿主机绝对目录<span class="token punctuation">:</span>/容器内目录 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>default.conf文件内容如下</p>
 <pre class="line-numbers language-none"><code class="language-none">server &#123;
@@ -402,37 +402,37 @@ docker run -it -v &#x2F;宿主机绝对目录:&#x2F;容器内目录 镜像名<sp
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>这时我们访问80端口可以看到8080端口tomcat的默认首页</p>
 <h4 id="3-3关于Nginx的location路径映射"><a href="#3-3关于Nginx的location路径映射" class="headerlink" title="3.3关于Nginx的location路径映射"></a>3.3关于Nginx的location路径映射</h4><p>优先级关系：<code>(location = ) &gt; (location /xxx/yyy/zzz) &gt; (location ^~) &gt; (location ~,~*) &gt; (location /起始路径) &gt; (location /)</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 1. &#x3D; 匹配
-location &#x2F; &#123;
-	#精准匹配，主机名后面不能带能和字符串
-	#例如www.baidu.com不能是www.baidu.com&#x2F;id&#x3D;xxx
-&#125;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 1. = 匹配</span>
+location / <span class="token punctuation">&#123;</span>
+	<span class="token comment">#精准匹配，主机名后面不能带能和字符串</span>
+	<span class="token comment">#例如www.baidu.com不能是www.baidu.com/id=xxx</span>
+<span class="token punctuation">&#125;</span>
 
-#2. 通用匹配
-location &#x2F;xxx &#123;
-	#匹配所有以&#x2F;xxx开头的路径
-	#例如127.0.0.1:8080&#x2F;xxx	xxx可以为空，为空则和&#x3D;匹配一样
-&#125;
+<span class="token comment">#2. 通用匹配</span>
+location /xxx <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配所有以/xxx开头的路径</span>
+	<span class="token comment">#例如127.0.0.1:8080/xxx	xxx可以为空，为空则和=匹配一样</span>
+<span class="token punctuation">&#125;</span>
 
-#3. 正则匹配
-location ~ &#x2F;xxx &#123;
-	#匹配所有以&#x2F;xxx开头的路径
-&#125;
+<span class="token comment">#3. 正则匹配</span>
+location ~ /xxx <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配所有以/xxx开头的路径</span>
+<span class="token punctuation">&#125;</span>
 
-#4. 匹配开头路径
-location ^~ &#x2F;xxx&#x2F;xx &#123;
-	#匹配所有以&#x2F;xxx&#x2F;xx开头的路径
-&#125;
+<span class="token comment">#4. 匹配开头路径</span>
+location ^~ /xxx/xx <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配所有以/xxx/xx开头的路径</span>
+<span class="token punctuation">&#125;</span>
 
-#5. 匹配结尾路径
-location ~* \.(gif&#x2F;jpg&#x2F;png)$ &#123;
-	#匹配以.gif、.jpg或者.png结尾的路径
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">#5. 匹配结尾路径</span>
+location ~* \.(gif/jpg/png)$ <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配以.gif、.jpg或者.png结尾的路径</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>修改/opt/docker_nginx/conf.d/default.conf如下</p>
 <pre class="line-numbers language-none"><code class="language-none">server &#123;
@@ -453,8 +453,8 @@ location ~* \.(gif&#x2F;jpg&#x2F;png)$ &#123;
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>#访问ncthz.top/index可以进入tomcat首页 #访问ncthz.top/CR/XXX可以进入毕设前台首页 #访问ncthz.top或者ncthz.top:80可以进入毕设后台首页</p>
 <h3 id="四、Nginx负载均衡"><a href="#四、Nginx负载均衡" class="headerlink" title="四、Nginx负载均衡"></a>四、Nginx负载均衡</h3><p>Nginx为我们默认提供了三种负载均衡的策略：</p>
@@ -464,117 +464,117 @@ docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span><
 <li>ip_hash: 基于发起请求的客户端的ip地址不同，他始终会将请求发送到指定的服务器上 就是说如果这个客户端的请求的ip地址不变，那么处理请求的服务器将一直是同一个</li>
 </ol>
 <h4 id="4-1轮询"><a href="#4-1轮询" class="headerlink" title="4.1轮询"></a>4.1轮询</h4><p>想实现Nginx轮询负载均衡机制只需要修改配置文件如下</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
-    server ncthz.top:8080;
-    server ncthz.top:8081;
-&#125;
-server &#123;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server<span class="token punctuation">&#123;</span>
+    server ncthz.top<span class="token punctuation">:</span>8080;
+    server ncthz.top<span class="token punctuation">:</span>8081;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
     listen       80;
-    listen  [::]:80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
     server_name  localhost;
 
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//my_server/;	<span class="token comment">#tomcat首页</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream 名字&#123;
-    server ip:端口;
-    server 域名:端口;
-&#125;
-server &#123;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream 名字<span class="token punctuation">&#123;</span>
+    server ip<span class="token punctuation">:</span>端口;
+    server 域名<span class="token punctuation">:</span>端口;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
     listen       80;
-    listen  [::]:80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
     server_name  localhost;
 
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;upstream的名字&#x2F;;	
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//upstream的名字/;	
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>多次刷新ncthz.top页面，根据版本号我们可以发现我们进入的是不同的tomcat</p>
 <p><img src="https://gitee.com/ming0419/tuchuang/raw/master/a56b958152f749aabbaa500c23605495.png" alt="img"> <img src="https://gitee.com/ming0419/tuchuang/raw/master/1f61789f10ad4dde936e4b4f8b5a7982.png" alt="img"></p>
 <h4 id="4-2权重"><a href="#4-2权重" class="headerlink" title="4.2权重"></a>4.2权重</h4><p>实现权重的方式：在配置文件中upstream块中加上weight</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
-    server ncthz.top:8080 weight&#x3D;10;
-    server ncthz.top:8081 weight&#x3D;2;
-&#125;
-server &#123;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server<span class="token punctuation">&#123;</span>
+    server ncthz.top<span class="token punctuation">:</span>8080 weight=10;
+    server ncthz.top<span class="token punctuation">:</span>8081 weight=2;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
     listen       80;
-    listen  [::]:80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
     server_name  localhost;
 
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//my_server/;	<span class="token comment">#tomcat首页</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="4-3ip-hash"><a href="#4-3ip-hash" class="headerlink" title="4.3ip_hash"></a>4.3ip_hash</h4><p>实现ip_hash方式：在配置文件upstream块中加上ip_hash;</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server<span class="token punctuation">&#123;</span>
 	ip_hash;
-    server ncthz.top:8080 weight&#x3D;10;
-    server ncthz.top:8081 weight&#x3D;2;
-&#125;
-server &#123;
+    server ncthz.top<span class="token punctuation">:</span>8080 weight=10;
+    server ncthz.top<span class="token punctuation">:</span>8081 weight=2;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
     listen       80;
-    listen  [::]:80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
     server_name  localhost;
 
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//my_server/;	<span class="token comment">#tomcat首页</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="五、Nginx动静分离"><a href="#五、Nginx动静分离" class="headerlink" title="五、Nginx动静分离"></a>五、Nginx动静分离</h3><p>Nginx的并发能力公式：<code>worker_processes * worker_connections / 4|2 = Nginx最终的并发能力</code>动态资源需要/4，静态资源需要/2 Nginx通过动静分离来提升Nginx的并发能力，更快的给用户响应</p>
-<h4 id="5-1动态资源代理"><a href="#5-1动态资源代理" class="headerlink" title="5.1动态资源代理"></a>5.1动态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#配置如下
-location &#x2F; &#123;
+<h4 id="5-1动态资源代理"><a href="#5-1动态资源代理" class="headerlink" title="5.1动态资源代理"></a>5.1动态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#配置如下</span>
+location / <span class="token punctuation">&#123;</span>
   proxy_pass 路径;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="5-2静态资源代理"><a href="#5-2静态资源代理" class="headerlink" title="5.2静态资源代理"></a>5.2静态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#停掉nginx
-docker-compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="5-2静态资源代理"><a href="#5-2静态资源代理" class="headerlink" title="5.2静态资源代理"></a>5.2静态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#停掉nginx</span>
+docker<span class="token punctuation">-</span>compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>修改docker-compose.yml添加静态资源数据卷 不同版本的静态资源位置可能不同，可以在2.2中查看默认的位置（location块中root后的路径）</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#启动nginx
-docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#启动nginx</span>
+docker<span class="token punctuation">-</span>compose up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &#39;3.1&#39;
-services: 
-  nginx:
-    restart: always
-    image: daocloud.io&#x2F;library&#x2F;nginx:latest
-    container_name: nginx
-    ports: 
-      - 80:80
-    volumes:
-      - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d
-      - &#x2F;opt&#x2F;docker_nginx&#x2F;html&#x2F;:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span> 
+  <span class="token key atrule">nginx</span><span class="token punctuation">:</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> daocloud.io/library/nginx<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span> 
+      <span class="token punctuation">-</span> <span class="token datetime number">80:80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /opt/docker_nginx/conf.d/<span class="token punctuation">:</span>/etc/nginx/conf.d
+      <span class="token punctuation">-</span> /opt/docker_nginx/html/<span class="token punctuation">:</span>/usr/share/nginx/html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在/opt/docker_nginx/html下新建一个index.html 在index.html里面随便写点东西展示 修改nginx的配置文件</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">location &#x2F; &#123;
-    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">location / <span class="token punctuation">&#123;</span>
+    root /usr/share/nginx/html;
     index index.html;
-&#125;
+<span class="token punctuation">&#125;</span>
 
-#配置如下
-location &#x2F; &#123;
+<span class="token comment">#配置如下</span>
+location / <span class="token punctuation">&#123;</span>
     root 静态资源路径;
     index 默认访问路径下的什么资源;
-    autoindex on;#代表展示静态资源的全部内容，以列表的形式展开
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    autoindex on;<span class="token comment">#代表展示静态资源的全部内容，以列表的形式展开</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>#访问ncthz.top如下 <img src="https://gitee.com/ming0419/tuchuang/raw/master/b6fb017de17a4aa2b6390933e412a0a4.png" alt="img"></p>
 <h3 id="六、Nginx集群"><a href="#六、Nginx集群" class="headerlink" title="六、Nginx集群"></a>六、Nginx集群</h3><h4 id="6-1引言"><a href="#6-1引言" class="headerlink" title="6.1引言"></a>6.1引言</h4><p>单点故障，避免nginx的宕机，导致整个程序的崩溃 准备多台Nginx 准备keepalived，监听nginx的健康情况 准备haproxy，提供一个虚拟的路径，统一的去接收用户的请求 <img src="https://gitee.com/ming0419/tuchuang/raw/master/9a1dbbdb1ccf46a9963b33ae9614985a.png" alt="img"></p>
-<h4 id="6-2搭建"><a href="#6-2搭建" class="headerlink" title="6.2搭建"></a>6.2搭建</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#先准备好以下文件放入&#x2F;opt&#x2F;docker_nginx_cluster目录中
-#然后启动容器	注意确保80、8081和8082端口未被占用(或者修改docker-compose.yml中的端口)
-docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="6-2搭建"><a href="#6-2搭建" class="headerlink" title="6.2搭建"></a>6.2搭建</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#先准备好以下文件放入/opt/docker_nginx_cluster目录中</span>
+<span class="token comment">#然后启动容器	注意确保80、8081和8082端口未被占用(或者修改docker-compose.yml中的端口)</span>
+docker<span class="token punctuation">-</span>compose up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>然后我们访问8081端口可以看到master，访问8082端口可以看到slave 因为我们设置了81端口的master优先级未200比82端口的slave优先级100高，所以我们访问80端口看到的是master 现在我们模仿8081端口的nginx宕机了 docker stop 8081端口nginx容器的ID 这时我们再去访问80端口看到的就是slave了</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Dockerfile</span>
@@ -592,114 +592,114 @@ RUN chmod <span class="token operator">+</span>x <span class="token operator">/<
 CMD <span class="token punctuation">[</span><span class="token string">"/entrypoint.sh"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>entrypoint.sh</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#!&#x2F;bin&#x2F;sh
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#!/bin/sh</span>
 
-#&#x2F;usr&#x2F;sbin&#x2F;keepalvined -n -l -D -f &#x2F;etc&#x2F;keepalived&#x2F;keepalived.conf --dont-fork --log-console &amp;
-&#x2F;usr&#x2F;sbin&#x2F;keepalvined -D -f &#x2F;etc&#x2F;keepalived&#x2F;keepalived.conf
+<span class="token comment">#/usr/sbin/keepalvined -n -l -D -f /etc/keepalived/keepalived.conf --dont-fork --log-console &amp;</span>
+/usr/sbin/keepalvined <span class="token punctuation">-</span>D <span class="token punctuation">-</span>f /etc/keepalived/keepalived.conf
 
 
-nginx -g &quot;daemon off;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+nginx <span class="token punctuation">-</span>g "daemon off;"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>docker-compose.yml</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &quot;3.1&quot;
-services:
-  nginx_master:
-    build:
-      context: .&#x2F;
-      dockerfile: .&#x2F;Dockerfile
-    ports:
-      -8081:80
-    volumes:
-      - .&#x2F;index-master.html:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;index.html
-      - .&#x2F;favicon.ico:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;favicon.ico
-      - .&#x2F;keepalived-master.conf:&#x2F;etv&#x2F;keepalived&#x2F;keepalived.conf
-    networks:
-      static-network:
-        ipv4_address:172.20.128.2
-    cap_add:
-      - NET_ADMIN
-  nginx_slave:
-    build:
-      context: .&#x2F;
-      dockerfile: .&#x2F;Dockerfile
-    ports:
-      -8082:80
-    volumes:
-      - .&#x2F;index-slave.html:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;index.html
-      - .&#x2F;favicon.ico:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;favicon.ico
-      - .&#x2F;keepalived-slave.conf:&#x2F;etv&#x2F;keepalived&#x2F;keepalived.conf
-    networks:
-      static-network:
-        ipv4_address:172.20.128.3
-    cap_add:
-      - NET_ADMIN
-  proxy:
-    image:  haproxy:1.7-apline
-    ports:
-      - 80:6301
-    volumes:
-      - .&#x2F;happroxy.cfg:&#x2F;usr&#x2F;local&#x2F;etc&#x2F;haproxy&#x2F;haproxy.cfg
-    networks:
-      - static-network
-networks:
-  static-network:
-    ipam:
-      congig:
-        - subnet: 172.20.0.0&#x2F;16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.1"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nginx_master</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> ./
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> ./Dockerfile
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span>8081<span class="token punctuation">:</span><span class="token number">80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./index<span class="token punctuation">-</span>master.html<span class="token punctuation">:</span>/usr/share/nnginx/html/index.html
+      <span class="token punctuation">-</span> ./favicon.ico<span class="token punctuation">:</span>/usr/share/nnginx/html/favicon.ico
+      <span class="token punctuation">-</span> ./keepalived<span class="token punctuation">-</span>master.conf<span class="token punctuation">:</span>/etv/keepalived/keepalived.conf
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">static-network</span><span class="token punctuation">:</span>
+        ipv4_address<span class="token punctuation">:</span>172.20.128.2
+    <span class="token key atrule">cap_add</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NET_ADMIN
+  <span class="token key atrule">nginx_slave</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> ./
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> ./Dockerfile
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span>8082<span class="token punctuation">:</span><span class="token number">80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./index<span class="token punctuation">-</span>slave.html<span class="token punctuation">:</span>/usr/share/nnginx/html/index.html
+      <span class="token punctuation">-</span> ./favicon.ico<span class="token punctuation">:</span>/usr/share/nnginx/html/favicon.ico
+      <span class="token punctuation">-</span> ./keepalived<span class="token punctuation">-</span>slave.conf<span class="token punctuation">:</span>/etv/keepalived/keepalived.conf
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">static-network</span><span class="token punctuation">:</span>
+        ipv4_address<span class="token punctuation">:</span>172.20.128.3
+    <span class="token key atrule">cap_add</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NET_ADMIN
+  <span class="token key atrule">proxy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span>  haproxy<span class="token punctuation">:</span>1.7<span class="token punctuation">-</span>apline
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 80<span class="token punctuation">:</span><span class="token number">6301</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./happroxy.cfg<span class="token punctuation">:</span>/usr/local/etc/haproxy/haproxy.cfg
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> static<span class="token punctuation">-</span>network
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">static-network</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ipam</span><span class="token punctuation">:</span>
+      <span class="token key atrule">congig</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">subnet</span><span class="token punctuation">:</span> 172.20.0.0/16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>keepalived-master.conf</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx &#123;
-    script &quot;pidof nginx&quot;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx <span class="token punctuation">&#123;</span>
+    script "pidof nginx"
     interval 2
-&#125;
+<span class="token punctuation">&#125;</span>
 
-vrrp_instance VI_1 &#123;
+vrrp_instance VI_1 <span class="token punctuation">&#123;</span>
     state MASTER
-    interface etch0	#容器内部的网卡名称
+    interface etch0	<span class="token comment">#容器内部的网卡名称</span>
     virtual_router_id 33
-    priority 200	#优先级
+    priority 200	<span class="token comment">#优先级</span>
     advert_int 1
     
-    autheentication &#123;
+    autheentication <span class="token punctuation">&#123;</span>
     	auth_type PASS
     	auth_pass letmein
-	&#125;
+	<span class="token punctuation">&#125;</span>
 
-	virtual_ipaddress &#123;
-        172.20.128.50	#虚拟路径
-    &#125;
+	virtual_ipaddress <span class="token punctuation">&#123;</span>
+        172.20.128.50	<span class="token comment">#虚拟路径</span>
+    <span class="token punctuation">&#125;</span>
 
-	track_script &#123;
+	track_script <span class="token punctuation">&#123;</span>
         chk_nginx
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>keepalived-slave.conf</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx &#123;
-    script &quot;pidof nginx&quot;
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx <span class="token punctuation">&#123;</span>
+    script "pidof nginx"
     interval 2
-&#125;
+<span class="token punctuation">&#125;</span>
 
-vrrp_instance VI_1 &#123;
+vrrp_instance VI_1 <span class="token punctuation">&#123;</span>
     state BACKUP
-    interface etch0	#容器内部的网卡名称
+    interface etch0	<span class="token comment">#容器内部的网卡名称</span>
     virtual_router_id 33
-    priority 100	#优先级
+    priority 100	<span class="token comment">#优先级</span>
     advert_int 1
     
-    autheentication &#123;
+    autheentication <span class="token punctuation">&#123;</span>
     	auth_type PASS
     	auth_pass letmein
-	&#125;
+	<span class="token punctuation">&#125;</span>
 
-	virtual_ipaddress &#123;
-        172.20.128.50	#虚拟路径
-    &#125;
+	virtual_ipaddress <span class="token punctuation">&#123;</span>
+        172.20.128.50	<span class="token comment">#虚拟路径</span>
+    <span class="token punctuation">&#125;</span>
 
-	track_script &#123;
+	track_script <span class="token punctuation">&#123;</span>
         chk_nginx
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>haproxy.cfg</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">global
@@ -721,17 +721,17 @@ defaults
 	timeout server 5000ms
 	
 frontend main
-	bind *:6301
+	bind <span class="token important">*:</span><span class="token number">6301</span>
 	default_backend webserver
 	
 backend webserveer
-	server nginx_master 127.20.127.50:80 check inter 2000 rise 2 fall 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	server nginx_master 127.20.127.50<span class="token punctuation">:</span>80 check inter 2000 rise 2 fall 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>index-master.html</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1&gt;master！&lt;&#x2F;h1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1<span class="token punctuation">></span>master！&lt;/h1<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>index-slave.html</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1&gt;slave！&lt;&#x2F;h1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1<span class="token punctuation">></span>slave！&lt;/h1<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>来源：<a target="_blank" rel="noopener" href="https://space.bilibili.com/416186032/"><strong>B站 千锋教育Java学院</strong></a></p>
 
@@ -777,11 +777,11 @@ backend webserveer
       </a>
       
 
-      
+    <!--  
         <a class="ml-0 footer-link icon" a ="" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Unreal">
           <svg class="Unreal svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unreal Engine</title><path d="M11.999 0C5.427 0 .1 5.373.1 12c0 6.628 5.327 12 11.899 12 6.571 0 11.899-5.372 11.899-12 0-6.627-5.328-12-11.9-12zm0 .528c3.038 0 5.895 1.194 8.043 3.36A11.446 11.446 0 0 1 23.374 12c0 3.064-1.183 5.945-3.332 8.112A11.254 11.254 0 0 1 12 23.472a11.253 11.253 0 0 1-8.044-3.36A11.447 11.447 0 0 1 .623 12c0-3.064 1.184-5.945 3.332-8.112A11.252 11.252 0 0 1 12 .528zm-.595 4.223c-1.938.52-3.732 1.516-6.123 4.258-2.392 2.742-1.938 5.006-1.938 5.006s.66-1.558 2.247-3.199c.752-.777 1.314-1.037 1.698-1.038a.598.598 0 0 1 .632.602v5.567c0 .55-.354.669-.68.663-.279-.005-.537-.102-.537-.102 1.63 2.368 5.526 2.7 5.526 2.7l1.711-1.828.04.035 1.568 1.336c2.866-1.703 4.248-4.86 4.248-4.86-1.279 1.353-2.094 1.669-2.578 1.667-.429-.003-.597-.255-.597-.255-.023-.117-.063-1.81-.078-3.505-.014-1.756-.001-3.513.087-3.518.494-.929 2.073-2.802 2.073-2.802-2.948.581-4.556 2.513-4.556 2.513-.475-.374-1.444-.311-1.444-.311.454.25.907.976.907 1.578v5.92s-.99.873-1.752.873c-.451 0-.729-.247-.881-.449a1.182 1.182 0 0 1-.15-.258V8.033a.634.634 0 0 1-.363.123c-.162 0-.33-.082-.444-.32-.086-.18-.141-.45-.141-.842 0-1.35 1.525-2.243 1.525-2.243z"/></svg>
         </a>
-        
+          -->
         
 
           

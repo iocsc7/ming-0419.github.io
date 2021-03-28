@@ -566,6 +566,44 @@ OK
       </categories>
   </entry>
   <entry>
+    <title>上传项目到github</title>
+    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
+    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
+<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
+<p><strong>3.并复制到</strong></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
+<p><strong>4.首先是初始化本地仓库</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
+<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
+<p><strong>6.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
+<p><strong>7.</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
+<p><strong>8.登录</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
+<p><strong>9.输入你github用户名账号</strong></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+  </entry>
+  <entry>
     <title>用Vue路由模拟京东导航条</title>
     <url>/2020/11/12/2020-11-12-%E7%94%A8Vue%E8%B7%AF%E7%94%B1%E6%A8%A1%E6%8B%9F%E4%BA%AC%E4%B8%9C%E5%AF%BC%E8%88%AA%E6%9D%A1/</url>
     <content><![CDATA[<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/vue110.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/vue110.png" alt="img"></a></p>
@@ -794,44 +832,6 @@ OK
       </categories>
   </entry>
   <entry>
-    <title>上传项目到github</title>
-    <url>/2020/11/15/2020-11-15-%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github/</url>
-    <content><![CDATA[<h2 id="1-配置ssh秘钥"><a href="#1-配置ssh秘钥" class="headerlink" title="1.配置ssh秘钥"></a><strong>1.配置ssh秘钥</strong></h2><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;填在github上注册的邮箱地址&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<hr>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-1.png" alt="img"></a></p>
-<p><strong>2.到目录下的id_rsa.pub用记事本打开</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-2.png" alt="img"></a></p>
-<p><strong>3.并复制到</strong></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-3.png" alt="img"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-4.png" alt="img"></a><a href="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/github-5.png" alt="img"></a></p>
-<p><strong>4.首先是初始化本地仓库</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-5.png" alt="img"></a></p>
-<p><strong>5.以下两个命令都可以用，具体的作用就像注释说的</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git add filename    &#x2F;&#x2F;添加工作区下某个文件到暂存区git add .                 &#x2F;&#x2F;添加目录下全部文件到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-1.png" alt="img"></a></p>
-<p><strong>6.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git commit -m &quot;随便写点你对本次修改的描述&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-2.png" alt="img"></a></p>
-<p><strong>7.</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git remote add origin 你的仓库地址如：git remote add origin https:&#x2F;&#x2F;github.com&#x2F;ming-0419&#x2F;book-ms-1933.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-3.png" alt="img"></a></p>
-<p><strong>8.登录</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/book-4.png" alt="img"></a></p>
-<p><strong>9.输入你github用户名账号</strong></p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-  </entry>
-  <entry>
     <title>双亲委派机制</title>
     <url>/2020/11/17/2020-11-17-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/cmm0401/article/details/108808522?biz_id=102&utm_term=%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-108808522&spm=1018.2118.3001.4449">原文：CSDN博主风暴计划</a></p>
@@ -920,7 +920,40 @@ OK
 <p>2、保证核心 <code>.class文件</code>不被篡改。通过向上委托的方式，不会去篡改核心 <code>.class 文件</code>，即使篡改也不会去加载，即使加载也不会是同一个 <code>.class</code>对象 。不同的类加载器加载同一个<code>.class</code>也不是同一个<code>Class</code>对象。这样保证了<code>Class</code>执行安全。</p>
 ]]></content>
       <categories>
-        <category>jvm</category>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JVM详解 -&gt; native &amp; 方法区</title>
+    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
+    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
+<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
+<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
+<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
+<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
+<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
+</ul>
+<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
+<li><p>程序计数器：Program Counter Register</p>
+</li>
+<li><ul>
+<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
+<li><p>方法区：Method Area</p>
+</li>
+<li><ul>
+<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
+<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
+<li>static、final、Class模板、常量池</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -989,76 +1022,7 @@ OK
 <p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
 ]]></content>
       <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JVM详解 -&gt; native &amp; 方法区</title>
-    <url>/2020/11/19/2020-11-19-JVM%E8%AF%A6%E8%A7%A3---native-&amp;-%E6%96%B9%E6%B3%95%E5%8C%BA/</url>
-    <content><![CDATA[<h4 id="1-native-关键字"><a href="#1-native-关键字" class="headerlink" title="1. native 关键字"></a>1. native 关键字</h4><ul>
-<li>native ：凡是带了native关键字的，说明Java的作用范围达不到了，会调用底层C语言的库</li>
-<li>进入本地方法栈；调用本地方法接口JNI，JNI作用：扩展Java的使用，融合不同的编程语言为Java所有，最初是为了融合C C++</li>
-<li>在内存区域中专门开辟了一块标记区域：Native Method Stack，登记native方法</li>
-<li>在最终执行的时候，在执行引擎中通过JNI加载本地方法库中的方法</li>
-<li>目前该方法的使用越来越少了，除非是与硬件有关的应用，比如通过Java程序驱动打印机、Java系统管理生产设备等，在企业级应用中已经比较少见。因为现在的异构领域间通信很发达，比如可以使用Socket通信，也可以使用Web Service等。</li>
-</ul>
-<h4 id="2-PC寄存器"><a href="#2-PC寄存器" class="headerlink" title="2. PC寄存器"></a>2. PC寄存器</h4><ul>
-<li><p>程序计数器：Program Counter Register</p>
-</li>
-<li><ul>
-<li>每一个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向一条指令的地址，也即将要执行的指令代码），在执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-方法区"><a href="#3-方法区" class="headerlink" title="3. 方法区"></a>3. 方法区</h4><ul>
-<li><p>方法区：Method Area</p>
-</li>
-<li><ul>
-<li>方法区是被所有线程共享，所有字段和方法字节码，以及一些特殊方法，如构造函数，接口代码也在此定义，简单的说，所有定义的方法的信息都保存在方法区，此区域属于共享区间；</li>
-<li><strong>静态变量、常量、类信息（构造方法、接口定义）、运行时的常量池存在方法区中；但，实例变量存在堆内存中，和方法区无关</strong></li>
-<li>static、final、Class模板、常量池</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Jmm内存模型</title>
-    <url>/2020/11/23/2020-11-23-Jmm%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h3 id="1-什么是JMM，三个特征？"><a href="#1-什么是JMM，三个特征？" class="headerlink" title="1.什么是JMM，三个特征？"></a>1.什么是JMM，三个特征？</h3><p>Java内存模型根据官方的解释，主要是在说两个关键字，一个是<code>volatile</code>，一个是<code>synchronized</code>。</p>
-<p>JMM:Java Memory Model的缩写，可见性、原子性、有序性。</p>
-<h3 id="2-作用："><a href="#2-作用：" class="headerlink" title="2.作用："></a>2.作用：</h3><p>缓存一致性协议，用来定义数据读写的规则。</p>
-<p>JMM定义了线程工作内存和主内存之间的抽象关系：线程之间的共享变量存储在主内存（Main Memory）中，每个线程都有一个私有的本地内存（Local Memory）。</p>
-<p><strong>主内存</strong></p>
-<p>主内存是所有线程都共享的，都能访问的。所有的共享变量都存储于主内存。</p>
-<p><strong>工作内存</strong></p>
-<p>每一个线程有自己的工作内存，工作内存只存储该线程对共享变量的副本。线程对变量的所有的操 作(读，取)都必须在工作内存中完成，而不能直接读写主内存中的变量，不同线程之间也不能直接 访问对方工作内存中的变量。</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123214141241.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123214141241.png" alt="img"></a></p>
-<p>解决共享对象的线程之间的可见性问题：voliate，（当一个线程改变了主内存中a的数值，这个操作对其他线程是不可见的，使用voliate关键字，可以将线程改变后的值刷新到主内存，保证了变量a在线程之间的可见性）。voliate保证了可见性和有序性，不保证原子性。</p>
-<p>JMM：抽象的概念、理论</p>
-<p><strong>JMM对这八种指令的使用，制定了如下规则：</strong></p>
-<ul>
-<li></li>
-<li><ul>
-<li>不允许read和load、store和write操作之一单独出现。即使用了read必须load，使用了store必须write</li>
-<li>不允许线程丢弃他最近的assign操作，即工作变量的数据改变了之后，必须告知主存</li>
-<li>不允许一个线程将没有assign的数据从工作内存同步回主内存</li>
-<li>一个新的变量必须在主内存中诞生，不允许工作内存直接使用一个未被初始化的变量。就是怼变量实施use、store操作之前，必须经过assign和load操作</li>
-<li>一个变量同一时间只有一个线程能对其进行lock。多次lock后，必须执行相同次数的unlock才能解锁</li>
-<li>如果对一个变量进行lock操作，会清空所有工作内存中此变量的值，在执行引擎使用这个变量前，必须重新load或assign操作初始化变量的值</li>
-<li>如果一个变量没有被lock，就不能对其进行unlock操作。也不能unlock一个被其他线程锁住的变量</li>
-<li>对一个变量进行unlock操作之前，必须把此变量同步回主内存</li>
-</ul>
-</li>
-</ul>
-<p>JMM对这八种操作规则和对<a href="https://www.cnblogs.com/null-qige/p/8569131.html">volatile的一些特殊规则</a>就能确定哪里操作是线程安全，哪些操作是线程不安全的了。但是这些规则实在复杂，很难在实践中直接分析。所以一般我们也不会通过上述规则进行分析。更多的时候，使用java的happen-before规则来进行分析。</p>
-<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
-]]></content>
-      <categories>
-        <category>jvm</category>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -1106,7 +1070,43 @@ OK
 <p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
 ]]></content>
       <categories>
-        <category>jvm</category>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Jmm内存模型</title>
+    <url>/2020/11/23/2020-11-23-Jmm%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h3 id="1-什么是JMM，三个特征？"><a href="#1-什么是JMM，三个特征？" class="headerlink" title="1.什么是JMM，三个特征？"></a>1.什么是JMM，三个特征？</h3><p>Java内存模型根据官方的解释，主要是在说两个关键字，一个是<code>volatile</code>，一个是<code>synchronized</code>。</p>
+<p>JMM:Java Memory Model的缩写，可见性、原子性、有序性。</p>
+<h3 id="2-作用："><a href="#2-作用：" class="headerlink" title="2.作用："></a>2.作用：</h3><p>缓存一致性协议，用来定义数据读写的规则。</p>
+<p>JMM定义了线程工作内存和主内存之间的抽象关系：线程之间的共享变量存储在主内存（Main Memory）中，每个线程都有一个私有的本地内存（Local Memory）。</p>
+<p><strong>主内存</strong></p>
+<p>主内存是所有线程都共享的，都能访问的。所有的共享变量都存储于主内存。</p>
+<p><strong>工作内存</strong></p>
+<p>每一个线程有自己的工作内存，工作内存只存储该线程对共享变量的副本。线程对变量的所有的操 作(读，取)都必须在工作内存中完成，而不能直接读写主内存中的变量，不同线程之间也不能直接 访问对方工作内存中的变量。</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123214141241.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123214141241.png" alt="img"></a></p>
+<p>解决共享对象的线程之间的可见性问题：voliate，（当一个线程改变了主内存中a的数值，这个操作对其他线程是不可见的，使用voliate关键字，可以将线程改变后的值刷新到主内存，保证了变量a在线程之间的可见性）。voliate保证了可见性和有序性，不保证原子性。</p>
+<p>JMM：抽象的概念、理论</p>
+<p><strong>JMM对这八种指令的使用，制定了如下规则：</strong></p>
+<ul>
+<li></li>
+<li><ul>
+<li>不允许read和load、store和write操作之一单独出现。即使用了read必须load，使用了store必须write</li>
+<li>不允许线程丢弃他最近的assign操作，即工作变量的数据改变了之后，必须告知主存</li>
+<li>不允许一个线程将没有assign的数据从工作内存同步回主内存</li>
+<li>一个新的变量必须在主内存中诞生，不允许工作内存直接使用一个未被初始化的变量。就是怼变量实施use、store操作之前，必须经过assign和load操作</li>
+<li>一个变量同一时间只有一个线程能对其进行lock。多次lock后，必须执行相同次数的unlock才能解锁</li>
+<li>如果对一个变量进行lock操作，会清空所有工作内存中此变量的值，在执行引擎使用这个变量前，必须重新load或assign操作初始化变量的值</li>
+<li>如果一个变量没有被lock，就不能对其进行unlock操作。也不能unlock一个被其他线程锁住的变量</li>
+<li>对一个变量进行unlock操作之前，必须把此变量同步回主内存</li>
+</ul>
+</li>
+</ul>
+<p>JMM对这八种操作规则和对<a href="https://www.cnblogs.com/null-qige/p/8569131.html">volatile的一些特殊规则</a>就能确定哪里操作是线程安全，哪些操作是线程不安全的了。但是这些规则实在复杂，很难在实践中直接分析。所以一般我们也不会通过上述规则进行分析。更多的时候，使用java的happen-before规则来进行分析。</p>
+<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -1136,7 +1136,105 @@ OK
 <p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
 ]]></content>
       <categories>
-        <category>jvm</category>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>初探JVM</title>
+    <url>/2020/11/23/2020-11-23-%E5%88%9D%E6%8E%A2JVM/</url>
+    <content><![CDATA[<h1 id="1-JVM的位置"><a href="#1-JVM的位置" class="headerlink" title="1. JVM的位置"></a>1. JVM的位置</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215348517.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215348517.png" alt="img"></a></p>
+<h1 id="2-JVM的体系结构"><a href="#2-JVM的体系结构" class="headerlink" title="2. JVM的体系结构"></a>2. JVM的体系结构</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215515209.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215515209.png" alt="image-20201123215515209"></a></p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215543414.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215543414.png" alt="image-20201123215543414"></a></p>
+<h1 id="3-类加载器"><a href="#3-类加载器" class="headerlink" title="3. 类加载器"></a>3. 类加载器</h1><p>作用：加载class文件</p>
+<ul>
+<li><p>new Student();</p>
+<p>将抽象类Student实例化，其引用在栈里，实例放在堆里</p>
+<p>类是抽象的，对象是具体的</p>
+</li>
+</ul>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215616533.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215616533.png" alt="image-20201123215616533"></a></p>
+<ol>
+<li>虚拟机自带的加载器</li>
+<li>启动类（根）加载器</li>
+<li>扩展类加载器</li>
+<li>应用类加载器</li>
+</ol>
+<p>作业：1. 自己画类加载机制</p>
+<p>\2. 百度双亲委派机制</p>
+<h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p><strong>概念：</strong>类的加载指的是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个 java.lang.Class对象，用来封装类在方法区内的数据结构。</p>
+<ol>
+<li><p>在什么时候才会启动类加载器？</p>
+<p>其实，类加载器并不需要等到某个类被“首次主动使用”时再加载它，JVM规范允许类加载器在预料某个类将要被使用时就预先加载它，如果在预先加载的过程中遇到了.class文件缺失或存在错误，类加载器必须在程序首次主动使用该类时才报告错误（LinkageError错误）如果这个类一直没有被程序主动使用，那么类加载器就不会报告错误。</p>
+</li>
+<li><p>从哪个地方去加载.class文件</p>
+<p>在这里进行一个简单的分类。例举了5个来源</p>
+<p>（1）本地磁盘</p>
+<p>（2）网上加载.class文件（Applet）</p>
+<p>（3）从数据库中</p>
+<p>（4）压缩文件中（ZAR，jar等）</p>
+<p>（5）从其他文件生成的（JSP应用）</p>
+</li>
+</ol>
+<h2 id="3-2-类加载过程"><a href="#3-2-类加载过程" class="headerlink" title="3.2 类加载过程"></a>3.2 类加载过程</h2><p>类生存周期：加载至虚拟机内存—&gt;卸载出内存</p>
+<p>包含了：加载、验证、准备、解析、初始化、使用、卸载</p>
+<p>类的加载：加载、验证、准备、解析、初始化</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215645320.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215645320.png" alt="image-20201123215645320"></a></p>
+<p><strong>1. 加载</strong></p>
+<p>三件事：</p>
+<p>（1）通过一个类的全限定名来获取其定义的二进制字节流</p>
+<p>（2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</p>
+<p>（3）在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问接口</p>
+<p>程序员可以使用系统的类加载器加载，还可以使用自己的类加载器加载</p>
+<p><strong>2. 验证</strong></p>
+<p>作用：确保加载类的正确性</p>
+<p>四步：</p>
+<p>（1）验证文件格式：验证 .class 文件字节流是否符合class文件的格式规范，并且能够被当前版本的虚拟机处理。主要校验：魔数、主版本号、常量池等</p>
+<p>（2）验证元数据：对字节码描述的信息进行语义分析，保证信息符合java语言规范要求。例：此类是否有父类，字段方法是否与父类冲突等</p>
+<p>（3）验证字节码：最复杂阶段。分析数据流与控制流，确定语义是否合法及符合逻辑。对类的方法进行验证。</p>
+<p>（4）验证符号引用：发生在虚拟机将符号引用转化为直接引用的时候。主要对类自身以外的信息进行校验。目的在于确保解析动作能够完成。</p>
+<p><strong>3. 准备</strong></p>
+<p>作用：为<strong>类变量</strong>分配内存并设置<strong>初始值</strong></p>
+<p>注意：</p>
+<p>（1）类变量(static)会分配内存，但是实例变量不会，实例变量主要随对象实例化才会一起分配到java堆中</p>
+<p>（2）初始值指数据类型默认值</p>
+<p>static final为初始值，非默认值</p>
+<p><strong>4. 解析</strong></p>
+<p>作用：JVM将常量池中的<strong>符号引用</strong>转化为<strong>直接引用</strong></p>
+<p>符号引用：标签</p>
+<p>直接引用：指针、相对偏移量、直接或间接定位到目标的句柄。与虚拟机实现的内存有关</p>
+<p>解析主要针对：类或接口、字段、类方法、接口方法、方法类型、方法句柄、调用点限定符 7类符号引用</p>
+<p><strong>5. 初始化</strong></p>
+<p>作用：执行类构造器()方法</p>
+<p>设定初始值：</p>
+<p>（1）声明类变量时指定初始值</p>
+<p>（2）使用静态代码块为类变量指定初始值</p>
+<p>JVM初始化步骤：</p>
+<p>（1）假如类未被加载和链接，则加载并连接该类</p>
+<p>（2）假如类的直接父类未被初始化，则初始化器直接父类</p>
+<p>（3）假如类中存在初始化语句，则依次执行初始化语句</p>
+<h2 id="3-3-类初始化时机"><a href="#3-3-类初始化时机" class="headerlink" title="3.3 类初始化时机"></a>3.3 类初始化时机</h2><p><strong>主动使用类</strong>的时候才会初始化类，主动使用分为6种</p>
+<p>（1）创建类实例，即new</p>
+<p>（2）访问类或接口的静态变量，或对静态变量赋值</p>
+<p>（3）调用类的静态方法</p>
+<p>（4）反射（Class.forName(“com.shengsiyuan.Test”)）</p>
+<p>（5）初始化类的子类，则其父类也会被初始化</p>
+<p>（6）JVM虚拟机中的启动类</p>
+<h2 id="3-4-类加载器"><a href="#3-4-类加载器" class="headerlink" title="3.4 类加载器"></a>3.4 类加载器</h2><p>位置：类加载器位于JVM的外部，方便程序员决定如何获取所需的类</p>
+<p><strong>1. 系统自带的三个加载器</strong>：</p>
+<p>（1）Bootstrap ClassLoader：启动类（根）加载器</p>
+<p>（2）Extention ClassLoader：扩展类加载器</p>
+<p>（3）Appclass Loader：应用类加载器</p>
+<p>加载顺序：APP（应用类加载器）&lt; EXC （扩展类加载器）&lt; BOOT（启动类（根）加载器）</p>
+<p>层次关系：</p>
+<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215723621.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215723621.png" alt="image-20201123215723621"></a></p>
+<p><strong>2. 类加载的三种方式</strong></p>
+<p>（1）通过命令行启动启动应用时由JVM初始化加载含有main()方法的主类</p>
+<p>（2）通过Class.forName()方法动态加载，会默认执行初始化块（static{}），但是Class.forName(name, initialize, loader)中的initlize可指定是否要执行初始化块</p>
+<p>（3）通过ClassLoader.loadClass()方法动态加载，不会执行初始化块</p>
+<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -1350,105 +1448,7 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
 <p>在项目中出现了OOM故障</p>
 ]]></content>
       <categories>
-        <category>jvm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>初探JVM</title>
-    <url>/2020/11/23/2020-11-23-%E5%88%9D%E6%8E%A2JVM/</url>
-    <content><![CDATA[<h1 id="1-JVM的位置"><a href="#1-JVM的位置" class="headerlink" title="1. JVM的位置"></a>1. JVM的位置</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215348517.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215348517.png" alt="img"></a></p>
-<h1 id="2-JVM的体系结构"><a href="#2-JVM的体系结构" class="headerlink" title="2. JVM的体系结构"></a>2. JVM的体系结构</h1><p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215515209.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215515209.png" alt="image-20201123215515209"></a></p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215543414.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215543414.png" alt="image-20201123215543414"></a></p>
-<h1 id="3-类加载器"><a href="#3-类加载器" class="headerlink" title="3. 类加载器"></a>3. 类加载器</h1><p>作用：加载class文件</p>
-<ul>
-<li><p>new Student();</p>
-<p>将抽象类Student实例化，其引用在栈里，实例放在堆里</p>
-<p>类是抽象的，对象是具体的</p>
-</li>
-</ul>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215616533.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215616533.png" alt="image-20201123215616533"></a></p>
-<ol>
-<li>虚拟机自带的加载器</li>
-<li>启动类（根）加载器</li>
-<li>扩展类加载器</li>
-<li>应用类加载器</li>
-</ol>
-<p>作业：1. 自己画类加载机制</p>
-<p>\2. 百度双亲委派机制</p>
-<h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p><strong>概念：</strong>类的加载指的是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个 java.lang.Class对象，用来封装类在方法区内的数据结构。</p>
-<ol>
-<li><p>在什么时候才会启动类加载器？</p>
-<p>其实，类加载器并不需要等到某个类被“首次主动使用”时再加载它，JVM规范允许类加载器在预料某个类将要被使用时就预先加载它，如果在预先加载的过程中遇到了.class文件缺失或存在错误，类加载器必须在程序首次主动使用该类时才报告错误（LinkageError错误）如果这个类一直没有被程序主动使用，那么类加载器就不会报告错误。</p>
-</li>
-<li><p>从哪个地方去加载.class文件</p>
-<p>在这里进行一个简单的分类。例举了5个来源</p>
-<p>（1）本地磁盘</p>
-<p>（2）网上加载.class文件（Applet）</p>
-<p>（3）从数据库中</p>
-<p>（4）压缩文件中（ZAR，jar等）</p>
-<p>（5）从其他文件生成的（JSP应用）</p>
-</li>
-</ol>
-<h2 id="3-2-类加载过程"><a href="#3-2-类加载过程" class="headerlink" title="3.2 类加载过程"></a>3.2 类加载过程</h2><p>类生存周期：加载至虚拟机内存—&gt;卸载出内存</p>
-<p>包含了：加载、验证、准备、解析、初始化、使用、卸载</p>
-<p>类的加载：加载、验证、准备、解析、初始化</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215645320.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215645320.png" alt="image-20201123215645320"></a></p>
-<p><strong>1. 加载</strong></p>
-<p>三件事：</p>
-<p>（1）通过一个类的全限定名来获取其定义的二进制字节流</p>
-<p>（2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</p>
-<p>（3）在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问接口</p>
-<p>程序员可以使用系统的类加载器加载，还可以使用自己的类加载器加载</p>
-<p><strong>2. 验证</strong></p>
-<p>作用：确保加载类的正确性</p>
-<p>四步：</p>
-<p>（1）验证文件格式：验证 .class 文件字节流是否符合class文件的格式规范，并且能够被当前版本的虚拟机处理。主要校验：魔数、主版本号、常量池等</p>
-<p>（2）验证元数据：对字节码描述的信息进行语义分析，保证信息符合java语言规范要求。例：此类是否有父类，字段方法是否与父类冲突等</p>
-<p>（3）验证字节码：最复杂阶段。分析数据流与控制流，确定语义是否合法及符合逻辑。对类的方法进行验证。</p>
-<p>（4）验证符号引用：发生在虚拟机将符号引用转化为直接引用的时候。主要对类自身以外的信息进行校验。目的在于确保解析动作能够完成。</p>
-<p><strong>3. 准备</strong></p>
-<p>作用：为<strong>类变量</strong>分配内存并设置<strong>初始值</strong></p>
-<p>注意：</p>
-<p>（1）类变量(static)会分配内存，但是实例变量不会，实例变量主要随对象实例化才会一起分配到java堆中</p>
-<p>（2）初始值指数据类型默认值</p>
-<p>static final为初始值，非默认值</p>
-<p><strong>4. 解析</strong></p>
-<p>作用：JVM将常量池中的<strong>符号引用</strong>转化为<strong>直接引用</strong></p>
-<p>符号引用：标签</p>
-<p>直接引用：指针、相对偏移量、直接或间接定位到目标的句柄。与虚拟机实现的内存有关</p>
-<p>解析主要针对：类或接口、字段、类方法、接口方法、方法类型、方法句柄、调用点限定符 7类符号引用</p>
-<p><strong>5. 初始化</strong></p>
-<p>作用：执行类构造器()方法</p>
-<p>设定初始值：</p>
-<p>（1）声明类变量时指定初始值</p>
-<p>（2）使用静态代码块为类变量指定初始值</p>
-<p>JVM初始化步骤：</p>
-<p>（1）假如类未被加载和链接，则加载并连接该类</p>
-<p>（2）假如类的直接父类未被初始化，则初始化器直接父类</p>
-<p>（3）假如类中存在初始化语句，则依次执行初始化语句</p>
-<h2 id="3-3-类初始化时机"><a href="#3-3-类初始化时机" class="headerlink" title="3.3 类初始化时机"></a>3.3 类初始化时机</h2><p><strong>主动使用类</strong>的时候才会初始化类，主动使用分为6种</p>
-<p>（1）创建类实例，即new</p>
-<p>（2）访问类或接口的静态变量，或对静态变量赋值</p>
-<p>（3）调用类的静态方法</p>
-<p>（4）反射（Class.forName(“com.shengsiyuan.Test”)）</p>
-<p>（5）初始化类的子类，则其父类也会被初始化</p>
-<p>（6）JVM虚拟机中的启动类</p>
-<h2 id="3-4-类加载器"><a href="#3-4-类加载器" class="headerlink" title="3.4 类加载器"></a>3.4 类加载器</h2><p>位置：类加载器位于JVM的外部，方便程序员决定如何获取所需的类</p>
-<p><strong>1. 系统自带的三个加载器</strong>：</p>
-<p>（1）Bootstrap ClassLoader：启动类（根）加载器</p>
-<p>（2）Extention ClassLoader：扩展类加载器</p>
-<p>（3）Appclass Loader：应用类加载器</p>
-<p>加载顺序：APP（应用类加载器）&lt; EXC （扩展类加载器）&lt; BOOT（启动类（根）加载器）</p>
-<p>层次关系：</p>
-<p><a href="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215723621.png"><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20201123215723621.png" alt="image-20201123215723621"></a></p>
-<p><strong>2. 类加载的三种方式</strong></p>
-<p>（1）通过命令行启动启动应用时由JVM初始化加载含有main()方法的主类</p>
-<p>（2）通过Class.forName()方法动态加载，会默认执行初始化块（static{}），但是Class.forName(name, initialize, loader)中的initlize可指定是否要执行初始化块</p>
-<p>（3）通过ClassLoader.loadClass()方法动态加载，不会执行初始化块</p>
-<p><a href="https://space.bilibili.com/95256449">遇见狂神说</a></p>
-]]></content>
-      <categories>
-        <category>jvm</category>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -2121,17 +2121,6 @@ at <span class="token class-name"><span class="token namespace">jvm<span class="
       </categories>
   </entry>
   <entry>
-    <title>Mysql找不到服务</title>
-    <url>/2021/02/01/2021-02-01-Mysql%E6%89%BE%E4%B8%8D%E5%88%B0%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<h4 id="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："><a href="#MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：" class="headerlink" title="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："></a>MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：</h4><p>1.以管理员身份执行cmd；</p>
-<p>2.切换到mysql安装目录下的bin目录，执行<strong>mysqld.exe –install</strong>命令，看到service successfully installed.表示安装服务成功。</p>
-<p>3.开启服务：<code>net start mysql</code></p>
-]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Win10下mysql 8.0的安装</title>
     <url>/2021/01/24/2021-01-24-Win10%E4%B8%8Bmysql-8.0%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h4 id="一-去官网下载MySQL-地址-https-www-mysql-com"><a href="#一-去官网下载MySQL-地址-https-www-mysql-com" class="headerlink" title="一 .去官网下载MySQL 地址:https://www.mysql.com/"></a>一 .去官网下载MySQL 地址:<a href="https://www.mysql.com/">https://www.mysql.com/</a></h4><p><strong>1.</strong></p>
@@ -2214,14 +2203,14 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>IDEA报org.testng.TestNGException:错误</title>
-    <url>/2021/02/03/2021-02-03-IDEA%E6%8A%A5org.testng.TestNGException-%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>1.原因：没有注入testng的依赖</p>
-<p>2.查看pom.xml更改为<code>&lt;version&gt;7.0.0-beta7&lt;/version&gt;</code></p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210203055346551.png"></p>
+    <title>Mysql找不到服务</title>
+    <url>/2021/02/01/2021-02-01-Mysql%E6%89%BE%E4%B8%8D%E5%88%B0%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<h4 id="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："><a href="#MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：" class="headerlink" title="MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法："></a>MySQL已安装，因长时间不用，不在服务列表中，无法启动，解决办法：</h4><p>1.以管理员身份执行cmd；</p>
+<p>2.切换到mysql安装目录下的bin目录，执行<strong>mysqld.exe –install</strong>命令，看到service successfully installed.表示安装服务成功。</p>
+<p>3.开启服务：<code>net start mysql</code></p>
 ]]></content>
       <categories>
-        <category>error</category>
+        <category>mysql</category>
       </categories>
   </entry>
   <entry>
@@ -2257,6 +2246,17 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>IDEA报org.testng.TestNGException:错误</title>
+    <url>/2021/02/03/2021-02-03-IDEA%E6%8A%A5org.testng.TestNGException-%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>1.原因：没有注入testng的依赖</p>
+<p>2.查看pom.xml更改为<code>&lt;version&gt;7.0.0-beta7&lt;/version&gt;</code></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210203055346551.png"></p>
+]]></content>
+      <categories>
+        <category>error</category>
+      </categories>
+  </entry>
+  <entry>
     <title>安装Office.Project.Visio.2021</title>
     <url>/2021/03/16/2021-03-16-%E5%AE%89%E8%A3%85Office.Project.Visio.2021/</url>
     <content><![CDATA[<p><a href="https://wws.lanzous.com/iarnGmzsnwf">https://wws.lanzous.com/iarnGmzsnwf</a><br>密码:73fd</p>
@@ -2280,46 +2280,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 ]]></content>
       <categories>
         <category>installation</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>创建线程池</title>
-    <url>/2021/03/20/2021-03-20-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
-    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">ExecutorService</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">Executors</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> pool <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//1.创建服务，创建线程池</span>
-        <span class="token comment">//newFixedThreadPool 参数为：线程池大小</span>
-        <span class="token class-name">ExecutorService</span> service <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//执行</span>
-        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//2.关闭连接</span>
-        service<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>输出结果：</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320131812300.png" alt="image-20210320131812300"></p>
-]]></content>
-      <categories>
-        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -2444,59 +2404,40 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>实现多线程同步下载图片</title>
-    <url>/2021/03/20/2021-03-20-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<p>下载commons-io-2.8.0.jar到项目的lib目录并Add as Library</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320133223477.png" alt="image-20210320133223477"></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">FileUtils</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span>URL<span class="token punctuation">;</span>
+    <title>创建线程池</title>
+    <url>/2021/03/20/2021-03-20-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">ExecutorService</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">Executors</span><span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Thread01</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
-
-    <span class="token keyword">private</span> <span class="token class-name">String</span> url<span class="token punctuation">;</span>      <span class="token comment">//网络图片地址</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>     <span class="token comment">//保存的文件名</span>
-
-    <span class="token keyword">public</span>  <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    
-    <span class="token comment">//下载图片线程的执行体</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">WebDownloader</span> webDownloader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        webDownloader<span class="token punctuation">.</span><span class="token function">downloader</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"下载了文件名为:"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
+<span class="token keyword">public</span> <span class="token keyword">class</span> pool <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Thread01</span> t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/kite01.png"</span><span class="token punctuation">,</span><span class="token string">"1.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Thread01</span> t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/fog-1850228_1920-1606229124305.jpg"</span><span class="token punctuation">,</span><span class="token string">"2.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Thread01</span> t3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/bg-745f2ad.jpg"</span><span class="token punctuation">,</span><span class="token string">"3.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//1.创建服务，创建线程池</span>
+        <span class="token comment">//newFixedThreadPool 参数为：线程池大小</span>
+        <span class="token class-name">ExecutorService</span> service <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t3<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//执行</span>
+        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        service<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//2.关闭连接</span>
+        service<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token punctuation">&#125;</span>
+
 <span class="token punctuation">&#125;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">//下载方法</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">downloader</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">copyURLToFile</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">URL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"IO异常,downloader方法出现问题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>输出结果：</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132836982.png" alt="image-20210320132836982"></p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320131812300.png" alt="image-20210320131812300"></p>
 ]]></content>
       <categories>
         <category>java</category>
@@ -2695,6 +2636,65 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
+    <title>实现多线程同步下载图片</title>
+    <url>/2021/03/20/2021-03-20-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>下载commons-io-2.8.0.jar到项目的lib目录并Add as Library</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320133223477.png" alt="image-20210320133223477"></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">FileUtils</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span>URL<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Thread01</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> url<span class="token punctuation">;</span>      <span class="token comment">//网络图片地址</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>     <span class="token comment">//保存的文件名</span>
+
+    <span class="token keyword">public</span>  <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">//下载图片线程的执行体</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">WebDownloader</span> webDownloader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        webDownloader<span class="token punctuation">.</span><span class="token function">downloader</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"下载了文件名为:"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Thread01</span> t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/kite01.png"</span><span class="token punctuation">,</span><span class="token string">"1.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread01</span> t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/fog-1850228_1920-1606229124305.jpg"</span><span class="token punctuation">,</span><span class="token string">"2.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread01</span> t3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread01</span><span class="token punctuation">(</span><span class="token string">"https://gitee.com/ming0419/tuchuang/raw/master/bg-745f2ad.jpg"</span><span class="token punctuation">,</span><span class="token string">"3.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t3<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">WebDownloader</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//下载方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">downloader</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">copyURLToFile</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">URL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"IO异常,downloader方法出现问题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出结果：</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210320132836982.png" alt="image-20210320132836982"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
     <title>使用yaml多环境配置</title>
     <url>/2021/03/21/2021-03-21-%E4%BD%BF%E7%94%A8yaml%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p><code>application.yaml</code></p>
@@ -2727,110 +2727,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 ]]></content>
       <categories>
         <category>springboot</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>反射.注解---分析类初始化</title>
-    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
-    <content><![CDATA[<h3 id="什么时候会发生类初始化？"><a href="#什么时候会发生类初始化？" class="headerlink" title="什么时候会发生类初始化？"></a>什么时候会发生类初始化？</h3><h4 id="类的主动引用（一定会发生类的初始化）"><a href="#类的主动引用（一定会发生类的初始化）" class="headerlink" title="类的主动引用（一定会发生类的初始化）"></a>类的主动引用（一定会发生类的初始化）</h4><ul>
-<li>当虚拟机启动，先初始化main方法所在的类</li>
-<li>new一个类的对象</li>
-<li>调用类的静态成员（除了final常量）和静态方法</li>
-<li>使用java.lang.reflect包的方法对类进行反射调用</li>
-<li>当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类</li>
-</ul>
-<h4 id="类的被动引用（不会发生类的初始化）"><a href="#类的被动引用（不会发生类的初始化）" class="headerlink" title="类的被动引用（不会发生类的初始化）"></a>类的被动引用（不会发生类的初始化）</h4><ul>
-<li>当访问一个静态域时，只有真正声明这个域的类才会被初始化。如：当通过子类引用父类的静态变量，不会导致子类初始化</li>
-<li>通过数组定义类引用，不会触发此类的初始化</li>
-<li>引用常量不会触发此类的初始化（常量在链接阶段就存入调用类的常量池中了）</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test02</span> <span class="token punctuation">&#123;</span>
-
-    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span><span class="token punctuation">&#123;</span>
-        <span class="token comment">//1.主动引用</span>
-        <span class="token comment">// Son son = new Son();</span>
-
-        <span class="token comment">//反射也会产生引用</span>
-        <span class="token comment">//Class.forName("test.Son");</span>
-
-        <span class="token comment">//不会产生类的引用的方法</span>
-        <span class="token comment">//System.out.println(Son.b);</span>
-        <span class="token comment">//Son[] array = new Son[5];</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Son<span class="token punctuation">.</span>M</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
-
-    <span class="token keyword">static</span> <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">static</span>  <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"父类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
-
-    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"子类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token class-name">M</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>反射.注解---类加载内存分析</title>
-    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">/*
-        1.加载到内存,会产生一个类对应Class对象
-        2.链接,链接结束后 m = 0;
-        3.初始化
-          &lt;clinit>()&#123;
-          System.out.println("A类静态代码块初始化");
-           m = 300;
-           m = 100;
-
-         */</span>
-    <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类静态代码块初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">/*
-    m = 300;
-    m = 100;
-     */</span>
-
-    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类的无参构造初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000134646.png" alt="image-20210321000134646"></p>
-]]></content>
-      <categories>
-        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -2934,6 +2830,110 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000847850.png" alt="image-20210321000847850"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>反射.注解---分析类初始化</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="什么时候会发生类初始化？"><a href="#什么时候会发生类初始化？" class="headerlink" title="什么时候会发生类初始化？"></a>什么时候会发生类初始化？</h3><h4 id="类的主动引用（一定会发生类的初始化）"><a href="#类的主动引用（一定会发生类的初始化）" class="headerlink" title="类的主动引用（一定会发生类的初始化）"></a>类的主动引用（一定会发生类的初始化）</h4><ul>
+<li>当虚拟机启动，先初始化main方法所在的类</li>
+<li>new一个类的对象</li>
+<li>调用类的静态成员（除了final常量）和静态方法</li>
+<li>使用java.lang.reflect包的方法对类进行反射调用</li>
+<li>当初始化一个类，如果其父类没有被初始化，则先会初始化它的父类</li>
+</ul>
+<h4 id="类的被动引用（不会发生类的初始化）"><a href="#类的被动引用（不会发生类的初始化）" class="headerlink" title="类的被动引用（不会发生类的初始化）"></a>类的被动引用（不会发生类的初始化）</h4><ul>
+<li>当访问一个静态域时，只有真正声明这个域的类才会被初始化。如：当通过子类引用父类的静态变量，不会导致子类初始化</li>
+<li>通过数组定义类引用，不会触发此类的初始化</li>
+<li>引用常量不会触发此类的初始化（常量在链接阶段就存入调用类的常量池中了）</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test02</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//1.主动引用</span>
+        <span class="token comment">// Son son = new Son();</span>
+
+        <span class="token comment">//反射也会产生引用</span>
+        <span class="token comment">//Class.forName("test.Son");</span>
+
+        <span class="token comment">//不会产生类的引用的方法</span>
+        <span class="token comment">//System.out.println(Son.b);</span>
+        <span class="token comment">//Son[] array = new Son[5];</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Son<span class="token punctuation">.</span>M</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span>  <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"父类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"子类被加载"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token class-name">M</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>反射.注解---类加载内存分析</title>
+    <url>/2021/03/21/2021-03-21-%E5%8F%8D%E5%B0%84.%E6%B3%A8%E8%A7%A3---%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/*
+        1.加载到内存,会产生一个类对应Class对象
+        2.链接,链接结束后 m = 0;
+        3.初始化
+          &lt;clinit>()&#123;
+          System.out.println("A类静态代码块初始化");
+           m = 300;
+           m = 100;
+
+         */</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类静态代码块初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/*
+    m = 300;
+    m = 100;
+     */</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A类的无参构造初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210321000134646.png" alt="image-20210321000134646"></p>
 ]]></content>
       <categories>
         <category>java</category>
@@ -3163,6 +3163,82 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <p>查看源码：</p>
 <p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210322090333055.png" alt="image-20210322090333055"></p>
 <p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210322090429896.png" alt="image-20210322090429896"></p>
+]]></content>
+      <categories>
+        <category>springboot</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpringBoot整合JDBC</title>
+    <url>/2021/03/23/SpringBoot%E6%95%B4%E5%90%88JDBC/</url>
+    <content><![CDATA[<p><strong>1.编写yml配置文件连接数据库</strong></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+    <span class="token comment">#?serverTimezone=UTC解决时区的报错</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/auctiondb<span class="token punctuation">?</span>serverTimezone=UTC<span class="token important">&amp;useUnicode=true&amp;characterEncoding=utf-</span><span class="token number">8</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>2.测试</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ming01<span class="token punctuation">.</span></span><span class="token class-name">Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">JdbcTemplate</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JDBCController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
+
+    <span class="token comment">//查询employee表中所有数据</span>
+    <span class="token comment">//List 中的1个 Map 对应数据库的 1行数据</span>
+    <span class="token comment">//Map 中的 key 对应数据库的字段名，value 对应数据库的字段值</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/userList"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">userList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"select * from stu"</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span><span class="token punctuation">></span></span> list_maps <span class="token operator">=</span> jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForList</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> list_maps<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//新增一个用户</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/addUser"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"insert into auctiondb.stu(id,username,score) values(9,'媛媛','89')"</span><span class="token punctuation">;</span>
+        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"update-ok"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//修改用户信息</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/updateUser/&#123;id&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"update auctiondb.stu set username=?,score=?  where id="</span> <span class="token operator">+</span> id<span class="token punctuation">;</span>
+        <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> objects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        objects<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"小明"</span><span class="token punctuation">;</span>
+        objects<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"77"</span><span class="token punctuation">;</span>
+        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> objects<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"updateUser-ok"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//删除用户信息</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/deleteUser/&#123;id&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"delete from auctiondb.stu where id =?"</span><span class="token punctuation">;</span>
+        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"deleteUser-ok"</span><span class="token punctuation">;</span>
+
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 ]]></content>
       <categories>
         <category>springboot</category>
@@ -3466,80 +3542,30 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>SpringBoot整合JDBC</title>
-    <url>/2021/03/23/SpringBoot%E6%95%B4%E5%90%88JDBC/</url>
-    <content><![CDATA[<p><strong>1.编写yml配置文件连接数据库</strong></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
-    <span class="token comment">#?serverTimezone=UTC解决时区的报错</span>
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/auctiondb<span class="token punctuation">?</span>serverTimezone=UTC<span class="token important">&amp;useUnicode=true&amp;characterEncoding=utf-</span><span class="token number">8</span>
-    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>2.测试</strong></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ming01<span class="token punctuation">.</span></span><span class="token class-name">Controller</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">JdbcTemplate</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span><span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@RestController</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JDBCController</span> <span class="token punctuation">&#123;</span>
-
-    <span class="token annotation punctuation">@Autowired</span>
-    <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
-
-    <span class="token comment">//查询employee表中所有数据</span>
-    <span class="token comment">//List 中的1个 Map 对应数据库的 1行数据</span>
-    <span class="token comment">//Map 中的 key 对应数据库的字段名，value 对应数据库的字段值</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/userList"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">userList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"select * from stu"</span><span class="token punctuation">;</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span><span class="token punctuation">></span></span> list_maps <span class="token operator">=</span> jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForList</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> list_maps<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//新增一个用户</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/addUser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"insert into auctiondb.stu(id,username,score) values(9,'媛媛','89')"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"update-ok"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//修改用户信息</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/updateUser/&#123;id&#125;"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"update auctiondb.stu set username=?,score=?  where id="</span> <span class="token operator">+</span> id<span class="token punctuation">;</span>
-        <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> objects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        objects<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"小明"</span><span class="token punctuation">;</span>
-        objects<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"77"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> objects<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"updateUser-ok"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">//删除用户信息</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/deleteUser/&#123;id&#125;"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"delete from auctiondb.stu where id =?"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"deleteUser-ok"</span><span class="token punctuation">;</span>
-
-
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    <title>网站收藏</title>
+    <url>/2020/01/01/www/</url>
+    <content><![CDATA[<p><a href="https://github.com/">https://github.com/</a> GitHub</p>
+<p><a href="https://gitee.com/">https://gitee.com/</a> 码云</p>
+<p><a href="http://www.csdn.net/">http://www.csdn.net/</a>  CSDN</p>
+<p><a href="https://www.nowcoder.com/">https://www.nowcoder.com/</a>        牛客网</p>
+<p><a href="https://beginnersbook.com/">https://beginnersbook.com/</a>         编程网站</p>
+<p><a href="https://github.com/LingCoder/OnJava8">https://github.com/LingCoder/OnJava8</a>    java编程思想</p>
+<p><a href="https://www.runoob.com/">https://www.runoob.com/</a> 菜鸟教程</p>
+<p><a href="https://www.w3school.com.cn/">https://www.w3school.com.cn/</a>  W3school</p>
+<p><a href="https://simpleicons.org/">https://simpleicons.org/</a> SVG图标</p>
+<h3 id="资源下载"><a href="#资源下载" class="headerlink" title="资源下载"></a><strong>资源下载</strong></h3><p><a href="https://wallroom.io/">https://wallroom.io/</a>     高清图片</p>
+<p><a href="https://www.examcoo.com/index/ku">https://www.examcoo.com/index/ku</a>     考试酷</p>
+<p><a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>      <a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a>     操作系统下载</p>
+<p><a href="https://greasyfork.org/zh-CN/scripts">https://greasyfork.org/zh-CN/scripts</a> 油猴插件</p>
+<p><a href="https://www.youzack.com/">https://www.youzack.com/</a>    英语听力</p>
+<p><a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a>      ASCII文字，SpringBoot自定义启动Banner在线生成工具</p>
+<p><a href="https://www.processon.com/">https://www.processon.com/</a>      免费在线作图、实时协作</p>
+<p><a href="https://www.sojson.com/">https://www.sojson.com/</a>         JSON 格式转换工具</p>
+<p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a>              站酷  —–  图片</p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a><br><a href="https://huaban.com/">https://huaban.com/</a><br><a href="https://www.pexels.com/zh-cn/">https://www.pexels.com/zh-cn/</a></p>
+<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a><strong>配色</strong></h3><p><a href="https://colorhunt.co/">https://colorhunt.co/</a><br><a href="https://webgradients.com/">https://webgradients.com/</a><br><a href="https://webkul.github.io/coolhue/">https://webkul.github.io/coolhue/</a><br><a href="https://www.materialpalette.com/">https://www.materialpalette.com/</a><br><a href="https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25">https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25</a><br><a href="http://bjango.com/mac/skalacolor/">http://bjango.com/mac/skalacolor/</a><br><a href="https://color.adobe.com/zh/create/color-wheel/">https://color.adobe.com/zh/create/color-wheel/</a></p>
+<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a><strong>导航</strong></h3><p><a href="https://www.91sotu.com/">https://www.91sotu.com/</a><br><a href="http://hao.shejidaren.com/">http://hao.shejidaren.com/</a><br><a href="http://www.foolo.cn/">http://www.foolo.cn/</a></p>
 ]]></content>
-      <categories>
-        <category>springboot</category>
-      </categories>
   </entry>
   <entry>
     <title>mysql解决不能使用中文问题</title>
@@ -3667,30 +3693,31 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
       </categories>
   </entry>
   <entry>
-    <title>网站收藏</title>
-    <url>/2020/01/01/www/</url>
-    <content><![CDATA[<p><a href="https://github.com/">https://github.com/</a> GitHub</p>
-<p><a href="https://gitee.com/">https://gitee.com/</a> 码云</p>
-<p><a href="http://www.csdn.net/">http://www.csdn.net/</a>  CSDN</p>
-<p><a href="https://www.nowcoder.com/">https://www.nowcoder.com/</a>        牛客网</p>
-<p><a href="https://beginnersbook.com/">https://beginnersbook.com/</a>         编程网站</p>
-<p><a href="https://github.com/LingCoder/OnJava8">https://github.com/LingCoder/OnJava8</a>    java编程思想</p>
-<p><a href="https://www.runoob.com/">https://www.runoob.com/</a> 菜鸟教程</p>
-<p><a href="https://www.w3school.com.cn/">https://www.w3school.com.cn/</a>  W3school</p>
-<p><a href="https://simpleicons.org/">https://simpleicons.org/</a> SVG图标</p>
-<h3 id="资源下载"><a href="#资源下载" class="headerlink" title="资源下载"></a><strong>资源下载</strong></h3><p><a href="https://wallroom.io/">https://wallroom.io/</a>     高清图片</p>
-<p><a href="https://www.examcoo.com/index/ku">https://www.examcoo.com/index/ku</a>     考试酷</p>
-<p><a href="http://msdn.itellyou.cn/">http://msdn.itellyou.cn/</a>      <a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a>     操作系统下载</p>
-<p><a href="https://greasyfork.org/zh-CN/scripts">https://greasyfork.org/zh-CN/scripts</a> 油猴插件</p>
-<p><a href="https://www.youzack.com/">https://www.youzack.com/</a>    英语听力</p>
-<p><a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a>      ASCII文字，SpringBoot自定义启动Banner在线生成工具</p>
-<p><a href="https://www.processon.com/">https://www.processon.com/</a>      免费在线作图、实时协作</p>
-<p><a href="https://www.sojson.com/">https://www.sojson.com/</a>         JSON 格式转换工具</p>
-<p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a>              站酷  —–  图片</p>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a><br><a href="https://huaban.com/">https://huaban.com/</a><br><a href="https://www.pexels.com/zh-cn/">https://www.pexels.com/zh-cn/</a></p>
-<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a><strong>配色</strong></h3><p><a href="https://colorhunt.co/">https://colorhunt.co/</a><br><a href="https://webgradients.com/">https://webgradients.com/</a><br><a href="https://webkul.github.io/coolhue/">https://webkul.github.io/coolhue/</a><br><a href="https://www.materialpalette.com/">https://www.materialpalette.com/</a><br><a href="https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25">https://coolors.co/822e81-aa6373-f0f2a6-392061-1a1b25</a><br><a href="http://bjango.com/mac/skalacolor/">http://bjango.com/mac/skalacolor/</a><br><a href="https://color.adobe.com/zh/create/color-wheel/">https://color.adobe.com/zh/create/color-wheel/</a></p>
-<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a><strong>导航</strong></h3><p><a href="https://www.91sotu.com/">https://www.91sotu.com/</a><br><a href="http://hao.shejidaren.com/">http://hao.shejidaren.com/</a><br><a href="http://www.foolo.cn/">http://www.foolo.cn/</a></p>
+    <title>激活 IntelliJ IDEA 2020.3.2</title>
+    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
+    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
+<p>密码：e3ee</p>
+<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
+<p>2.在idea跟目录下随便建一个文件夹</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
+<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
+<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
+<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
+<p>6.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
+<p>7.</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
+<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
+<p>最后再点击Activate</p>
 ]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
   </entry>
   <entry>
     <title>随机点名器</title>
@@ -3742,33 +3769,6 @@ mysql<span class="token operator">></span><span aria-hidden="true" class="line-n
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>                            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>html</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>激活 IntelliJ IDEA 2020.3.2</title>
-    <url>/2021/03/11/%E6%BF%80%E6%B4%BB%20IntelliJ%20IDEA%202020.3.2/</url>
-    <content><![CDATA[<p><a href="https://wws.lanzous.com/itcw7mtgs3i">https://wws.lanzous.com/itcw7mtgs3i</a></p>
-<p>密码：e3ee</p>
-<p>1.解压IDEA正版学(pò)习(jiě)工具.zip</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195059182.png" alt="image-20210311195059182"></p>
-<p>2.在idea跟目录下随便建一个文件夹</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195511717.png" alt="img"></p>
-<p>3.把压缩包下的BetterIntelliJ.zip\BetterIntelliJ\lib<strong>BetterIntelliJ-1.16.jar</strong>复制到新建的文件夹里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311195844553.png" alt="img"></p>
-<p>4.在idea随便打开一个项目把<strong>BetterIntelliJ-1.16.jar</strong>拉到idea里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200305541.png" alt="img"></p>
-<p>5.点击Restart, 如果没有这个界面重新4步骤</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200447815.png" alt="img"></p>
-<p>6.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200743536.png" alt="img"></p>
-<p>7.</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200846426.png" alt="img"></p>
-<p>8.打开压缩包里的激活补丁key.txt复制到这里</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/image-20210311200951256.png" alt="img"></p>
-<p>最后再点击Activate</p>
-]]></content>
-      <categories>
-        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -4244,6 +4244,553 @@ cat<span class="token operator">:</span> f3<span class="token operator">:</span>
 ]]></content>
       <categories>
         <category>linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Nginx笔记---基于Docker</title>
+    <url>/2021/03/28/Nginx/</url>
+    <content><![CDATA[<h3 id="一、Nginx"><a href="#一、Nginx" class="headerlink" title="一、Nginx"></a>一、Nginx</h3><h4 id="1-1引言"><a href="#1-1引言" class="headerlink" title="1.1引言"></a>1.1引言</h4><p>为什么要学习Nginx</p>
+<ul>
+<li>问题1：客户端到底要将请求发送给哪台服务器</li>
+<li>问题2：如果所有客户端的请求都发送给了服务器1</li>
+<li>问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的</li>
+</ul>
+<p>服务器搭建集群后 <img src="https://gitee.com/ming0419/tuchuang/raw/master/33922ba5e9c245faba44e6a3beba4de6.png" alt="img"></p>
+<p>在搭建集群后，使用Nginx做反向代理 <img src="https://gitee.com/ming0419/tuchuang/raw/master/0995d783e7f445bd95171c152ea9d160.png" alt="img"></p>
+<h4 id="1-2Nginx介绍"><a href="#1-2Nginx介绍" class="headerlink" title="1.2Nginx介绍"></a>1.2Nginx介绍</h4><p><em>Nginx</em> (engine x) 是一个高性能的<a href="https://baike.baidu.com/item/HTTP">HTTP</a>和<a href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>web服务器，同时也提供了IMAP/POP3/SMTP<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1/100571">服务</a>。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<p>其将<a href="https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81/3814213">源代码</a>以类<a href="https://baike.baidu.com/item/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81/10642412">BSD许可证</a>的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而<a href="https://baike.baidu.com/item/%E9%97%BB%E5%90%8D/2303308">闻名</a>。2011年6月1日，nginx 1.0.4发布。</p>
+<p>Nginx是一款<a href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7/10002835">轻量级</a>的<a href="https://baike.baidu.com/item/Web/150564">Web</a> 服务器/<a href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>服务器及<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/111106">电子邮件</a>（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，<a href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。—-<code>百度百科</code></p>
+<p>Nginx的特点</p>
+<ol>
+<li>稳定性极强，7*24小时不间断运行(就是一直运行)</li>
+<li>Nginx提供了非常丰富的配置实例</li>
+<li>占用内存小，并发能力强(随便配置一下就是5w+,而tomcat的默认线程池是150)</li>
+</ol>
+<h3 id="二、Nginx的安装"><a href="#二、Nginx的安装" class="headerlink" title="二、Nginx的安装"></a>二、Nginx的安装</h3><h4 id="2-1安装Nginx"><a href="#2-1安装Nginx" class="headerlink" title="2.1安装Nginx"></a>2.1安装Nginx</h4><p>使用docker-compose安装</p>
+<p>#在/opt目录下创建docker_nginx目录</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">mkdir docker_nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>创建docker-compose.yml文件并编写下面的内容,保存退出<code>vim docker-compose.yml</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span> 
+  <span class="token key atrule">nginx</span><span class="token punctuation">:</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> daocloud.io/library/nginx<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span> 
+      <span class="token punctuation">-</span> <span class="token datetime number">80:80</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行<code>docker-compose up -d</code></p>
+<p>访问80端口，看到下图说明安装成功（ncthz.top是我阿里云服务器的域名，大家输入自己服务器的Ip就可以访问80端口了） <img src="https://gitee.com/ming0419/tuchuang/raw/master/d8fe40f912d340cf9b6a223be3dafb08.png" alt="img"></p>
+<h4 id="2-2Nginx的配置文件"><a href="#2-2Nginx的配置文件" class="headerlink" title="2.2Nginx的配置文件"></a>2.2Nginx的配置文件</h4><p>查看当前nginx的配置需要进入docker容器中</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">#进入容器后
+cd /etc/nginx/
+cat nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>nginx.conf文件内容如下</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">user  nginx;
+worker_processes  <span class="token number">1</span>;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+# 以上同城为全局块
+# worker_processes的数值越大，Nginx的并发能力就越强
+# error_log代表Nginx错误日志存放的位置
+# pid是Nginx运行的一个标识
+
+events <span class="token punctuation">&#123;</span>
+    worker_connections  <span class="token number">1024</span>;
+<span class="token punctuation">&#125;</span>
+# events块
+# worker_connections的数值越大，Nginx的并发能力就越强
+
+http <span class="token punctuation">&#123;</span>
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user <span class="token punctuation">[</span>$time_local<span class="token punctuation">]</span> <span class="token string">"$request"</span> '
+                      '$status $body_bytes_sent <span class="token string">"$http_referer"</span> '
+                      '<span class="token string">"$http_user_agent"</span> <span class="token string">"$http_x_forwarded_for"</span>';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  <span class="token number">65</span>;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d<span class="token comment">/*.conf;
+&#125;
+
+# http块
+# include代表引入一个外部文件
+# include       /etc/nginx/mime.types;	mime.types中存放着大量媒体类型
+#include /etc/nginx/conf.d/*.conf;	引入了conf.d下以.conf为结尾的配置文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>conf.d目录下只有一个default.conf文件，内容如下</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server <span class="token punctuation">&#123;</span>
+    listen       80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
+    server_name  localhost;
+
+    <span class="token comment">#charset koi8-r;</span>
+    <span class="token comment">#access_log  /var/log/nginx/host.access.log  main;</span>
+
+    location / <span class="token punctuation">&#123;</span>
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    <span class="token punctuation">&#125;</span>
+	<span class="token comment"># location块</span>
+	<span class="token comment"># root:将接受到的请求根据/usr/share/nginx/html去查找静态资源</span>
+	<span class="token comment"># index:默认去上述的路径中找到index.html或index.htm</span>
+
+    <span class="token comment">#error_page  404              /404.html;</span>
+
+    <span class="token comment"># redirect server error pages to the static page /50x.html</span>
+    <span class="token comment">#</span>
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html <span class="token punctuation">&#123;</span>
+        root   /usr/share/nginx/html;
+    <span class="token punctuation">&#125;</span>
+	
+
+    <span class="token comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ \.php$ &#123;</span>
+    <span class="token comment">#    proxy_pass   http://127.0.0.1;</span>
+    <span class="token comment">#&#125;</span>
+
+    <span class="token comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ \.php$ &#123;</span>
+    <span class="token comment">#    root           html;</span>
+    <span class="token comment">#    fastcgi_pass   127.0.0.1:9000;</span>
+    <span class="token comment">#    fastcgi_index  index.php;</span>
+    <span class="token comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
+    <span class="token comment">#    include        fastcgi_params;</span>
+    <span class="token comment">#&#125;</span>
+
+    <span class="token comment"># deny access to .htaccess files, if Apache's document root</span>
+    <span class="token comment"># concurs with nginx's one</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ /\.ht &#123;</span>
+    <span class="token comment">#    deny  all;</span>
+    <span class="token comment">#&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment"># server块</span>
+<span class="token comment"># listen代表Nginx监听的端口号</span>
+<span class="token comment"># server_name代表Nginx接受请求的IP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-3修改docker-compose文件"><a href="#2-3修改docker-compose文件" class="headerlink" title="2.3修改docker-compose文件"></a>2.3修改docker-compose文件</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">exit
+<span class="token comment">#关闭容器</span>
+docker<span class="token punctuation">-</span>compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>#修改docker-compose.yml文件如下</p>
+<pre class="line-numbers language-none"><code class="language-none">version: &#39;3.1&#39;
+services: 
+  nginx:
+    restart: always
+    image: daocloud.io&#x2F;library&#x2F;nginx:latest
+    container_name: nginx
+    ports: 
+      - 80:80
+    volumes:
+      - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重新构建容器</span>
+docker<span class="token punctuation">-</span>compose bulid
+
+<span class="token comment">#重新启动容器</span>
+docker<span class="token punctuation">-</span>compose up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这时我们再次访问80端口是访问不到的，因为我们映射了数据卷之后还没有编写server块中的内容</p>
+<p>我们在/opt/docker_nginx/conf.d下新建default.conf，并插入如下内容</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server <span class="token punctuation">&#123;</span>
+    listen       80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
+    server_name  localhost;
+
+    location / <span class="token punctuation">&#123;</span>
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这时我们再访问80端口，可以看到是访问成功的</p>
+<h3 id="三、Nginx的反向代理"><a href="#三、Nginx的反向代理" class="headerlink" title="三、Nginx的反向代理"></a>三、Nginx的反向代理</h3><h4 id="3-1正向代理和反向代理介绍"><a href="#3-1正向代理和反向代理介绍" class="headerlink" title="3.1正向代理和反向代理介绍"></a>3.1正向代理和反向代理介绍</h4><p>正向代理：</p>
+<ol>
+<li>正向代理服务是由客户端设立的</li>
+<li>客户端了解代理服务器和目标服务器都是谁</li>
+<li>帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的ip地址</li>
+</ol>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/d76529ea39d7449a9c146a0422da6c86.png" alt="img"></p>
+<p>反向代理：</p>
+<ol>
+<li>反向代理服务器是配置在服务端的</li>
+<li>客户端不知道访问的到底是哪一台服务器</li>
+<li>达到负载均衡，并且可以隐藏服务器真正的ip地址 <img src="https://gitee.com/ming0419/tuchuang/raw/master/5f61e7df04b1451d83c96528bd5c00cb.png" alt="img"></li>
+</ol>
+<p>3.2基于Nginx实现反向代理 准备一个目标服务器 启动tomcat服务器 编写nginx的配置文件(/opt/docker_nginx/conf.d/default.conf)，通过Nginx访问到tomcat服务器</p>
+<p>准备tomcat服务器</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 8080<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span><span class="token punctuation">-</span>name tomcat  daocloud.io/library/tomcat<span class="token punctuation">:</span>8.5.15<span class="token punctuation">-</span>jre8
+<span class="token comment">#或者已经下载了tomcat镜像</span>
+docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 8080<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span><span class="token punctuation">-</span>name tomcat 镜像的标识
+
+<span class="token comment">#添加数据卷</span>
+docker run <span class="token punctuation">-</span>it <span class="token punctuation">-</span>v /宿主机绝对目录<span class="token punctuation">:</span>/容器内目录 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>default.conf文件内容如下</p>
+<pre class="line-numbers language-none"><code class="language-none">server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这时我们访问80端口可以看到8080端口tomcat的默认首页</p>
+<h4 id="3-3关于Nginx的location路径映射"><a href="#3-3关于Nginx的location路径映射" class="headerlink" title="3.3关于Nginx的location路径映射"></a>3.3关于Nginx的location路径映射</h4><p>优先级关系：<code>(location = ) &gt; (location /xxx/yyy/zzz) &gt; (location ^~) &gt; (location ~,~*) &gt; (location /起始路径) &gt; (location /)</code></p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 1. = 匹配</span>
+location / <span class="token punctuation">&#123;</span>
+	<span class="token comment">#精准匹配，主机名后面不能带能和字符串</span>
+	<span class="token comment">#例如www.baidu.com不能是www.baidu.com/id=xxx</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">#2. 通用匹配</span>
+location /xxx <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配所有以/xxx开头的路径</span>
+	<span class="token comment">#例如127.0.0.1:8080/xxx	xxx可以为空，为空则和=匹配一样</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">#3. 正则匹配</span>
+location ~ /xxx <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配所有以/xxx开头的路径</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">#4. 匹配开头路径</span>
+location ^~ /xxx/xx <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配所有以/xxx/xx开头的路径</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">#5. 匹配结尾路径</span>
+location ~* \.(gif/jpg/png)$ <span class="token punctuation">&#123;</span>
+	<span class="token comment">#匹配以.gif、.jpg或者.png结尾的路径</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改/opt/docker_nginx/conf.d/default.conf如下</p>
+<pre class="line-numbers language-none"><code class="language-none">server &#123;
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+	location &#x2F;index &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8081&#x2F;;	#tomcat首页
+    &#125;
+
+	location ^~ &#x2F;CR&#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;CR&#x2F;;	#毕设前台首页
+    &#125;
+
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;CRAdmin&#x2F;;	#毕设后台首页
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>#访问ncthz.top/index可以进入tomcat首页 #访问ncthz.top/CR/XXX可以进入毕设前台首页 #访问ncthz.top或者ncthz.top:80可以进入毕设后台首页</p>
+<h3 id="四、Nginx负载均衡"><a href="#四、Nginx负载均衡" class="headerlink" title="四、Nginx负载均衡"></a>四、Nginx负载均衡</h3><p>Nginx为我们默认提供了三种负载均衡的策略：</p>
+<ol>
+<li>轮询： 将客户端发起的请求，平均分配给每一台服务器</li>
+<li>权重： 会将客户端的请求，根据服务器的权重值不同，分配不同的数量</li>
+<li>ip_hash: 基于发起请求的客户端的ip地址不同，他始终会将请求发送到指定的服务器上 就是说如果这个客户端的请求的ip地址不变，那么处理请求的服务器将一直是同一个</li>
+</ol>
+<h4 id="4-1轮询"><a href="#4-1轮询" class="headerlink" title="4.1轮询"></a>4.1轮询</h4><p>想实现Nginx轮询负载均衡机制只需要修改配置文件如下</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server<span class="token punctuation">&#123;</span>
+    server ncthz.top<span class="token punctuation">:</span>8080;
+    server ncthz.top<span class="token punctuation">:</span>8081;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
+    listen       80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
+    server_name  localhost;
+
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//my_server/;	<span class="token comment">#tomcat首页</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream 名字<span class="token punctuation">&#123;</span>
+    server ip<span class="token punctuation">:</span>端口;
+    server 域名<span class="token punctuation">:</span>端口;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
+    listen       80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
+    server_name  localhost;
+
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//upstream的名字/;	
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>多次刷新ncthz.top页面，根据版本号我们可以发现我们进入的是不同的tomcat</p>
+<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/a56b958152f749aabbaa500c23605495.png" alt="img"> <img src="https://gitee.com/ming0419/tuchuang/raw/master/1f61789f10ad4dde936e4b4f8b5a7982.png" alt="img"></p>
+<h4 id="4-2权重"><a href="#4-2权重" class="headerlink" title="4.2权重"></a>4.2权重</h4><p>实现权重的方式：在配置文件中upstream块中加上weight</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server<span class="token punctuation">&#123;</span>
+    server ncthz.top<span class="token punctuation">:</span>8080 weight=10;
+    server ncthz.top<span class="token punctuation">:</span>8081 weight=2;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
+    listen       80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
+    server_name  localhost;
+
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//my_server/;	<span class="token comment">#tomcat首页</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-3ip-hash"><a href="#4-3ip-hash" class="headerlink" title="4.3ip_hash"></a>4.3ip_hash</h4><p>实现ip_hash方式：在配置文件upstream块中加上ip_hash;</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server<span class="token punctuation">&#123;</span>
+	ip_hash;
+    server ncthz.top<span class="token punctuation">:</span>8080 weight=10;
+    server ncthz.top<span class="token punctuation">:</span>8081 weight=2;
+<span class="token punctuation">&#125;</span>
+server <span class="token punctuation">&#123;</span>
+    listen       80;
+    listen  <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>80;
+    server_name  localhost;
+
+	location / <span class="token punctuation">&#123;</span>
+        proxy_pass http<span class="token punctuation">:</span>//my_server/;	<span class="token comment">#tomcat首页</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="五、Nginx动静分离"><a href="#五、Nginx动静分离" class="headerlink" title="五、Nginx动静分离"></a>五、Nginx动静分离</h3><p>Nginx的并发能力公式：<code>worker_processes * worker_connections / 4|2 = Nginx最终的并发能力</code>动态资源需要/4，静态资源需要/2 Nginx通过动静分离来提升Nginx的并发能力，更快的给用户响应</p>
+<h4 id="5-1动态资源代理"><a href="#5-1动态资源代理" class="headerlink" title="5.1动态资源代理"></a>5.1动态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#配置如下</span>
+location / <span class="token punctuation">&#123;</span>
+  proxy_pass 路径;
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-2静态资源代理"><a href="#5-2静态资源代理" class="headerlink" title="5.2静态资源代理"></a>5.2静态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#停掉nginx</span>
+docker<span class="token punctuation">-</span>compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>修改docker-compose.yml添加静态资源数据卷 不同版本的静态资源位置可能不同，可以在2.2中查看默认的位置（location块中root后的路径）</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#启动nginx</span>
+docker<span class="token punctuation">-</span>compose up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span> 
+  <span class="token key atrule">nginx</span><span class="token punctuation">:</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> daocloud.io/library/nginx<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span> 
+      <span class="token punctuation">-</span> <span class="token datetime number">80:80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /opt/docker_nginx/conf.d/<span class="token punctuation">:</span>/etc/nginx/conf.d
+      <span class="token punctuation">-</span> /opt/docker_nginx/html/<span class="token punctuation">:</span>/usr/share/nginx/html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在/opt/docker_nginx/html下新建一个index.html 在index.html里面随便写点东西展示 修改nginx的配置文件</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">location / <span class="token punctuation">&#123;</span>
+    root /usr/share/nginx/html;
+    index index.html;
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">#配置如下</span>
+location / <span class="token punctuation">&#123;</span>
+    root 静态资源路径;
+    index 默认访问路径下的什么资源;
+    autoindex on;<span class="token comment">#代表展示静态资源的全部内容，以列表的形式展开</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#重启nginx</span>
+docker<span class="token punctuation">-</span>compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>#访问ncthz.top如下 <img src="https://gitee.com/ming0419/tuchuang/raw/master/b6fb017de17a4aa2b6390933e412a0a4.png" alt="img"></p>
+<h3 id="六、Nginx集群"><a href="#六、Nginx集群" class="headerlink" title="六、Nginx集群"></a>六、Nginx集群</h3><h4 id="6-1引言"><a href="#6-1引言" class="headerlink" title="6.1引言"></a>6.1引言</h4><p>单点故障，避免nginx的宕机，导致整个程序的崩溃 准备多台Nginx 准备keepalived，监听nginx的健康情况 准备haproxy，提供一个虚拟的路径，统一的去接收用户的请求 <img src="https://gitee.com/ming0419/tuchuang/raw/master/9a1dbbdb1ccf46a9963b33ae9614985a.png" alt="img"></p>
+<h4 id="6-2搭建"><a href="#6-2搭建" class="headerlink" title="6.2搭建"></a>6.2搭建</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#先准备好以下文件放入/opt/docker_nginx_cluster目录中</span>
+<span class="token comment">#然后启动容器	注意确保80、8081和8082端口未被占用(或者修改docker-compose.yml中的端口)</span>
+docker<span class="token punctuation">-</span>compose up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>然后我们访问8081端口可以看到master，访问8082端口可以看到slave 因为我们设置了81端口的master优先级未200比82端口的slave优先级100高，所以我们访问80端口看到的是master 现在我们模仿8081端口的nginx宕机了 docker stop 8081端口nginx容器的ID 这时我们再去访问80端口看到的就是slave了</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Dockerfile</span>
+
+FROM nginx<span class="token operator">:</span><span class="token number">1.13</span><span class="token number">.5</span><span class="token operator">-</span>alpine
+
+RUN apk update <span class="token operator">&amp;&amp;</span> apk upgrade
+
+RUN apk add <span class="token operator">--</span>no<span class="token operator">-</span>cache bash curl ipvsadm iproute2 openrc keepalived
+
+COPY entrypoint<span class="token punctuation">.</span>sh <span class="token operator">/</span>entrypoint<span class="token punctuation">.</span>sh
+
+RUN chmod <span class="token operator">+</span>x <span class="token operator">/</span>entrypoint<span class="token punctuation">.</span>sh
+
+CMD <span class="token punctuation">[</span><span class="token string">"/entrypoint.sh"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>entrypoint.sh</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#!/bin/sh</span>
+
+<span class="token comment">#/usr/sbin/keepalvined -n -l -D -f /etc/keepalived/keepalived.conf --dont-fork --log-console &amp;</span>
+/usr/sbin/keepalvined <span class="token punctuation">-</span>D <span class="token punctuation">-</span>f /etc/keepalived/keepalived.conf
+
+
+nginx <span class="token punctuation">-</span>g "daemon off;"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>docker-compose.yml</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.1"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nginx_master</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> ./
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> ./Dockerfile
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span>8081<span class="token punctuation">:</span><span class="token number">80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./index<span class="token punctuation">-</span>master.html<span class="token punctuation">:</span>/usr/share/nnginx/html/index.html
+      <span class="token punctuation">-</span> ./favicon.ico<span class="token punctuation">:</span>/usr/share/nnginx/html/favicon.ico
+      <span class="token punctuation">-</span> ./keepalived<span class="token punctuation">-</span>master.conf<span class="token punctuation">:</span>/etv/keepalived/keepalived.conf
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">static-network</span><span class="token punctuation">:</span>
+        ipv4_address<span class="token punctuation">:</span>172.20.128.2
+    <span class="token key atrule">cap_add</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NET_ADMIN
+  <span class="token key atrule">nginx_slave</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> ./
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> ./Dockerfile
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span>8082<span class="token punctuation">:</span><span class="token number">80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./index<span class="token punctuation">-</span>slave.html<span class="token punctuation">:</span>/usr/share/nnginx/html/index.html
+      <span class="token punctuation">-</span> ./favicon.ico<span class="token punctuation">:</span>/usr/share/nnginx/html/favicon.ico
+      <span class="token punctuation">-</span> ./keepalived<span class="token punctuation">-</span>slave.conf<span class="token punctuation">:</span>/etv/keepalived/keepalived.conf
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token key atrule">static-network</span><span class="token punctuation">:</span>
+        ipv4_address<span class="token punctuation">:</span>172.20.128.3
+    <span class="token key atrule">cap_add</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NET_ADMIN
+  <span class="token key atrule">proxy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span>  haproxy<span class="token punctuation">:</span>1.7<span class="token punctuation">-</span>apline
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 80<span class="token punctuation">:</span><span class="token number">6301</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./happroxy.cfg<span class="token punctuation">:</span>/usr/local/etc/haproxy/haproxy.cfg
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> static<span class="token punctuation">-</span>network
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">static-network</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ipam</span><span class="token punctuation">:</span>
+      <span class="token key atrule">congig</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">subnet</span><span class="token punctuation">:</span> 172.20.0.0/16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>keepalived-master.conf</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx <span class="token punctuation">&#123;</span>
+    script "pidof nginx"
+    interval 2
+<span class="token punctuation">&#125;</span>
+
+vrrp_instance VI_1 <span class="token punctuation">&#123;</span>
+    state MASTER
+    interface etch0	<span class="token comment">#容器内部的网卡名称</span>
+    virtual_router_id 33
+    priority 200	<span class="token comment">#优先级</span>
+    advert_int 1
+    
+    autheentication <span class="token punctuation">&#123;</span>
+    	auth_type PASS
+    	auth_pass letmein
+	<span class="token punctuation">&#125;</span>
+
+	virtual_ipaddress <span class="token punctuation">&#123;</span>
+        172.20.128.50	<span class="token comment">#虚拟路径</span>
+    <span class="token punctuation">&#125;</span>
+
+	track_script <span class="token punctuation">&#123;</span>
+        chk_nginx
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>keepalived-slave.conf</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx <span class="token punctuation">&#123;</span>
+    script "pidof nginx"
+    interval 2
+<span class="token punctuation">&#125;</span>
+
+vrrp_instance VI_1 <span class="token punctuation">&#123;</span>
+    state BACKUP
+    interface etch0	<span class="token comment">#容器内部的网卡名称</span>
+    virtual_router_id 33
+    priority 100	<span class="token comment">#优先级</span>
+    advert_int 1
+    
+    autheentication <span class="token punctuation">&#123;</span>
+    	auth_type PASS
+    	auth_pass letmein
+	<span class="token punctuation">&#125;</span>
+
+	virtual_ipaddress <span class="token punctuation">&#123;</span>
+        172.20.128.50	<span class="token comment">#虚拟路径</span>
+    <span class="token punctuation">&#125;</span>
+
+	track_script <span class="token punctuation">&#123;</span>
+        chk_nginx
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>haproxy.cfg</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">global
+	log 127.0.0.1 local0
+	maxconn 4096
+	daemon
+	nbproc 4
+	
+defaults
+	log 127.0.0.1 local3
+	mode http
+	option dontlognull
+	option redispatch
+	retries 2
+	maxconn 2000
+	balance roundrobin
+	timeout connect 5000ms
+	timeout client 5000ms
+	timeout server 5000ms
+	
+frontend main
+	bind <span class="token important">*:</span><span class="token number">6301</span>
+	default_backend webserver
+	
+backend webserveer
+	server nginx_master 127.20.127.50<span class="token punctuation">:</span>80 check inter 2000 rise 2 fall 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>index-master.html</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1<span class="token punctuation">></span>master！&lt;/h1<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>index-slave.html</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1<span class="token punctuation">></span>slave！&lt;/h1<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>来源：<a href="https://space.bilibili.com/416186032/"><strong>B站 千锋教育Java学院</strong></a></p>
+]]></content>
+      <categories>
+        <category>server</category>
       </categories>
   </entry>
   <entry>
@@ -6635,549 +7182,5 @@ INSERT INTO user VALUES (7, &#39;王小花&#39;, 1000);<span aria-hidden="true" 
       <categories>
         <category>mysql</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Nginx笔记---基于Docker</title>
-    <url>/2021/03/28/Nginx/</url>
-    <content><![CDATA[<h3 id="一、Nginx"><a href="#一、Nginx" class="headerlink" title="一、Nginx"></a>一、Nginx</h3><h4 id="1-1引言"><a href="#1-1引言" class="headerlink" title="1.1引言"></a>1.1引言</h4><p>为什么要学习Nginx</p>
-<ul>
-<li>问题1：客户端到底要将请求发送给哪台服务器</li>
-<li>问题2：如果所有客户端的请求都发送给了服务器1</li>
-<li>问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的</li>
-</ul>
-<p>服务器搭建集群后 <img src="https://gitee.com/ming0419/tuchuang/raw/master/33922ba5e9c245faba44e6a3beba4de6.png" alt="img"></p>
-<p>在搭建集群后，使用Nginx做反向代理 <img src="https://gitee.com/ming0419/tuchuang/raw/master/0995d783e7f445bd95171c152ea9d160.png" alt="img"></p>
-<h4 id="1-2Nginx介绍"><a href="#1-2Nginx介绍" class="headerlink" title="1.2Nginx介绍"></a>1.2Nginx介绍</h4><p><em>Nginx</em> (engine x) 是一个高性能的<a href="https://baike.baidu.com/item/HTTP">HTTP</a>和<a href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>web服务器，同时也提供了IMAP/POP3/SMTP<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1/100571">服务</a>。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
-<p>其将<a href="https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81/3814213">源代码</a>以类<a href="https://baike.baidu.com/item/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81/10642412">BSD许可证</a>的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而<a href="https://baike.baidu.com/item/%E9%97%BB%E5%90%8D/2303308">闻名</a>。2011年6月1日，nginx 1.0.4发布。</p>
-<p>Nginx是一款<a href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7/10002835">轻量级</a>的<a href="https://baike.baidu.com/item/Web/150564">Web</a> 服务器/<a href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>服务器及<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/111106">电子邮件</a>（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，<a href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。—-<code>百度百科</code></p>
-<p>Nginx的特点</p>
-<ol>
-<li>稳定性极强，7*24小时不间断运行(就是一直运行)</li>
-<li>Nginx提供了非常丰富的配置实例</li>
-<li>占用内存小，并发能力强(随便配置一下就是5w+,而tomcat的默认线程池是150)</li>
-</ol>
-<h3 id="二、Nginx的安装"><a href="#二、Nginx的安装" class="headerlink" title="二、Nginx的安装"></a>二、Nginx的安装</h3><h4 id="2-1安装Nginx"><a href="#2-1安装Nginx" class="headerlink" title="2.1安装Nginx"></a>2.1安装Nginx</h4><p>使用docker-compose安装</p>
-<p>#在/opt目录下创建docker_nginx目录</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">mkdir docker_nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>创建docker-compose.yml文件并编写下面的内容,保存退出<code>vim docker-compose.yml</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &#39;3.1&#39;
-services: 
-  nginx:
-    restart: always
-    image: daocloud.io&#x2F;library&#x2F;nginx:latest
-    container_name: nginx
-    ports: 
-      - 80:80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>执行<code>docker-compose up -d</code></p>
-<p>访问80端口，看到下图说明安装成功（ncthz.top是我阿里云服务器的域名，大家输入自己服务器的Ip就可以访问80端口了） <img src="https://gitee.com/ming0419/tuchuang/raw/master/d8fe40f912d340cf9b6a223be3dafb08.png" alt="img"></p>
-<h4 id="2-2Nginx的配置文件"><a href="#2-2Nginx的配置文件" class="headerlink" title="2.2Nginx的配置文件"></a>2.2Nginx的配置文件</h4><p>查看当前nginx的配置需要进入docker容器中</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">#进入容器后
-cd /etc/nginx/
-cat nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>nginx.conf文件内容如下</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">user  nginx;
-worker_processes  <span class="token number">1</span>;
-
-error_log  /var/log/nginx/error.log warn;
-pid        /var/run/nginx.pid;
-# 以上同城为全局块
-# worker_processes的数值越大，Nginx的并发能力就越强
-# error_log代表Nginx错误日志存放的位置
-# pid是Nginx运行的一个标识
-
-events <span class="token punctuation">&#123;</span>
-    worker_connections  <span class="token number">1024</span>;
-<span class="token punctuation">&#125;</span>
-# events块
-# worker_connections的数值越大，Nginx的并发能力就越强
-
-http <span class="token punctuation">&#123;</span>
-    include       /etc/nginx/mime.types;
-    default_type  application/octet-stream;
-
-    log_format  main  '$remote_addr - $remote_user <span class="token punctuation">[</span>$time_local<span class="token punctuation">]</span> <span class="token string">"$request"</span> '
-                      '$status $body_bytes_sent <span class="token string">"$http_referer"</span> '
-                      '<span class="token string">"$http_user_agent"</span> <span class="token string">"$http_x_forwarded_for"</span>';
-
-    access_log  /var/log/nginx/access.log  main;
-
-    sendfile        on;
-    #tcp_nopush     on;
-
-    keepalive_timeout  <span class="token number">65</span>;
-
-    #gzip  on;
-
-    include /etc/nginx/conf.d<span class="token comment">/*.conf;
-&#125;
-
-# http块
-# include代表引入一个外部文件
-# include       /etc/nginx/mime.types;	mime.types中存放着大量媒体类型
-#include /etc/nginx/conf.d/*.conf;	引入了conf.d下以.conf为结尾的配置文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>conf.d目录下只有一个default.conf文件，内容如下</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-    #charset koi8-r;
-    #access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log  main;
-
-    location &#x2F; &#123;
-        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
-        index  index.html index.htm;
-    &#125;
-	# location块
-	# root:将接受到的请求根据&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html去查找静态资源
-	# index:默认去上述的路径中找到index.html或index.htm
-
-    #error_page  404              &#x2F;404.html;
-
-    # redirect server error pages to the static page &#x2F;50x.html
-    #
-    error_page   500 502 503 504  &#x2F;50x.html;
-    location &#x3D; &#x2F;50x.html &#123;
-        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
-    &#125;
-	
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ &#123;
-    #    proxy_pass   http:&#x2F;&#x2F;127.0.0.1;
-    #&#125;
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ &#123;
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #&#125;
-
-    # deny access to .htaccess files, if Apache&#39;s document root
-    # concurs with nginx&#39;s one
-    #
-    #location ~ &#x2F;\.ht &#123;
-    #    deny  all;
-    #&#125;
-&#125;
-
-# server块
-# listen代表Nginx监听的端口号
-# server_name代表Nginx接受请求的IP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="2-3修改docker-compose文件"><a href="#2-3修改docker-compose文件" class="headerlink" title="2.3修改docker-compose文件"></a>2.3修改docker-compose文件</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">exit
-#关闭容器
-docker-compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>#修改docker-compose.yml文件如下</p>
-<pre class="line-numbers language-none"><code class="language-none">version: &#39;3.1&#39;
-services: 
-  nginx:
-    restart: always
-    image: daocloud.io&#x2F;library&#x2F;nginx:latest
-    container_name: nginx
-    ports: 
-      - 80:80
-    volumes:
-      - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重新构建容器
-docker-compose bulid
-
-#重新启动容器
-docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这时我们再次访问80端口是访问不到的，因为我们映射了数据卷之后还没有编写server块中的内容</p>
-<p>我们在/opt/docker_nginx/conf.d下新建default.conf，并插入如下内容</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-    location &#x2F; &#123;
-        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
-        index  index.html index.htm;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这时我们再访问80端口，可以看到是访问成功的</p>
-<h3 id="三、Nginx的反向代理"><a href="#三、Nginx的反向代理" class="headerlink" title="三、Nginx的反向代理"></a>三、Nginx的反向代理</h3><h4 id="3-1正向代理和反向代理介绍"><a href="#3-1正向代理和反向代理介绍" class="headerlink" title="3.1正向代理和反向代理介绍"></a>3.1正向代理和反向代理介绍</h4><p>正向代理：</p>
-<ol>
-<li>正向代理服务是由客户端设立的</li>
-<li>客户端了解代理服务器和目标服务器都是谁</li>
-<li>帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的ip地址</li>
-</ol>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/d76529ea39d7449a9c146a0422da6c86.png" alt="img"></p>
-<p>反向代理：</p>
-<ol>
-<li>反向代理服务器是配置在服务端的</li>
-<li>客户端不知道访问的到底是哪一台服务器</li>
-<li>达到负载均衡，并且可以隐藏服务器真正的ip地址 <img src="https://gitee.com/ming0419/tuchuang/raw/master/5f61e7df04b1451d83c96528bd5c00cb.png" alt="img"></li>
-</ol>
-<p>3.2基于Nginx实现反向代理 准备一个目标服务器 启动tomcat服务器 编写nginx的配置文件(/opt/docker_nginx/conf.d/default.conf)，通过Nginx访问到tomcat服务器</p>
-<p>准备tomcat服务器</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">docker run -d -p 8080:8080 --name tomcat  daocloud.io&#x2F;library&#x2F;tomcat:8.5.15-jre8
-#或者已经下载了tomcat镜像
-docker run -d -p 8080:8080 --name tomcat 镜像的标识
-
-#添加数据卷
-docker run -it -v &#x2F;宿主机绝对目录:&#x2F;容器内目录 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>default.conf文件内容如下</p>
-<pre class="line-numbers language-none"><code class="language-none">server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-    location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这时我们访问80端口可以看到8080端口tomcat的默认首页</p>
-<h4 id="3-3关于Nginx的location路径映射"><a href="#3-3关于Nginx的location路径映射" class="headerlink" title="3.3关于Nginx的location路径映射"></a>3.3关于Nginx的location路径映射</h4><p>优先级关系：<code>(location = ) &gt; (location /xxx/yyy/zzz) &gt; (location ^~) &gt; (location ~,~*) &gt; (location /起始路径) &gt; (location /)</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 1. &#x3D; 匹配
-location &#x2F; &#123;
-	#精准匹配，主机名后面不能带能和字符串
-	#例如www.baidu.com不能是www.baidu.com&#x2F;id&#x3D;xxx
-&#125;
-
-#2. 通用匹配
-location &#x2F;xxx &#123;
-	#匹配所有以&#x2F;xxx开头的路径
-	#例如127.0.0.1:8080&#x2F;xxx	xxx可以为空，为空则和&#x3D;匹配一样
-&#125;
-
-#3. 正则匹配
-location ~ &#x2F;xxx &#123;
-	#匹配所有以&#x2F;xxx开头的路径
-&#125;
-
-#4. 匹配开头路径
-location ^~ &#x2F;xxx&#x2F;xx &#123;
-	#匹配所有以&#x2F;xxx&#x2F;xx开头的路径
-&#125;
-
-#5. 匹配结尾路径
-location ~* \.(gif&#x2F;jpg&#x2F;png)$ &#123;
-	#匹配以.gif、.jpg或者.png结尾的路径
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改/opt/docker_nginx/conf.d/default.conf如下</p>
-<pre class="line-numbers language-none"><code class="language-none">server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-	location &#x2F;index &#123;
-        proxy_pass http:&#x2F;&#x2F;ncthz.top:8081&#x2F;;	#tomcat首页
-    &#125;
-
-	location ^~ &#x2F;CR&#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;CR&#x2F;;	#毕设前台首页
-    &#125;
-
-    location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;ncthz.top:8080&#x2F;CRAdmin&#x2F;;	#毕设后台首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>#访问ncthz.top/index可以进入tomcat首页 #访问ncthz.top/CR/XXX可以进入毕设前台首页 #访问ncthz.top或者ncthz.top:80可以进入毕设后台首页</p>
-<h3 id="四、Nginx负载均衡"><a href="#四、Nginx负载均衡" class="headerlink" title="四、Nginx负载均衡"></a>四、Nginx负载均衡</h3><p>Nginx为我们默认提供了三种负载均衡的策略：</p>
-<ol>
-<li>轮询： 将客户端发起的请求，平均分配给每一台服务器</li>
-<li>权重： 会将客户端的请求，根据服务器的权重值不同，分配不同的数量</li>
-<li>ip_hash: 基于发起请求的客户端的ip地址不同，他始终会将请求发送到指定的服务器上 就是说如果这个客户端的请求的ip地址不变，那么处理请求的服务器将一直是同一个</li>
-</ol>
-<h4 id="4-1轮询"><a href="#4-1轮询" class="headerlink" title="4.1轮询"></a>4.1轮询</h4><p>想实现Nginx轮询负载均衡机制只需要修改配置文件如下</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
-    server ncthz.top:8080;
-    server ncthz.top:8081;
-&#125;
-server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream 名字&#123;
-    server ip:端口;
-    server 域名:端口;
-&#125;
-server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;upstream的名字&#x2F;;	
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>多次刷新ncthz.top页面，根据版本号我们可以发现我们进入的是不同的tomcat</p>
-<p><img src="https://gitee.com/ming0419/tuchuang/raw/master/a56b958152f749aabbaa500c23605495.png" alt="img"> <img src="https://gitee.com/ming0419/tuchuang/raw/master/1f61789f10ad4dde936e4b4f8b5a7982.png" alt="img"></p>
-<h4 id="4-2权重"><a href="#4-2权重" class="headerlink" title="4.2权重"></a>4.2权重</h4><p>实现权重的方式：在配置文件中upstream块中加上weight</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
-    server ncthz.top:8080 weight&#x3D;10;
-    server ncthz.top:8081 weight&#x3D;2;
-&#125;
-server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="4-3ip-hash"><a href="#4-3ip-hash" class="headerlink" title="4.3ip_hash"></a>4.3ip_hash</h4><p>实现ip_hash方式：在配置文件upstream块中加上ip_hash;</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">upstream my_server&#123;
-	ip_hash;
-    server ncthz.top:8080 weight&#x3D;10;
-    server ncthz.top:8081 weight&#x3D;2;
-&#125;
-server &#123;
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-	location &#x2F; &#123;
-        proxy_pass http:&#x2F;&#x2F;my_server&#x2F;;	#tomcat首页
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="五、Nginx动静分离"><a href="#五、Nginx动静分离" class="headerlink" title="五、Nginx动静分离"></a>五、Nginx动静分离</h3><p>Nginx的并发能力公式：<code>worker_processes * worker_connections / 4|2 = Nginx最终的并发能力</code>动态资源需要/4，静态资源需要/2 Nginx通过动静分离来提升Nginx的并发能力，更快的给用户响应</p>
-<h4 id="5-1动态资源代理"><a href="#5-1动态资源代理" class="headerlink" title="5.1动态资源代理"></a>5.1动态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#配置如下
-location &#x2F; &#123;
-  proxy_pass 路径;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="5-2静态资源代理"><a href="#5-2静态资源代理" class="headerlink" title="5.2静态资源代理"></a>5.2静态资源代理</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#停掉nginx
-docker-compose down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>修改docker-compose.yml添加静态资源数据卷 不同版本的静态资源位置可能不同，可以在2.2中查看默认的位置（location块中root后的路径）</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#启动nginx
-docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &#39;3.1&#39;
-services: 
-  nginx:
-    restart: always
-    image: daocloud.io&#x2F;library&#x2F;nginx:latest
-    container_name: nginx
-    ports: 
-      - 80:80
-    volumes:
-      - &#x2F;opt&#x2F;docker_nginx&#x2F;conf.d&#x2F;:&#x2F;etc&#x2F;nginx&#x2F;conf.d
-      - &#x2F;opt&#x2F;docker_nginx&#x2F;html&#x2F;:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在/opt/docker_nginx/html下新建一个index.html 在index.html里面随便写点东西展示 修改nginx的配置文件</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">location &#x2F; &#123;
-    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
-    index index.html;
-&#125;
-
-#配置如下
-location &#x2F; &#123;
-    root 静态资源路径;
-    index 默认访问路径下的什么资源;
-    autoindex on;#代表展示静态资源的全部内容，以列表的形式展开
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#重启nginx
-docker-compose restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>#访问ncthz.top如下 <img src="https://gitee.com/ming0419/tuchuang/raw/master/b6fb017de17a4aa2b6390933e412a0a4.png" alt="img"></p>
-<h3 id="六、Nginx集群"><a href="#六、Nginx集群" class="headerlink" title="六、Nginx集群"></a>六、Nginx集群</h3><h4 id="6-1引言"><a href="#6-1引言" class="headerlink" title="6.1引言"></a>6.1引言</h4><p>单点故障，避免nginx的宕机，导致整个程序的崩溃 准备多台Nginx 准备keepalived，监听nginx的健康情况 准备haproxy，提供一个虚拟的路径，统一的去接收用户的请求 <img src="https://gitee.com/ming0419/tuchuang/raw/master/9a1dbbdb1ccf46a9963b33ae9614985a.png" alt="img"></p>
-<h4 id="6-2搭建"><a href="#6-2搭建" class="headerlink" title="6.2搭建"></a>6.2搭建</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#先准备好以下文件放入&#x2F;opt&#x2F;docker_nginx_cluster目录中
-#然后启动容器	注意确保80、8081和8082端口未被占用(或者修改docker-compose.yml中的端口)
-docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>然后我们访问8081端口可以看到master，访问8082端口可以看到slave 因为我们设置了81端口的master优先级未200比82端口的slave优先级100高，所以我们访问80端口看到的是master 现在我们模仿8081端口的nginx宕机了 docker stop 8081端口nginx容器的ID 这时我们再去访问80端口看到的就是slave了</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Dockerfile</span>
-
-FROM nginx<span class="token operator">:</span><span class="token number">1.13</span><span class="token number">.5</span><span class="token operator">-</span>alpine
-
-RUN apk update <span class="token operator">&amp;&amp;</span> apk upgrade
-
-RUN apk add <span class="token operator">--</span>no<span class="token operator">-</span>cache bash curl ipvsadm iproute2 openrc keepalived
-
-COPY entrypoint<span class="token punctuation">.</span>sh <span class="token operator">/</span>entrypoint<span class="token punctuation">.</span>sh
-
-RUN chmod <span class="token operator">+</span>x <span class="token operator">/</span>entrypoint<span class="token punctuation">.</span>sh
-
-CMD <span class="token punctuation">[</span><span class="token string">"/entrypoint.sh"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>entrypoint.sh</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#!&#x2F;bin&#x2F;sh
-
-#&#x2F;usr&#x2F;sbin&#x2F;keepalvined -n -l -D -f &#x2F;etc&#x2F;keepalived&#x2F;keepalived.conf --dont-fork --log-console &amp;
-&#x2F;usr&#x2F;sbin&#x2F;keepalvined -D -f &#x2F;etc&#x2F;keepalived&#x2F;keepalived.conf
-
-
-nginx -g &quot;daemon off;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>docker-compose.yml</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">version: &quot;3.1&quot;
-services:
-  nginx_master:
-    build:
-      context: .&#x2F;
-      dockerfile: .&#x2F;Dockerfile
-    ports:
-      -8081:80
-    volumes:
-      - .&#x2F;index-master.html:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;index.html
-      - .&#x2F;favicon.ico:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;favicon.ico
-      - .&#x2F;keepalived-master.conf:&#x2F;etv&#x2F;keepalived&#x2F;keepalived.conf
-    networks:
-      static-network:
-        ipv4_address:172.20.128.2
-    cap_add:
-      - NET_ADMIN
-  nginx_slave:
-    build:
-      context: .&#x2F;
-      dockerfile: .&#x2F;Dockerfile
-    ports:
-      -8082:80
-    volumes:
-      - .&#x2F;index-slave.html:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;index.html
-      - .&#x2F;favicon.ico:&#x2F;usr&#x2F;share&#x2F;nnginx&#x2F;html&#x2F;favicon.ico
-      - .&#x2F;keepalived-slave.conf:&#x2F;etv&#x2F;keepalived&#x2F;keepalived.conf
-    networks:
-      static-network:
-        ipv4_address:172.20.128.3
-    cap_add:
-      - NET_ADMIN
-  proxy:
-    image:  haproxy:1.7-apline
-    ports:
-      - 80:6301
-    volumes:
-      - .&#x2F;happroxy.cfg:&#x2F;usr&#x2F;local&#x2F;etc&#x2F;haproxy&#x2F;haproxy.cfg
-    networks:
-      - static-network
-networks:
-  static-network:
-    ipam:
-      congig:
-        - subnet: 172.20.0.0&#x2F;16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>keepalived-master.conf</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx &#123;
-    script &quot;pidof nginx&quot;
-    interval 2
-&#125;
-
-vrrp_instance VI_1 &#123;
-    state MASTER
-    interface etch0	#容器内部的网卡名称
-    virtual_router_id 33
-    priority 200	#优先级
-    advert_int 1
-    
-    autheentication &#123;
-    	auth_type PASS
-    	auth_pass letmein
-	&#125;
-
-	virtual_ipaddress &#123;
-        172.20.128.50	#虚拟路径
-    &#125;
-
-	track_script &#123;
-        chk_nginx
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>keepalived-slave.conf</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">vrrp_script chk_nginx &#123;
-    script &quot;pidof nginx&quot;
-    interval 2
-&#125;
-
-vrrp_instance VI_1 &#123;
-    state BACKUP
-    interface etch0	#容器内部的网卡名称
-    virtual_router_id 33
-    priority 100	#优先级
-    advert_int 1
-    
-    autheentication &#123;
-    	auth_type PASS
-    	auth_pass letmein
-	&#125;
-
-	virtual_ipaddress &#123;
-        172.20.128.50	#虚拟路径
-    &#125;
-
-	track_script &#123;
-        chk_nginx
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>haproxy.cfg</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">global
-	log 127.0.0.1 local0
-	maxconn 4096
-	daemon
-	nbproc 4
-	
-defaults
-	log 127.0.0.1 local3
-	mode http
-	option dontlognull
-	option redispatch
-	retries 2
-	maxconn 2000
-	balance roundrobin
-	timeout connect 5000ms
-	timeout client 5000ms
-	timeout server 5000ms
-	
-frontend main
-	bind *:6301
-	default_backend webserver
-	
-backend webserveer
-	server nginx_master 127.20.127.50:80 check inter 2000 rise 2 fall 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>index-master.html</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1&gt;master！&lt;&#x2F;h1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>index-slave.html</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">&lt;h1&gt;slave！&lt;&#x2F;h1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>来源：<a href="https://space.bilibili.com/416186032/"><strong>B站 千锋教育Java学院</strong></a></p>
-]]></content>
   </entry>
 </search>
