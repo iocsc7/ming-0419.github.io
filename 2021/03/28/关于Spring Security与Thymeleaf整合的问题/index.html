@@ -11,11 +11,11 @@
   <meta charset="utf-8">
 
   
-  <title>小冷</title>
+  <title>关于Spring Security与Thymeleaf整合的问题</title>
   
-  <link rel="canonical" href="http://example.com/categories/springboot/">
+  <link rel="canonical" href="http://example.com/2021/03/28/%E5%85%B3%E4%BA%8ESpring%20Security%E4%B8%8EThymeleaf%E6%95%B4%E5%90%88%E7%9A%84%E9%97%AE%E9%A2%98/">
   
-  <meta name="description" content="">
+  <meta name="description" content="在thymeleaf页面中使用sec:anthorize属性不生效springboot的项目中如果spring-boot-starter-parent的版本是2.1++以上版本的话，在页面中是无法使用sec属性的，所以我们必须手动改变版本号为2.0.7或者是2.0.9，这样在页面中使用sec相关属性">
   
   
   <meta name="author" content="M">
@@ -24,21 +24,21 @@
   
   <meta property="og:site_name" content="小冷" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="小冷" />
+  <meta property="og:title" content="关于Spring Security与Thymeleaf整合的问题" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="在thymeleaf页面中使用sec:anthorize属性不生效springboot的项目中如果spring-boot-starter-parent的版本是2.1++以上版本的话，在页面中是无法使用sec属性的，所以我们必须手动改变版本号为2.0.7或者是2.0.9，这样在页面中使用sec相关属性">
   
-  <meta property="og:url" content="http://example.com/categories/springboot/" />
+  <meta property="og:url" content="http://example.com/2021/03/28/%E5%85%B3%E4%BA%8ESpring%20Security%E4%B8%8EThymeleaf%E6%95%B4%E5%90%88%E7%9A%84%E9%97%AE%E9%A2%98/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="小冷">
+  <meta name="twitter:title" content="关于Spring Security与Thymeleaf整合的问题">
   
-  <meta name="twitter:description" content="">
+  <meta name="twitter:description" content="在thymeleaf页面中使用sec:anthorize属性不生效springboot的项目中如果spring-boot-starter-parent的版本是2.1++以上版本的话，在页面中是无法使用sec属性的，所以我们必须手动改变版本号为2.0.7或者是2.0.9，这样在页面中使用sec相关属性">
   
   
   <meta name="twitter:image" content="http://example.comundefined">
   
-  <meta name="twitter:url" content="http://example.com/categories/springboot/" />
+  <meta name="twitter:url" content="http://example.com/2021/03/28/%E5%85%B3%E4%BA%8ESpring%20Security%E4%B8%8EThymeleaf%E6%95%B4%E5%90%88%E7%9A%84%E9%97%AE%E9%A2%98/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -193,128 +193,14 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>关于Spring Security与Thymeleaf整合的问题</h2>
 
+  <p>在thymeleaf页面中使用sec:anthorize属性不生效<br>springboot的项目中如果spring-boot-starter-parent的版本是2.1++以上版本的话，在页面中是无法使用sec属性的，所以我们必须手动改变版本号为2.0.7或者是2.0.9，这样在页面中使用sec相关属性就可以生效了。我使用的是thymeleaf-extras-springsecurity4，thymeleaf的版本是3+，目前没有出现问题。但是这么做有一个问题就是，security的默认登录页面会变为老版本的格式，可能视觉效果并没有太好看。但我们可以自定义登录页面。</p>
+<hr>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44315042/article/details/105205414">https://blog.csdn.net/weixin_44315042/article/details/105205414</a></p>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 28, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/28/%E5%85%B3%E4%BA%8ESpring%20Security%E4%B8%8EThymeleaf%E6%95%B4%E5%90%88%E7%9A%84%E9%97%AE%E9%A2%98/" class="">
-            
-              关于Spring Security与Thymeleaf整合的问题
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 23, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/23/SpringBoot%E6%95%B4%E5%90%88Druid/" class="">
-            
-              SpringBoot整合Druid
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 23, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/23/SpringBoot%E6%95%B4%E5%90%88JDBC/" class="">
-            
-              SpringBoot整合JDBC
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 22, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/22/2021-03-22-thymeleaf%E5%AD%A6%E4%B9%A0/" class="">
-            
-              thymeleaf学习
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 22, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/22/2021-03-22-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AF%BC%E5%85%A5%E6%8E%A2%E7%A9%B6/" class="">
-            
-              静态资源导入探究
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 21, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/21/2021-03-21-yaml%E7%BB%99%E5%B1%9E%E6%80%A7%E8%B5%8B%E5%80%BC/" class="">
-            
-              yaml给属性赋值
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Mar 21, 2021</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/21/2021-03-21-%E4%BD%BF%E7%94%A8yaml%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="">
-            
-              使用yaml多环境配置
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-    
-  </ul>
-</div>
+  <p> — Mar 28, 2021</p>
+  
 
 
           <div class="row mt-2">
