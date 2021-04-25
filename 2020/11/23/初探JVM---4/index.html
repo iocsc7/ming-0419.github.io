@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>初探JVM---4</title>
+  
+  <link rel="canonical" href="http://example.com/2020/11/23/%E5%88%9D%E6%8E%A2JVM---4/">
+  
+  <meta name="description" content="GC垃圾回收主要针对伊甸园区与养老区 假设内存满了，OutOfMemoryError（OOM），堆内存不够 在JDK8以前，永久存储区有另外一个名字，叫（元空间） 经过研究：99%的对象都是临时对象 默认情况下：分配的总内存是电脑内存的1/4，而初始化的内存是电脑内存的1/64 堆内存调优 GC垃圾">
+  
+  
+  <meta name="author" content="M">
+  
+  <meta property="og:image" content="http://example.comundefined">
+  
+  <meta property="og:site_name" content="KITE" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="初探JVM---4" />
+  
+  <meta property="og:description" content="GC垃圾回收主要针对伊甸园区与养老区 假设内存满了，OutOfMemoryError（OOM），堆内存不够 在JDK8以前，永久存储区有另外一个名字，叫（元空间） 经过研究：99%的对象都是临时对象 默认情况下：分配的总内存是电脑内存的1/4，而初始化的内存是电脑内存的1/64 堆内存调优 GC垃圾">
+  
+  <meta property="og:url" content="http://example.com/2020/11/23/%E5%88%9D%E6%8E%A2JVM---4/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="初探JVM---4">
+  
+  <meta name="twitter:description" content="GC垃圾回收主要针对伊甸园区与养老区 假设内存满了，OutOfMemoryError（OOM），堆内存不够 在JDK8以前，永久存储区有另外一个名字，叫（元空间） 经过研究：99%的对象都是临时对象 默认情况下：分配的总内存是电脑内存的1/4，而初始化的内存是电脑内存的1/64 堆内存调优 GC垃圾">
+  
+  
+  <meta name="twitter:image" content="http://example.comundefined">
+  
+  <meta name="twitter:url" content="http://example.com/2020/11/23/%E5%88%9D%E6%8E%A2JVM---4/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      ＫＩＴＥ
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/About" class="ml">About</a>             
+          
+        
+          
+          <a href="/categories" class="ml">categories</a>             
+          
+        
+          
+          <a href="/Email" class="ml">Email</a>             
+          
+        
+        
+          
+          
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>初探JVM---4</h2>
+
+  <p>GC垃圾回收主要针对伊甸园区与养老区</p>
+<p>假设内存满了，OutOfMemoryError（OOM），堆内存不够</p>
+<p>在JDK8以前，永久存储区有另外一个名字，叫（元空间）</p>
+<p>经过研究：99%的对象都是临时对象</p>
+<p>默认情况下：分配的总内存是电脑内存的1/4，而初始化的内存是电脑内存的1/64</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">堆内存调优
+GC垃圾回收主要针对伊甸园区与养老区
+假设内存满了，<span class="token class-name">OutOfMemoryError</span>（OOM），堆内存不够
+在JDK8以前，永久存储区有另外一个名字，叫（元空间）
+经过研究：<span class="token number">99</span><span class="token operator">%</span>的对象都是临时对象
+默认情况下：分配的总内存是电脑内存的<span class="token number">1</span><span class="token operator">/</span><span class="token number">4</span>，而初始化的内存是电脑内存的<span class="token number">1</span><span class="token operator">/</span><span class="token number">64</span>
+<span class="token keyword">package</span> <span class="token namespace">jvm<span class="token punctuation">.</span>heapDemo</span><span class="token punctuation">;</span>
+<span class="token comment">// 修改JVM堆内存的大小</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HeapDemo01</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token comment">// 返回虚拟机试图使用的最大内存</span>
+       <span class="token keyword">long</span> max <span class="token operator">=</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">maxMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment">// 返回jvm的初始化总内存</span>
+       <span class="token keyword">long</span> total <span class="token operator">=</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">totalMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"max="</span><span class="token operator">+</span>max<span class="token operator">+</span><span class="token string">"字节\t"</span><span class="token operator">+</span><span class="token punctuation">(</span>max<span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">1024</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"MB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// max=2107637760字节 2010.0MB</span>
+       <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"total="</span><span class="token operator">+</span>total<span class="token operator">+</span><span class="token string">"字节\t"</span><span class="token operator">+</span><span class="token punctuation">(</span>total<span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">1024</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"MB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// total=132120576字节 126.0MB</span>
+       <span class="token comment">// 默认情况下：分配的总内存是电脑内存的1/4，而初始化的内存是电脑内存的1/64</span>
+       <span class="token comment">/*
+       我的java版本
+       java -version
+       java version "11.0.5" 2019-10-15 LTS
+       Java(TM) SE Runtime Environment 18.9 (build 11.0.5+10-LTS)
+       Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.5+10-LTS, mixed mode)
+        */</span>
+       <span class="token comment">/**
+        * 改变堆内存的大小：
+        * Run/Debug Configure-->VM Options:
+        * -Xmx2000m -Xms1000m -XX:+PrintGCDetails
+        *
+        * 但是出警告了：
+        * [0.002s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.
+        * 修改之后：
+        * -Xmx2000m -Xms1000m -Xlog:gc*
+        *
+        * 注意：-Xmx的参数值>=-Xms的参数值
+        * Error occurred during initialization of VM
+        * Initial heap size set to a larger value than the maximum heap size
+        */</span>
+       <span class="token comment">/*
+       运行结果：
+       [0.005s][info][gc,heap] Heap region size: 1M
+       [0.021s][info][gc     ] Using G1
+       [0.021s][info][gc,heap,coops] Heap address: 0x0000000083000000, size: 2000 MB, Compressed Oops mode: 32-bit
+       max=2097152000字节 2000.0MB
+       total=1048576000字节 1000.0MB
+       [0.098s][info][gc,heap,exit ] Heap
+       [0.098s][info][gc,heap,exit ]  garbage-first heap   total 1024000K, used 4096K [0x0000000083000000, 0x0000000100000000)
+       [0.098s][info][gc,heap,exit ]   region size 1024K, 5 young (5120K), 0 survivors (0K)
+       [0.098s][info][gc,heap,exit ]  Metaspace       used 1107K, capacity 4611K, committed 4864K, reserved 1056768K
+       [0.098s][info][gc,heap,exit ]   class space    used 107K, capacity 432K, committed 512K, reserved 1048576K
+        */</span>
+       <span class="token comment">/*
+       当遇到OOM时：
+       1. 尝试扩大堆内存，当仍出错时，说明代码有问题
+       2. 分析内存，看一下那个地方出现了问题
+        */</span>
+       <span class="token comment">/*
+       对于java8：一般来说，新生代+老年代的内存=堆最大内存
+       因此，元空间的内存并不存在堆区，所以说：元空间 逻辑上存在，物理上不存在
+       对于java11：只有garbage-first,内存为1024000K=1024MB,等于jvm的初始化总内存的大小，因此Metaspace仍然不存在于堆内存中
+        */</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+在项目中出现了OOM故障
+能够看到第几行出错：内存快照分析工具，MAT，<span class="token class-name">Jprofiler</span>
+<span class="token class-name">Dedug</span>，一行行分析代码
+MAT，<span class="token class-name">Jprofiler</span>作用：
+分析<span class="token class-name">Dump</span>文件，快速定位内存泄漏；
+获得堆中的数据
+获得大的对象
+需要安装<span class="token class-name">JProfiler</span>
+<span class="token comment">/**
+* 设置大小，并将OOMError下载下来
+* -Xms10m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OOMDemo01</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// 1MB</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> objects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+       <span class="token keyword">try</span><span class="token punctuation">&#123;</span>
+           <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+               objects<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OOMDemo01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 问题所在</span>
+               count<span class="token operator">++</span><span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span>
+       <span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">OutOfMemoryError</span> oom<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+           <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           oom<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 10M大小，共运行了9次</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>OutOfMemoryError</span><span class="token operator">:</span> <span class="token class-name">Java</span> heap space
+<span class="token class-name">Dumping</span> heap <span class="token keyword">to</span> <span class="token namespace">java_pid4648<span class="token punctuation">.</span>hprof</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token class-name">Heap</span> dump file created <span class="token punctuation">[</span><span class="token number">12627317</span> bytes in <span class="token number">0.023</span> secs<span class="token punctuation">]</span>
+<span class="token number">9</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>OutOfMemoryError</span><span class="token operator">:</span> <span class="token class-name">Java</span> heap space
+at <span class="token class-name"><span class="token namespace">jvm<span class="token punctuation">.</span>heapDemo<span class="token punctuation">.</span></span>OOMDemo01</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span>init<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">OOMDemo01</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+at <span class="token class-name"><span class="token namespace">jvm<span class="token punctuation">.</span>heapDemo<span class="token punctuation">.</span></span>OOMDemo01</span><span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">OOMDemo01</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">17</span><span class="token punctuation">)</span>
+在这里插入图片描述堆内存调优
+GC垃圾回收主要针对伊甸园区与养老区
+假设内存满了，<span class="token class-name">OutOfMemoryError</span>（OOM），堆内存不够
+在JDK8以前，永久存储区有另外一个名字，叫（元空间）
+经过研究：<span class="token number">99</span><span class="token operator">%</span>的对象都是临时对象
+默认情况下：分配的总内存是电脑内存的<span class="token number">1</span><span class="token operator">/</span><span class="token number">4</span>，而初始化的内存是电脑内存的<span class="token number">1</span><span class="token operator">/</span><span class="token number">64</span>
+<span class="token keyword">package</span> <span class="token namespace">jvm<span class="token punctuation">.</span>heapDemo</span><span class="token punctuation">;</span>
+<span class="token comment">// 修改JVM堆内存的大小</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HeapDemo01</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token comment">// 返回虚拟机试图使用的最大内存</span>
+       <span class="token keyword">long</span> max <span class="token operator">=</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">maxMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment">// 返回jvm的初始化总内存</span>
+       <span class="token keyword">long</span> total <span class="token operator">=</span> <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">totalMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"max="</span><span class="token operator">+</span>max<span class="token operator">+</span><span class="token string">"字节\t"</span><span class="token operator">+</span><span class="token punctuation">(</span>max<span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">1024</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"MB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// max=2107637760字节 2010.0MB</span>
+       <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"total="</span><span class="token operator">+</span>total<span class="token operator">+</span><span class="token string">"字节\t"</span><span class="token operator">+</span><span class="token punctuation">(</span>total<span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">1024</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"MB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// total=132120576字节 126.0MB</span>
+       <span class="token comment">// 默认情况下：分配的总内存是电脑内存的1/4，而初始化的内存是电脑内存的1/64</span>
+       <span class="token comment">/*
+       我的java版本
+       java -version
+       java version "11.0.5" 2019-10-15 LTS
+       Java(TM) SE Runtime Environment 18.9 (build 11.0.5+10-LTS)
+       Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.5+10-LTS, mixed mode)
+        */</span>
+       <span class="token comment">/**
+        * 改变堆内存的大小：
+        * Run/Debug Configure-->VM Options:
+        * -Xmx2000m -Xms1000m -XX:+PrintGCDetails
+        *
+        * 但是出警告了：
+        * [0.002s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.
+        * 修改之后：
+        * -Xmx2000m -Xms1000m -Xlog:gc*
+        *
+        * 注意：-Xmx的参数值>=-Xms的参数值
+        * Error occurred during initialization of VM
+        * Initial heap size set to a larger value than the maximum heap size
+        */</span>
+       <span class="token comment">/*
+       运行结果：
+       [0.005s][info][gc,heap] Heap region size: 1M
+       [0.021s][info][gc     ] Using G1
+       [0.021s][info][gc,heap,coops] Heap address: 0x0000000083000000, size: 2000 MB, Compressed Oops mode: 32-bit
+       max=2097152000字节 2000.0MB
+       total=1048576000字节 1000.0MB
+       [0.098s][info][gc,heap,exit ] Heap
+       [0.098s][info][gc,heap,exit ]  garbage-first heap   total 1024000K, used 4096K [0x0000000083000000, 0x0000000100000000)
+       [0.098s][info][gc,heap,exit ]   region size 1024K, 5 young (5120K), 0 survivors (0K)
+       [0.098s][info][gc,heap,exit ]  Metaspace       used 1107K, capacity 4611K, committed 4864K, reserved 1056768K
+       [0.098s][info][gc,heap,exit ]   class space    used 107K, capacity 432K, committed 512K, reserved 1048576K
+        */</span>
+       <span class="token comment">/*
+       当遇到OOM时：
+       1. 尝试扩大堆内存，当仍出错时，说明代码有问题
+       2. 分析内存，看一下那个地方出现了问题
+        */</span>
+       <span class="token comment">/*
+       对于java8：一般来说，新生代+老年代的内存=堆最大内存
+       因此，元空间的内存并不存在堆区，所以说：元空间 逻辑上存在，物理上不存在
+       对于java11：只有garbage-first,内存为1024000K=1024MB,等于jvm的初始化总内存的大小，因此Metaspace仍然不存在于堆内存中
+        */</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+在项目中出现了OOM故障
+能够看到第几行出错：内存快照分析工具，MAT，<span class="token class-name">Jprofiler</span>
+<span class="token class-name">Dedug</span>，一行行分析代码
+MAT，<span class="token class-name">Jprofiler</span>作用：
+分析<span class="token class-name">Dump</span>文件，快速定位内存泄漏；
+获得堆中的数据
+获得大的对象
+需要安装<span class="token class-name">JProfiler</span>
+<span class="token comment">/**
+* 设置大小，并将OOMError下载下来
+* -Xms10m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OOMDemo01</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// 1MB</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> objects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+       <span class="token keyword">try</span><span class="token punctuation">&#123;</span>
+           <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+               objects<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OOMDemo01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 问题所在</span>
+               count<span class="token operator">++</span><span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span>
+       <span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">OutOfMemoryError</span> oom<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+           <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           oom<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 10M大小，共运行了9次</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>OutOfMemoryError</span><span class="token operator">:</span> <span class="token class-name">Java</span> heap space
+<span class="token class-name">Dumping</span> heap <span class="token keyword">to</span> <span class="token namespace">java_pid4648<span class="token punctuation">.</span>hprof</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token class-name">Heap</span> dump file created <span class="token punctuation">[</span><span class="token number">12627317</span> bytes in <span class="token number">0.023</span> secs<span class="token punctuation">]</span>
+<span class="token number">9</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>OutOfMemoryError</span><span class="token operator">:</span> <span class="token class-name">Java</span> heap space
+at <span class="token class-name"><span class="token namespace">jvm<span class="token punctuation">.</span>heapDemo<span class="token punctuation">.</span></span>OOMDemo01</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span>init<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">OOMDemo01</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+at <span class="token class-name"><span class="token namespace">jvm<span class="token punctuation">.</span>heapDemo<span class="token punctuation">.</span></span>OOMDemo01</span><span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">OOMDemo01</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">17</span><span class="token punctuation">)</span>
+在这里插入图片描述<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在项目中出现了OOM故障</p>
+
+  <p> — Nov 23, 2020</p>
+  
+
+
+          <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+          at <target="_blank" rel="noreferrer">Earth</a>.</p>
+        
+    </div>
+
+     <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+     <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/ming-0419" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://gitee.com/ming0419" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
+        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gitee</title><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" a ="#" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+        <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Java</title><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://space.bilibili.com/375742090" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Instagram">
+        <svg class="instagram svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>bilibili</title><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg>
+      </a>
+      
+
+    <!--  
+        <a class="ml-0 footer-link icon" a ="" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Unreal">
+          <svg class="Unreal svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unreal Engine</title><path d="M11.999 0C5.427 0 .1 5.373.1 12c0 6.628 5.327 12 11.899 12 6.571 0 11.899-5.372 11.899-12 0-6.627-5.328-12-11.9-12zm0 .528c3.038 0 5.895 1.194 8.043 3.36A11.446 11.446 0 0 1 23.374 12c0 3.064-1.183 5.945-3.332 8.112A11.254 11.254 0 0 1 12 23.472a11.253 11.253 0 0 1-8.044-3.36A11.447 11.447 0 0 1 .623 12c0-3.064 1.184-5.945 3.332-8.112A11.252 11.252 0 0 1 12 .528zm-.595 4.223c-1.938.52-3.732 1.516-6.123 4.258-2.392 2.742-1.938 5.006-1.938 5.006s.66-1.558 2.247-3.199c.752-.777 1.314-1.037 1.698-1.038a.598.598 0 0 1 .632.602v5.567c0 .55-.354.669-.68.663-.279-.005-.537-.102-.537-.102 1.63 2.368 5.526 2.7 5.526 2.7l1.711-1.828.04.035 1.568 1.336c2.866-1.703 4.248-4.86 4.248-4.86-1.279 1.353-2.094 1.669-2.578 1.667-.429-.003-.597-.255-.597-.255-.023-.117-.063-1.81-.078-3.505-.014-1.756-.001-3.513.087-3.518.494-.929 2.073-2.802 2.073-2.802-2.948.581-4.556 2.513-4.556 2.513-.475-.374-1.444-.311-1.444-.311.454.25.907.976.907 1.578v5.92s-.99.873-1.752.873c-.451 0-.729-.247-.881-.449a1.182 1.182 0 0 1-.15-.258V8.033a.634.634 0 0 1-.363.123c-.162 0-.33-.082-.444-.32-.086-.18-.141-.45-.141-.842 0-1.35 1.525-2.243 1.525-2.243z"/></svg>
+        </a>
+          -->
+        
+
+          
+            <a class="ml-0 footer-link icon" href ="https://ming0419.gitee.io/2020/01/01/www/" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+              <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>www</title><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg>
+            </a>
+            
+  
+    </div>
+  
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span> 
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "<br />本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
